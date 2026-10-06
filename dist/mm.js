@@ -24,7 +24,7 @@ try {
      s1:"Sleeves, toploaders, cases magnéticos", s2:"e pastas premium 3x3 · a partir de R$ 13,90", cta:"Ver acessórios", href:"/acessorios/"},
     {p:MM_A+"hero/p5-moedas2.webp", luz:MM_A+"hero/luz-hero-5-ouro.webp", eb:"VENDA PRA GENTE", t:"Compramos a sua coleção",
      s1:"Avaliação justa, carta a carta", s2:"Pagamento no Pix · de 1 carta à coleção inteira", cta:"Quero vender", href:"/venda-suas-cartas/"},
-    {full:MM_A+"hero/banner-rdelta.jpg", banner:true, luz:MM_A+"hero/luz-hero-6.webp", eb:"EM BREVE · 6 DE NOVEMBRO", t:"Reinado Delta",
+    {full:MM_A+"hero/banner-rdelta.jpg", fullCel:MM_A+"hero/banner-rdelta-cel.jpg", banner:true, luz:MM_A+"hero/luz-hero-6.webp", eb:"EM BREVE · 6 DE NOVEMBRO", t:"Reinado Delta",
      s1:"Mega Rayquaza ex chega em novembro", s2:"Blister triplo, quádruplo e display · pré-venda", cta:"Avise-me", href:"/pokemon-tcg/"},
   ];
   const css = document.createElement("style");
@@ -62,7 +62,7 @@ try {
   .mm-hero .mmh-slide.banner::before{display:none}
   .mm-hero .mmh-slide.banner .mmh-texto{display:none}
   .mm-hero .mmh-slide.banner .mmh-full{object-position:center;cursor:pointer}
-  .mm-hero .mmh-slide.banner{border-radius:0;overflow:hidden}
+  .mm-hero .mmh-slide.banner{border-radius:18px;overflow:hidden}
   .mm-hero .mmh-seta{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:36px;height:36px;border-radius:999px;
       border:1.5px solid #4A3B70;background:rgba(36,27,56,.85);color:#E9E4F5;cursor:pointer;font:700 16px Figtree,system-ui;display:grid;place-items:center}
   .mm-hero .mmh-seta:hover{border-color:#FFD12E;color:#FFD12E}
@@ -83,6 +83,10 @@ try {
     .mm-hero .mmh-arte.com-bg{height:220px;width:100%;-webkit-mask-image:none;mask-image:none;border-radius:16px}
     .mm-hero .mmh-arte.com-bg img.mmh-prod{max-height:200px}
     .mm-hero .mmh-seta{display:none}
+    .mm-hero .mmh-slide.banner{padding:0 12px 26px;min-height:0;border-radius:0;overflow:visible}
+    .mm-hero .mmh-slide.banner .mmh-full{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:1/1;border-radius:16px;display:block}
+    .mm-hero .mmh-slide.banner .mmh-arte{display:none}
+    .mm-hero .mmh-slide.banner .mmh-blink{display:block;width:100%}
   }`;
   document.head.appendChild(css);
 
@@ -93,7 +97,7 @@ try {
     ${S.map((s,i)=>`<div class="mmh-slide${i?'':' on'}${s.full?' full':''}${s.banner?' banner':''}">
       <div class="mmh-texto"><div class="mmh-eb">${s.eb}</div><h2>${s.t}</h2>
         <div class="mmh-s1">${s.s1}</div><div class="mmh-s2">${s.s2}</div><a class="mmh-cta" href="${s.href}">${s.cta}</a></div>
-      ${s.full?(s.banner?`<a href="${s.href}" aria-label="${s.t}"><img class="mmh-full" src="${s.full}" alt="${s.t}"></a>`:`<img class="mmh-full" src="${s.full}" alt="">`):''}<div class="mmh-arte${s.bg?' com-bg':''}">${s.bg?`<img class="mmh-bg" src="${s.bg}" alt="" loading="lazy">`:''}<img class="mmh-prod" src="${s.p}" alt="${s.t}" loading="${i?'lazy':'eager'}"></div></div>`).join("")}
+      ${s.full?(s.banner?`<a class="mmh-blink" href="${s.href}" aria-label="${s.t}"><picture>${s.fullCel?`<source media="(max-width:820px)" srcset="${s.fullCel}">`:``}<img class="mmh-full" src="${s.full}" alt="${s.t}"></picture></a>`:`<img class="mmh-full" src="${s.full}" alt="">`):''}<div class="mmh-arte${s.bg?' com-bg':''}">${s.bg?`<img class="mmh-bg" src="${s.bg}" alt="" loading="lazy">`:''}<img class="mmh-prod" src="${s.p}" alt="${s.t}" loading="${i?'lazy':'eager'}"></div></div>`).join("")}
     <button class="mmh-seta esq" aria-label="Anterior">‹</button><button class="mmh-seta dir" aria-label="Próximo">›</button>
     <div class="mmh-pontos">${S.map((_,i)=>`<button class="mmh-pt${i?'':' on'}" data-i="${i}" aria-label="Slide ${i+1}"></button>`).join("")}</div>
   </div>`;

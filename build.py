@@ -26,7 +26,7 @@ os.makedirs(os.path.join(AQUI, 'dist'), exist_ok=True)
 PNG_WEBP = ['hero/p1-v6.png', 'hero/p2.png', 'hero/p3.png', 'hero/p4.png', 'hero/p5-moedas2.png',
             'hero/luz-hero-1.png', 'hero/luz-hero-2.png', 'hero/luz-hero-3.png', 'hero/luz-hero-4.png',
             'hero/luz-hero-5-ouro.png', 'hero/luz-hero-6.png']
-COPIA = ['hero/banner-rdelta.jpg',
+COPIA = ['hero/banner-rdelta.jpg', 'hero/banner-rdelta-cel.jpg',
          'img-jp/pikachu-ex-234-193-mega-dream-ex-jp-ilustracao-secreta.jpg',
          'img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp',
          'img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp',
