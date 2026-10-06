@@ -1,9 +1,16 @@
 # Monta o tema da prévia para a loja real (mrmimic.com.br, Nuvemshop, tema Morelia).
 #
-#   dist/mm-core.css  -> colar em Loja online > Layout > Editar layout > Edição avançada de CSS (limite 50 mil)
-#   dist/mm.js        -> carregado por UMA linha em Configurações > Códigos externos (ou GTM):
+#   dist/mm-core.css  -> colar em Loja online > Layout > Editar layout atual > "Edição de css avançada"
+#                        (textarea #text-css_code, limite 58.000 caracteres)
+#   dist/mm.js        -> carregado por UMA linha no campo do tema
+#                        Editar layout > Rodapé da página > Selos personalizados > "Código HTML ou Javascript do selo"
+#                        (textarea #text-custom_seal_code; "Configurações > Códigos externos" NÃO tem campo de JS livre):
 #                        <script src="https://cdn.jsdelivr.net/gh/CaioRPeres/mr-mimic-site@<commit>/dist/mm.js"></script>
 #   assets/           -> imagens usadas pelos scripts e pelo CSS (servidas pelo jsDelivr junto com o mm.js)
+#
+# Publicar uma mudança: mexer na prévia -> python3 build.py <base com o commit ATUAL da loja> -> git commit + push
+#   -> trocar o <commit> da linha do selo pelo novo -> "Publicar alterações". Se o CSS mudou, colar de novo o mm-core.css.
+#   URL presa ao commit = sem cache velho no navegador do cliente (o @main fica 7 dias em cache).
 #
 # Fonte: ../previa-html/*.js e ../mimic-oficial.css (a prévia continua sendo onde se mexe).
 # Uso:   python build.py <base>     base = URL da pasta do repositório no jsDelivr, terminando em "/"
