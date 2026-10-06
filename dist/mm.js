@@ -13,19 +13,20 @@ try {
    produto em PNG transparente, luz da glow() aprovada em PNG vazando do quadro. Sem estrelinhas. */
 (function () {
   if (!document.querySelector('[data-store^="home-"]')) return;
+  // Todos os slides sao banners prontos (banners/faz_banner.py): versao larga (1920x549) e de celular (1080x1080).
   const S = [
-    {p:MM_A+"hero/p1-v6.webp", luz:MM_A+"hero/luz-hero-1.webp", eb:"CHEGOU! · ESTOQUE NOVO", t:"Celebração de 30 Anos",
-     s1:"Box Coleção com Pôster · Blister Duplo com Moeda", s2:"Lacrados em português · a partir de R$ 89,90", cta:"Garantir o meu", href:"/pokemon-tcg/"},
-    {p:MM_A+"hero/p2.webp", luz:MM_A+"hero/luz-hero-2.webp", eb:"NOVA COLEÇÃO · ME05", t:"Escuridão Absoluta",
-     s1:"Booster Display lacrado · 36 boosters", s2:"R$ 449,90 · lacrado, em português", cta:"Comprar display", href:"/pokemon-tcg/"},
-    {p:MM_A+"hero/p3.webp", luz:MM_A+"hero/luz-hero-3.webp", eb:"SINGLES EM PORTUGUÊS", t:"Cartas avulsas",
-     s1:"Ilustração Rara, Ultra Rara e EX", s2:"NM, direto do booster · a partir de R$ 4,90", cta:"Ver cartas", href:"/cartas-avulsas/"},
-    {p:MM_A+"hero/p4.webp", luz:MM_A+"hero/luz-hero-4.webp", eb:"ACESSÓRIOS BRA", t:"Proteja sua coleção",
-     s1:"Sleeves, toploaders, cases magnéticos", s2:"e pastas premium 3x3 · a partir de R$ 13,90", cta:"Ver acessórios", href:"/acessorios/"},
-    {p:MM_A+"hero/p5-moedas2.webp", luz:MM_A+"hero/luz-hero-5-ouro.webp", eb:"VENDA PRA GENTE", t:"Compramos a sua coleção",
-     s1:"Avaliação justa, carta a carta", s2:"Pagamento no Pix · de 1 carta à coleção inteira", cta:"Quero vender", href:"/venda-suas-cartas/"},
-    {full:MM_A+"hero/banner-rdelta.jpg", fullCel:MM_A+"hero/banner-rdelta-cel.jpg", banner:true, luz:MM_A+"hero/luz-hero-6.webp", eb:"EM BREVE · 6 DE NOVEMBRO", t:"Reinado Delta",
-     s1:"Mega Rayquaza ex chega em novembro", s2:"Blister triplo, quádruplo e display · pré-venda", cta:"Avise-me", href:"/pokemon-tcg/"},
+    {full:MM_A+"hero/banner-30-anos.webp", fullCel:MM_A+"hero/banner-30-anos-cel.webp", banner:true, luz:MM_A+"hero/luz-hero-1.webp",
+     t:"Celebração de 30 Anos: Box com Pôster e Blister Duplo, estoque novo", href:"/pokemon-tcg/"},
+    {full:MM_A+"hero/banner-escuridao-absoluta.webp", fullCel:MM_A+"hero/banner-escuridao-absoluta-cel.webp", banner:true, luz:MM_A+"hero/luz-hero-2.webp",
+     t:"Escuridão Absoluta: Booster Display lacrado em português", href:"/pokemon-tcg/"},
+    {full:MM_A+"hero/banner-cartas-avulsas.webp", fullCel:MM_A+"hero/banner-cartas-avulsas-cel.webp", banner:true, luz:MM_A+"hero/luz-hero-3.webp",
+     t:"Cartas avulsas: Ilustração Rara, Ultra Rara e EX", href:"/cartas-avulsas/"},
+    {full:MM_A+"hero/banner-acessorios.webp", fullCel:MM_A+"hero/banner-acessorios-cel.webp", banner:true, luz:MM_A+"hero/luz-hero-4.webp",
+     t:"Acessórios: sleeves, toploaders, cases e pastas", href:"/acessorios/"},
+    {full:MM_A+"hero/banner-compramos.webp", fullCel:MM_A+"hero/banner-compramos-cel.webp", banner:true, luz:MM_A+"hero/luz-hero-5-ouro.webp",
+     t:"Compramos suas cartas, de 1 carta à coleção inteira", href:"/venda-suas-cartas/"},
+    {full:MM_A+"hero/banner-reinado-delta.webp", fullCel:MM_A+"hero/banner-reinado-delta-cel.webp", banner:true, luz:MM_A+"hero/luz-hero-6.webp",
+     t:"Reinado Delta chega na loja em 6 de novembro", href:"/pokemon-tcg/"},
   ];
   const css = document.createElement("style");
   css.textContent = `
@@ -93,11 +94,9 @@ try {
   const sec = document.createElement("section");
   sec.className = "mm-hero";
   sec.innerHTML = `<div class="mmh-quadro">
-    ${S.map((s,i)=>`<img class="mmh-luz${i?'':' on'}" src="${s.luz}" alt="">`).join("")}
-    ${S.map((s,i)=>`<div class="mmh-slide${i?'':' on'}${s.full?' full':''}${s.banner?' banner':''}">
-      <div class="mmh-texto"><div class="mmh-eb">${s.eb}</div><h2>${s.t}</h2>
-        <div class="mmh-s1">${s.s1}</div><div class="mmh-s2">${s.s2}</div><a class="mmh-cta" href="${s.href}">${s.cta}</a></div>
-      ${s.full?(s.banner?`<a class="mmh-blink" href="${s.href}" aria-label="${s.t}"><picture>${s.fullCel?`<source media="(max-width:820px)" srcset="${s.fullCel}">`:``}<img class="mmh-full" src="${s.full}" alt="${s.t}"></picture></a>`:`<img class="mmh-full" src="${s.full}" alt="">`):''}<div class="mmh-arte${s.bg?' com-bg':''}">${s.bg?`<img class="mmh-bg" src="${s.bg}" alt="" loading="lazy">`:''}<img class="mmh-prod" src="${s.p}" alt="${s.t}" loading="${i?'lazy':'eager'}"></div></div>`).join("")}
+    ${S.map((s,i)=>`<img class="mmh-luz${i?'':' on'}" ${i?'data-':''}src="${s.luz}" alt="">`).join("")}
+    ${S.map((s,i)=>`<div class="mmh-slide full banner${i?'':' on'}">
+      <a class="mmh-blink" href="${s.href}" aria-label="${s.t}"><picture><source media="(max-width:820px)" ${i?'data-':''}srcset="${s.fullCel}"><img class="mmh-full" ${i?'data-':''}src="${s.full}" alt="${s.t}"></picture></a></div>`).join("")}
     <button class="mmh-seta esq" aria-label="Anterior">‹</button><button class="mmh-seta dir" aria-label="Próximo">›</button>
     <div class="mmh-pontos">${S.map((_,i)=>`<button class="mmh-pt${i?'':' on'}" data-i="${i}" aria-label="Slide ${i+1}"></button>`).join("")}</div>
   </div>`;
@@ -110,7 +109,12 @@ try {
 
   let i = 0, timer;
   const sl = [...sec.querySelectorAll(".mmh-slide")], lz = [...sec.querySelectorAll(".mmh-luz")], pts = [...sec.querySelectorAll(".mmh-pt")];
-  const vai = n => { i = (n + sl.length) % sl.length; [sl, lz, pts].forEach(a => a.forEach((e,k)=>e.classList.toggle("on", k===i))); };
+  const carrega = k => { k = (k + sl.length) % sl.length;
+    [...sl[k].querySelectorAll("[data-src],[data-srcset]"), lz[k]].forEach(e => {
+      if (e.dataset.srcset) { e.srcset = e.dataset.srcset; delete e.dataset.srcset; }
+      if (e.dataset.src) { e.src = e.dataset.src; delete e.dataset.src; } }); };
+  const vai = n => { i = (n + sl.length) % sl.length; carrega(i); carrega(i + 1); [sl, lz, pts].forEach(a => a.forEach((e,k)=>e.classList.toggle("on", k===i))); };
+  setTimeout(() => carrega(1), 1500);                       // o segundo ja fica pronto; os demais, um passo antes de aparecer
   const anda = () => { clearInterval(timer); timer = setInterval(() => vai(i+1), 6500); };
   sec.querySelector(".mmh-seta.esq").onclick = () => { vai(i-1); anda(); };
   sec.querySelector(".mmh-seta.dir").onclick = () => { vai(i+1); anda(); };

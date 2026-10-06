@@ -26,7 +26,7 @@ os.makedirs(os.path.join(AQUI, 'dist'), exist_ok=True)
 PNG_WEBP = ['hero/p1-v6.png', 'hero/p2.png', 'hero/p3.png', 'hero/p4.png', 'hero/p5-moedas2.png',
             'hero/luz-hero-1.png', 'hero/luz-hero-2.png', 'hero/luz-hero-3.png', 'hero/luz-hero-4.png',
             'hero/luz-hero-5-ouro.png', 'hero/luz-hero-6.png']
-COPIA = ['hero/banner-rdelta.jpg', 'hero/banner-rdelta-cel.jpg',
+COPIA = [f'hero/banner-{n}{c}.webp' for n in ('30-anos', 'escuridao-absoluta', 'cartas-avulsas', 'acessorios', 'compramos', 'reinado-delta') for c in ('', '-cel')] + [
          'img-jp/pikachu-ex-234-193-mega-dream-ex-jp-ilustracao-secreta.jpg',
          'img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp',
          'img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp',
@@ -69,9 +69,7 @@ hero = le('hero2.js')
 hero = troca(hero, '(function () {\n', '(function () {\n  ' + HOME + '\n', 1, 'hero2')
 hero = re.sub(r'"(hero/[^"?]+)\.png(\?[^"]*)?"', webp, hero)
 hero = re.sub(r'"(hero/[^"?]+\.jpg)(\?[^"]*)?"', r'MM_A+"\1"', hero)
-hero = troca(hero, 'a partir de R$ 69,99', 'a partir de R$ 89,90', 1, 'hero2')
-hero = troca(hero, 'R$ 449,90 · em até 12x', 'R$ 449,90 · lacrado, em português', 1, 'hero2')
-hero = troca(hero, 'a partir de R$ 1,00', 'a partir de R$ 4,90', 1, 'hero2')
+hero = re.sub(r'(?<!MM_A\+)"(hero/[^"?]+\.webp)(\?[^"]*)?"', r'MM_A+"\1"', hero)
 # a loja real não tem carrossel: o hero entra no lugar da mensagem de boas-vindas (que repete o hero)
 hero = troca(hero, 'else document.body.prepend(sec);',
              'else { const bv = document.querySelector(\'[data-store="home-welcome-message"]\') || document.querySelector(\'[data-store^="home-"]\');'
