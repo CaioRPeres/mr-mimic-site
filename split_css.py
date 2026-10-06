@@ -5,9 +5,15 @@
 import re, sys
 def minify(s):
     s = re.sub(r'/\*.*?\*/', '', s, flags=re.S)
+    # texto entre aspas (content:"Pix, cartão") sai intacto: guarda, minifica o resto, devolve
+    cofre = []
+    def guarda(m):
+        cofre.append(m.group(0)); return '\x00%d\x00' % (len(cofre) - 1)
+    s = re.sub(r'"(?:[^"\\]|\\.)*"|\'(?:[^\'\\]|\\.)*\'', guarda, s)
     s = re.sub(r'\s+', ' ', s)
     s = re.sub(r'\s*([{};,>])\s*', r'\1', s)   # + e ~ ficam com espaço (calc() precisa)
     s = re.sub(r';}', '}', s)
+    s = re.sub(r'\x00(\d+)\x00', lambda m: cofre[int(m.group(1))], s)
     return s.strip()
 def blocks(s):
     """lista de (prelude, corpo) no nível de cima; corpo de @media vem bruto"""
@@ -22,7 +28,10 @@ def blocks(s):
     return out
 MM = re.compile(r'(\.mmh?-|#mm-|\.mm_)')
 HOV = re.compile(r':(hover|focus|focus-visible|active)')   # estado de interação não pinta na carga
+SANIT = re.compile(r':has\(|::-webkit-|~')   # a Nuvemshop apaga regras com isto ao salvar o campo de CSS (visto em 06/10/2026)
 def is_extra(sel):
+    if SANIT.search(sel):
+        return True
     parts = [p for p in re.split(r',(?![^(]*\))', sel) if p.strip()]
     return bool(parts) and all(MM.search(p) or HOV.search(p) for p in parts)
 def tight(s):

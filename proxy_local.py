@@ -1,4 +1,4 @@
-# Repassa a loja real, mas troca o mm.js publicado pelo mm.js LOCAL (loja-real/dist) para testar antes de publicar.
+# Repassa a loja real, mas troca o mm.js publicado e o CSS do tema pelos LOCAIS (loja-real/dist) para testar antes de publicar.
 # /__cel?p=/caminho mostra a pagina numa moldura de celular (390 px).
 import http.server, urllib.request, urllib.parse, sys, os, re
 LOJA = 'https://mrmimic.com.br'
@@ -25,6 +25,9 @@ class H(http.server.BaseHTTPRequestHandler):
             if 'html' in tipo:
                 t = b.decode('utf-8', 'replace').replace(LOJA + '/', '/')
                 t = re.sub(r'https://cdn\.jsdelivr\.net/gh/CaioRPeres/mr-mimic-site@[0-9a-f]+/dist/mm\.js', '/mm/dist/mm.js', t)
+                # o CSS colado no tema tambem e trocado pelo local (bloco <style> que comeca com o @import da Londrina)
+                core = open(os.path.join(RAIZ, 'dist', 'mm-core.css'), encoding='utf-8').read()
+                t = re.sub(r'<style[^>]*>\s*@import url\("https://fonts\.googleapis\.com/css2\?family=Londrina.*?</style>', lambda m: '<style>' + core + '</style>', t, count=1, flags=re.S)
                 b = t.encode()
         self.send_response(200); self.send_header('Content-Type', tipo); self.send_header('Content-Length', str(len(b)))
         self.send_header('Cache-Control', 'no-store'); self.end_headers(); self.wfile.write(b)
