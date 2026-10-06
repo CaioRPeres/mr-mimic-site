@@ -10,7 +10,7 @@
 #
 # Publicar uma mudança: mexer na prévia -> python3 build.py <base com o commit ATUAL da loja> -> git commit + push
 #   -> trocar o <commit> da linha do selo pelo novo -> "Publicar alterações". Se o CSS mudou, colar de novo o mm-core.css.
-#   URL presa ao commit = sem cache velho no navegador do cliente (o @main fica 7 dias em cache).
+#   URL presa ao commit = arquivo imutável, sem risco de cache velho no navegador do cliente.
 #
 # Fonte: ../previa-html/*.js e ../mimic-oficial.css (a prévia continua sendo onde se mexe).
 # Uso:   python build.py <base>     base = URL da pasta do repositório no jsDelivr, terminando em "/"
