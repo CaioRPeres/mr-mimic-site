@@ -9,16 +9,18 @@ src/
   css/tema.css            regras do tema (cores, cabeçalho, cards, página de produto, rodapé...)
   css/hero.css            estilo do slider da home
   css/home-categorias.css estilo da grade de categorias e das fileiras da home
+  css/rodape.css          estilo do rodapé com arte
   js/hero.js              slider da home (seis banners)
   js/home-categorias.js   grade "O que você procura?" e três fileiras por categoria
   js/cor-card.js          cor de destaque de cada card, tirada da foto
   js/produto.js           nome em duas linhas, regra do toploader, vitrine "Proteja sua carta"
   js/redes.js             ícones de contato no rodapé
+  js/rodape.js            arte do rodapé: textura com o baú, baú feliz com balão e baú cavaleiro
   js/venda.js             página "Venda suas cartas"
   js/seo.js               título e descrição de reserva, WebSite na home
   dados/cores-produtos.json  cor fixa de alguns produtos (os demais são calculados pela foto)
   dados/contato.json      número do WhatsApp, Instagram e e-mail (usados no rodapé e na página de venda)
-assets/                   imagens que o tema usa (banners, luzes do slider, fotos da grade de categorias)
+assets/                   imagens que o tema usa (banners do slider, arte do rodapé, fotos da grade de categorias)
 dist/                     GERADO pelo build; é o que a loja carrega
 fotos-produtos/           fotos tratadas que subimos para os produtos no admin (o tema não usa)
 seo/                      gerador dos títulos e descrições de SEO e o resultado aplicado
@@ -44,7 +46,7 @@ O `build.py` minifica `tema.css` e o divide (`css.py`):
 - **`dist/mm-core.css`** vai colado no admin. Limite do campo: 50 mil caracteres (o build para em 48 mil).
 - **o resto vai embutido no `mm.js`**, que o injeta num `<style id="mm-extra">`: regras de elementos criados pelos scripts (`.mm-*`, `.mmh-*`), de `:hover`/`:focus`, e as que a Nuvemshop **apaga** ao salvar o campo (seletor com `:has(`, `~` ou `::-webkit-`).
 
-O CSS dos módulos (`hero.css`, `home-categorias.css`) vai inteiro para o `mm.js`, depois do tema.
+O CSS dos módulos (`hero.css`, `home-categorias.css`, `rodape.css`) vai inteiro para o `mm.js`, depois do tema.
 
 O `tema.css` está na ordem histórica das decisões: a regra de baixo vence a de cima. Para não voltar a acumular camadas mortas, o `checar.py` falha se alguma declaração for sobrescrita pelo mesmo seletor mais abaixo; `python3 css_mortas.py --limpar` tira essas declarações sem mudar o resultado. Em 06/10/2026 saíram 330 de 1.606, conferido pelo estilo computado de todos os elementos em 17 páginas e 5 larguras.
 
@@ -65,6 +67,10 @@ O logo do cabeçalho aponta para um commit fixo (`BASE_DO_CSS` no `build.py`). A
 ## Banners do slider
 
 Gerados fora deste repositório, em `../banners/faz_banner.py` (configuração de cada banner em `../banners/config_banners.py`). `python3 faz_banner.py <nome> --site` grava `assets/hero/banner-<nome>.webp` e `-cel.webp`. Banner novo também entra na lista `SLIDES` de `src/js/hero.js`.
+
+## Arte do rodapé
+
+`../banners/faz_rodape.py` gera `assets/rodape/` a partir do kit oficial do mascote (poses 05 feliz e 15 cavaleiro) e da silhueta do baú.
 
 ## SEO
 
