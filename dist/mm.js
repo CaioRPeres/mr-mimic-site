@@ -533,15 +533,21 @@ try {
    (conferido em 06/10/2026 na página de produto). Repetir isso confundiria o Google, então aqui vai apenas:
    - WebSite com SearchAction na home (busca da loja aparece no Google)
    - título e descrição de reserva para a home e para as páginas institucionais, caso o servidor
-     mande o texto genérico ou vazio (o valor definitivo fica nos campos de SEO do admin). */
+     mande o texto genérico ou vazio (o valor definitivo fica nos campos de SEO do admin).
+   A home não tem campo de título no admin: com "Utilizar o nome e a descrição do negócio para o SEO"
+   marcado, o servidor manda só o nome da loja, e o título completo entra por aqui. */
 (function () {
   const LOJA = "https://mrmimic.com.br";
   const NOME = "Mr. Mimic";
   const path = location.pathname;
 
-  const TITULO_HOME = NOME + " | Cartas Pokémon avulsas, selados e acessórios TCG";
+  // Título do servidor que ainda é o padrão da Nuvemshop, e o que vai no lugar.
+  const TITULOS = {
+    "/": { padrao: /^(Loja online de .*|Mr\. Mimic)$/, novo: NOME + " | Cartas Pokémon avulsas, selados e acessórios TCG" },
+    "/contato/": { padrao: /^Contato - /, novo: "Contato | Mr. Mimic TCG & Colecionáveis" }
+  };
   const DESCRICOES = {
-    "/": "Loja de Pokémon TCG: cartas avulsas NM em português e japonês, boxes e blisters lacrados, sleeves, toploaders e pastas BRA. Compramos sua coleção. Pix e envio para todo o Brasil.",
+    "/": "Loja de Pokémon TCG: cartas avulsas NM em português, booster box e blisters lacrados, sleeves, toploaders e pastas BRA. Compramos sua coleção.",
     "/contato/": "Fale com a Mr. Mimic pelo e-mail contato@mrmimic.com.br, pelo Instagram @mrmimicbr ou pelo formulário. Cartas Pokémon TCG, selados e acessórios.",
     "/venda-suas-cartas/": "Compramos sua coleção de cartas Pokémon: de 1 carta à coleção inteira, avaliação carta a carta e pagamento no Pix. Também compramos games, consoles e figures.",
     "/envio-e-entrega/": "Prazos e formas de envio da Mr. Mimic: postagem em até 1 dia útil após o pagamento, Correios e transportadoras, embalagem reforçada para cartas e lacrados.",
@@ -562,11 +568,15 @@ try {
     document.head.appendChild(s);
   }
 
+  function garanteTitulo(regra) {
+    if (regra.padrao.test(document.title.trim())) document.title = regra.novo;
+  }
+
   const chave = path === "" ? "/" : path;
+  if (TITULOS[chave]) garanteTitulo(TITULOS[chave]);
   if (DESCRICOES[chave]) garanteDescricao(DESCRICOES[chave]);
 
   if (chave === "/") {
-    if (/^Loja online de/.test(document.title)) document.title = TITULO_HOME;
     emite({
       "@context": "https://schema.org", "@type": "WebSite",
       name: NOME, url: LOJA + "/", inLanguage: "pt-BR",
