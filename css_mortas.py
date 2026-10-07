@@ -8,6 +8,9 @@ seletor, no mesmo contexto (@media idêntico ou nenhum), da mesma propriedade (o
 como "border" inclui "border-color"), que vence na cascata: vem depois com a mesma importância, ou tem
 !important quando ela não tem. É uma análise só do texto: vale em qualquer página e estado.
 
+Também está morta a declaração que a Nuvemshop apaga ao salvar o campo de CSS (css.apagada_no_admin) numa
+regra que vai para o mm-core.css: ela nunca chega à loja, e por isso também não cobre ninguém.
+
 Fica de fora, por segurança: declaração repetida dentro da mesma regra (pode ser fallback de navegador),
 e qualquer coisa que dependa de suporte do navegador para vencer (seletor com :has(, valor com dvh, clamp()...).
 """
@@ -105,12 +108,15 @@ def regras(css_min):
 
 def mortas(lista):
     """Conjunto de (índice da regra, índice da declaração) que nunca valem."""
+    def some_no_admin(r, prop, valor):
+        return not r['no_extra'] and tema_css.apagada_no_admin(prop, valor)
+
     quem_define = {}   # (media, seletor, propriedade real) -> [(posição na cascata, importante, regra)]
     for k, r in enumerate(lista):
         if ':has(' in r['seletor']:
             continue
         for prop, valor, importante in r['decls']:
-            if DEPENDE_DO_NAVEGADOR.search(valor):
+            if DEPENDE_DO_NAVEGADOR.search(valor) or some_no_admin(r, prop, valor):
                 continue
             for s in seletores(r['seletor']):
                 for p in propriedades_reais(prop):
@@ -127,6 +133,9 @@ def mortas(lista):
     for k, r in enumerate(lista):
         for d, (prop, valor, importante) in enumerate(r['decls']):
             if prop.startswith('--'):
+                continue
+            if some_no_admin(r, prop, valor):
+                resultado.add((k, d))
                 continue
             if all(vencida(r, k, s, p, importante) for s in seletores(r['seletor']) for p in propriedades_reais(prop)):
                 resultado.add((k, d))

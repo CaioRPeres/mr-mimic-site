@@ -7,6 +7,10 @@ extra -> vai embutido no mm.js, que o injeta num <style id="mm-extra">. Ficam aq
          - as de estado de interação (:hover, :focus...), que não pintam nada na carga;
          - as que a Nuvemshop APAGA ao salvar o campo de CSS: seletor com :has(, com o combinador ~
            ou com ::-webkit- (visto em 06/10/2026).
+
+A Nuvemshop também apaga, no campo, algumas PROPRIEDADES (qualquer -webkit-*, aspect-ratio,
+text-underline-offset, scrollbar-width, display:-webkit-box). Declaração assim numa regra que vai para o
+core nunca vale na loja: para valer, ela precisa estar numa regra que vá para o mm.js.
 """
 import re
 
@@ -15,6 +19,7 @@ LIMITE_CORE = 48000   # margem abaixo dos 50 mil do campo
 DO_SCRIPT = re.compile(r'(\.mmh?-|#mm-|\.mm_)')
 INTERACAO = re.compile(r':(hover|focus|focus-visible|active)')
 APAGADO_PELA_NUVEMSHOP = re.compile(r':has\(|::-webkit-|~')
+PROPRIEDADE_APAGADA = re.compile(r'^(-webkit-[a-z-]+|aspect-ratio|text-underline-offset|scrollbar-width)$', re.I)
 IMPORTS = re.compile(r'^(@import\s*url\([^)]*\)[^;]*;)+')   # a URL das fontes tem ; dentro (wght@400;900)
 
 
@@ -55,6 +60,11 @@ def blocos(css):
         saida.append((cabeca, css[j + 1:k - 1]))
         i = k
     return saida
+
+
+def apagada_no_admin(propriedade, valor):
+    """Declaração que a Nuvemshop tira ao salvar o campo de CSS (comparado com o que ficou no ar em 06/10/2026)."""
+    return bool(PROPRIEDADE_APAGADA.match(propriedade.strip())) or '-webkit-box' in valor
 
 
 def vai_para_extra(seletor):

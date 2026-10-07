@@ -5,8 +5,7 @@
    O build.py minifica e divide: o que é de elemento dos nossos scripts, de :hover/:focus ou que a Nuvemshop apagaria
    vai para o mm.js; o resto é o mm-core.css colado no admin. */
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Figtree:wght@400;500;600;700&display=swap');
-body{font-family:'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-a{text-underline-offset:3px}
+body{font-family:'Figtree',system-ui,sans-serif}
 h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.section-title,.product-name,.page-header h1,.category-header h1{font-family:'Londrina Solid','Arial Black',sans-serif !important;font-weight:900 !important;letter-spacing:.01em;color:#241B38;text-transform:none}
 .section-title,.home-section-title,[data-store="home-products-featured"] h2,[data-store="home-products-new"] h2{font-family:'Londrina Solid',sans-serif !important;font-weight:900 !important;letter-spacing:.01em;text-transform:none;color:#241B38}
 .head-main,.head-main p,.head-main span,.head-main a,.head-main .nav-list-link{color:#EDE6FA}
@@ -175,7 +174,7 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.section-title,.product-name,.page-header h1,.categor
 .js-nav-desktop-list-arrow,[class*=nav-desktop-list-arrow]{display:none !important}
 .nav-desktop-list,.js-nav-desktop-list,.nav-desktop-with-scroll{
   overflow:visible !important;overflow-x:visible !important;flex-wrap:wrap !important;
-  justify-content:center !important;row-gap:8px;column-gap:4px;max-width:100% !important;scrollbar-width:none}
+  justify-content:center !important;row-gap:8px;column-gap:4px;max-width:100% !important}
 .nav-desktop-list::-webkit-scrollbar{display:none}
 .nav-desktop{overflow:visible !important}
 .head-main .nav-list-link,.nav-desktop-list > .nav-main-item > .nav-item-container > a{white-space:nowrap}
@@ -330,13 +329,11 @@ body,p,li,td,label,.form-control{font-size:16px !important}
 .swiper-slide:has(> .js-item-product),.js-product-table .item-product,.item-product{display:flex !important;height:auto !important}
 .js-item-info-container.item,.item{display:flex !important;flex-direction:column !important;height:100% !important}
 .item-description{flex:1 1 auto !important;display:flex !important;flex-direction:column !important}
-.item-name a{-webkit-box-orient:vertical}
+.item-name,.js-item-name{display:block !important}
 .item-price-container,.item .price-container{margin-top:auto !important}
 .swiper-wrapper:has(.js-item-product){align-items:stretch !important}
 /* padrão de card v2: foto quadrada fixa, nome com exatamente 2 linhas (corta com …), fileira esticada */
-.item-image,.js-product-item-image-container-private,[class*="item-image-container"]{flex:0 0 auto !important;width:100% !important;aspect-ratio:1/1;overflow:hidden}
-.item-name,.js-item-name{display:-webkit-box !important;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.item-name a{-webkit-line-clamp:unset}
+.item-image,.js-product-item-image-container-private,[class*="item-image-container"]{flex:0 0 auto !important;width:100% !important;overflow:hidden}
 .js-product-table.row,.row.row-grid{align-items:stretch !important}
 /* caixa da foto ocupa a largura toda do card (o tema estreitava quando a imagem era mais baixa que larga) */
 .js-product-item-image-container-private,.js-item-image-padding,.item-image-wrapper{width:100% !important;max-width:none !important;margin-left:0 !important;margin-right:0 !important}

@@ -45,7 +45,9 @@ O `build.py` minifica `tema.css` e o divide (`css.py`):
 
 O CSS dos módulos (`hero.css`, `home-categorias.css`) vai inteiro para o `mm.js`, depois do tema.
 
-O `tema.css` está na ordem histórica das decisões: a regra de baixo vence a de cima. Para não voltar a acumular camadas mortas, o `checar.py` falha se alguma declaração for sobrescrita pelo mesmo seletor mais abaixo; `python3 css_mortas.py --limpar` tira essas declarações sem mudar o resultado. Em 06/10/2026 saíram 322 de 1.606, conferido pelo estilo computado de todos os elementos em 17 páginas e 5 larguras.
+O `tema.css` está na ordem histórica das decisões: a regra de baixo vence a de cima. Para não voltar a acumular camadas mortas, o `checar.py` falha se alguma declaração for sobrescrita pelo mesmo seletor mais abaixo; `python3 css_mortas.py --limpar` tira essas declarações sem mudar o resultado. Em 06/10/2026 saíram 330 de 1.606, conferido pelo estilo computado de todos os elementos em 17 páginas e 5 larguras.
+
+O campo de CSS do admin também apaga algumas propriedades ao salvar: qualquer `-webkit-*`, `aspect-ratio`, `text-underline-offset`, `scrollbar-width` e `display:-webkit-box`. Numa regra que vai para o `mm-core.css` elas nunca valem; o `css_mortas.py` as trata como mortas. Para usar uma delas, a regra precisa ir para o `mm.js` (seletor de elemento `.mm-*`, por exemplo).
 
 O logo do cabeçalho aponta para um commit fixo (`BASE_DO_CSS` no `build.py`). Assim o `mm-core.css` só muda quando o `tema.css` muda.
 
