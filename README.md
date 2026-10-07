@@ -17,6 +17,7 @@ src/
   js/venda.js             página "Venda suas cartas"
   js/seo.js               título e descrição de reserva, WebSite na home
   dados/cores-produtos.json  cor fixa de alguns produtos (os demais são calculados pela foto)
+  dados/contato.json      número do WhatsApp, Instagram e e-mail (usados no rodapé e na página de venda)
 assets/                   imagens que o tema usa (banners, luzes do slider, fotos da grade de categorias)
 dist/                     GERADO pelo build; é o que a loja carrega
 fotos-produtos/           fotos tratadas que subimos para os produtos no admin (o tema não usa)
@@ -81,6 +82,6 @@ Onde cada texto entra no admin:
 
 ## Decisões que o código segue
 
-- **Nada de telefone ou WhatsApp no site** (decisão do Caio, 06/10/2026). O build para se encontrar um.
+- **WhatsApp só como link e ícone, nunca o número escrito** (decisão do Caio, 06/10/2026). O build para se encontrar telefone escrito. Para trocar o número, mude só o `src/dados/contato.json`.
 - **Preço nunca fica escrito no código.** A vitrine "Proteja sua carta" lê o preço da página de cada acessório.
 - O texto do site fala no plural, como empresa ("compramos", "a gente").

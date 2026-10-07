@@ -57,6 +57,7 @@ def montar_css():
 
 def montar_js(extra):
     cores = json.loads(ler('dados', 'cores-produtos.json'))
+    contato = json.loads(ler('dados', 'contato.json'))
     preludio = (
         '/* Mr. Mimic: scripts do tema na loja real. GERADO por build.py a partir de src/; não editar aqui. */\n'
         '(function () {\n'
@@ -65,7 +66,9 @@ def montar_js(extra):
         '  window.MM = {\n'
         '    asset: function (caminho) { return base + "assets/" + caminho; },\n'
         '    naHome: function () { return !!document.querySelector(\'[data-store^="home-"]\'); },\n'
-        '    cores: ' + json.dumps(cores, ensure_ascii=False) + '\n'
+        '    cores: ' + json.dumps(cores, ensure_ascii=False) + ',\n'
+        '    contato: ' + json.dumps(contato, ensure_ascii=False) + ',\n'
+        '    whatsapp: function (mensagem) { return "https://wa.me/" + this.contato.whatsapp + "?text=" + encodeURIComponent(mensagem); }\n'
         '  };\n'
         '  if (!document.getElementById("mm-extra")) {\n'
         '    var estilo = document.createElement("style"); estilo.id = "mm-extra";\n'
@@ -82,8 +85,9 @@ def montar_js(extra):
 def conferir(js):
     paginas_da_previa = re.findall(r'["\'][\w-]+\.html["\']', js)
     assert not paginas_da_previa, f'link para página da prévia no mm.js: {paginas_da_previa[:3]}'
-    telefone = re.search(r'wa\.me/|api\.whatsapp|\(\d\d\)\s?9\d{4}-?\d{4}', js)
-    assert not telefone, f'telefone no mm.js: {telefone.group(0)} (decisão do Caio: nada de telefone no site)'
+    # o WhatsApp fica, como link; o que não pode é o número escrito na página (decisão do Caio, 06/10/2026)
+    escrito = re.search(r'\(?\d\d\)?\s?9\d{4}-\d{4}', js)
+    assert not escrito, f'telefone escrito no mm.js: {escrito.group(0)} (o número só pode estar dentro do link do WhatsApp)'
 
 
 def main():

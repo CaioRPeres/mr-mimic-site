@@ -21,7 +21,7 @@
   const DESCRICOES = {
     "/": "Loja de Pokémon TCG: cartas avulsas NM em português, booster box e blisters lacrados, sleeves, toploaders e pastas BRA. Compramos sua coleção.",
     "/produtos/": "Todos os produtos da Mr. Mimic: cartas Pokémon avulsas NM, booster box e blisters lacrados em português, sleeves, toploaders, cases e pastas BRA.",
-    "/contato/": "Fale com a Mr. Mimic pelo e-mail contato@mrmimic.com.br, pelo Instagram @mrmimicbr ou pelo formulário. Cartas Pokémon TCG, selados e acessórios.",
+    "/contato/": "Fale com a Mr. Mimic pelo WhatsApp, pelo Instagram @mrmimicbr ou pelo e-mail contato@mrmimic.com.br. Cartas Pokémon TCG, selados e acessórios.",
     "/venda-suas-cartas/": "Compramos sua coleção de cartas Pokémon: de 1 carta à coleção inteira, avaliação carta a carta e pagamento no Pix. Também compramos games, consoles e figures.",
     "/envio-e-entrega/": "Prazos e formas de envio da Mr. Mimic: postagem em até 1 dia útil após o pagamento, Correios e transportadoras, embalagem reforçada para cartas e lacrados.",
     "/trocas-e-devolucoes/": "Política de trocas e devoluções da Mr. Mimic, conforme o Código de Defesa do Consumidor: desistência em 7 dias, produto com defeito, cartas e lacrados.",
