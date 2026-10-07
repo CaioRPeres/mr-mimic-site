@@ -1,12 +1,12 @@
-/* Rodapé com arte: a textura de quadrinhos com o baú (a mesma do fundo dos banners), o baú feliz à esquerda
-   com um balão e o baú cavaleiro à direita. No celular fica só o baú feliz, centralizado em cima.
+/* Rodapé com arte: textura de tijolos de masmorra, o baú feliz à esquerda com um balão e o baú cavaleiro
+   à direita. No celular fica só o baú feliz, centralizado em cima.
    Imagens em assets/rodape/ (geradas por banners/faz_rodape.py); estilo em src/css/rodape.css. */
 (function () {
   const rodape = document.querySelector("footer");
   if (!rodape || rodape.querySelector(".mm-rodape-arte")) return;
 
   rodape.classList.add("mm-rodape");
-  rodape.style.setProperty("--mm-padrao", `url("${MM.asset("rodape/padrao.webp")}")`);
+  rodape.style.setProperty("--mm-textura", `url("${MM.asset("rodape/masmorra.png")}")`);
 
   const arte = document.createElement("div");
   arte.className = "mm-rodape-arte";
