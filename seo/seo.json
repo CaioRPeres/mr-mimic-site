@@ -1,0 +1,578 @@
+{
+ "home": {
+  "titulo": "Mr. Mimic | Cartas Pokémon avulsas, selados e acessórios TCG",
+  "descricao": "Loja de Pokémon TCG: cartas avulsas NM em português, booster box e blisters lacrados, sleeves, toploaders e pastas BRA. Compramos sua coleção."
+ },
+ "paginas": {
+  "contato": [
+   "Contato | Mr. Mimic TCG & Colecionáveis",
+   "Fale com a Mr. Mimic pelo e-mail contato@mrmimic.com.br, pelo Instagram @mrmimicbr ou pelo formulário. Cartas Pokémon TCG, selados e acessórios."
+  ],
+  "venda-suas-cartas": [
+   "Venda suas Cartas Pokémon | Compramos sua Coleção | Mr. Mimic",
+   "Compramos sua coleção de cartas Pokémon: de 1 carta à coleção inteira, avaliação carta a carta e pagamento no Pix. Também compramos games, consoles e figures."
+  ],
+  "envio-e-entrega": [
+   "Envio e Entrega | Prazos e Frete | Mr. Mimic",
+   "Prazos e formas de envio da Mr. Mimic: postagem em até 1 dia útil após o pagamento, Correios e transportadoras, embalagem reforçada para cartas e lacrados."
+  ],
+  "trocas-e-devolucoes": [
+   "Trocas e Devoluções | Mr. Mimic",
+   "Política de trocas e devoluções da Mr. Mimic, conforme o Código de Defesa do Consumidor: desistência em 7 dias, produto com defeito, cartas e lacrados."
+  ],
+  "politica-de-privacidade": [
+   "Política de Privacidade | Mr. Mimic",
+   "Como a Mr. Mimic TCG & Colecionáveis trata seus dados pessoais, de acordo com a LGPD: o que coletamos, para que usamos e como pedir exclusão."
+  ]
+ },
+ "categorias": {
+  "41338849": {
+   "nome": "Cartas avulsas",
+   "titulo": "Cartas Pokémon Avulsas em Português | NM, Rara, Ilustração Rara e EX",
+   "seo": "Cartas Pokémon avulsas em português, todas NM e retiradas do booster: Rara Dupla, Ultra Rara, Ilustração Rara e EX. Enviadas em sleeve, com proteção rígida.",
+   "texto": "Cartas Pokémon avulsas em português, condição NM, direto do booster. Enviadas protegidas em sleeve."
+  },
+  "41338850": {
+   "nome": "Escuridão Absoluta",
+   "titulo": "Cartas Escuridão Absoluta (ME05) Avulsas | Megaevolução Pokémon TCG",
+   "seo": "Cartas avulsas de Megaevolução Escuridão Absoluta (ME05) em português: Mega Darkrai ex, Mega Zeraora ex, Ilustração Rara e Ultra Rara. NM, direto do booster.",
+   "texto": "Cartas avulsas da coleção Megaevolução Escuridão Absoluta (ME05), em português e NM."
+  },
+  "41338851": {
+   "nome": "Caos Ascendente",
+   "titulo": "Cartas Caos Ascendente (ME04) Avulsas | Megaevolução Pokémon TCG",
+   "seo": "Cartas avulsas de Megaevolução Caos Ascendente (ME04) em português, em Rara Dupla, Ilustração Rara e Ultra Rara. Condição NM, direto do booster.",
+   "texto": "Cartas avulsas da coleção Megaevolução Caos Ascendente (ME04), em português e NM."
+  },
+  "41338852": {
+   "nome": "Fogo Fantasmagórico",
+   "titulo": "Cartas Fogo Fantasmagórico (ME02) Avulsas | Megaevolução Pokémon TCG",
+   "seo": "Cartas avulsas de Megaevolução Fogo Fantasmagórico (ME02) em português, em Rara Dupla, Ilustração Rara e Ultra Rara. Condição NM, direto do booster.",
+   "texto": "Cartas avulsas da coleção Megaevolução Fogo Fantasmagórico (ME02), em português e NM."
+  },
+  "41338853": {
+   "nome": "Evoluções Prismáticas",
+   "titulo": "Cartas Evoluções Prismáticas Avulsas | Pokémon TCG em Português",
+   "seo": "Cartas avulsas de Escarlate e Violeta Evoluções Prismáticas (PRE) em português, condição NM. Enviadas em sleeve, com proteção rígida.",
+   "texto": "Cartas avulsas da coleção Escarlate e Violeta Evoluções Prismáticas (PRE), em português e NM."
+  },
+  "41338854": {
+   "nome": "Acessórios",
+   "titulo": "Acessórios para Cartas Pokémon | Sleeves, Toploaders, Cases e Pastas",
+   "seo": "Acessórios BRA para proteger e organizar a coleção: sleeves 63x88mm, double sleeves, toploaders, cases magnéticos e pastas 3x3 e 1x1. Envio para todo o Brasil.",
+   "texto": "Sleeves, toploaders, cases magnéticos e pastas BRA para proteger e organizar suas cartas Pokémon."
+  },
+  "41338855": {
+   "nome": "Sleeves",
+   "titulo": "Sleeves para Cartas Pokémon 63x88mm BRA | Básico, Double, Foil e Cores",
+   "seo": "Sleeves BRA no padrão 63x88mm: básico, double sleeve, premium, foil e coloridos. Proteção para cartas Pokémon e outros TCGs, em pacotes de 50 a 200 unidades.",
+   "texto": "Sleeves BRA 63x88mm para cartas Pokémon: básico, double, premium, foil e coloridos."
+  },
+  "41338859": {
+   "nome": "Pastas e fichários",
+   "titulo": "Pastas para Cartas Pokémon 3x3 e 1x1 BRA | Fichário de Cards",
+   "seo": "Pastas premium BRA para cartas colecionáveis: modelo 3x3, com 9 cartas por página, e 1x1, em várias cores. Guarde a coleção Pokémon organizada e protegida.",
+   "texto": "Pastas premium BRA 3x3 e 1x1, em várias cores, para guardar e exibir sua coleção."
+  },
+  "41338860": {
+   "nome": "Toploaders e cases",
+   "titulo": "Toploaders e Cases Magnéticos para Cartas | Proteção Rígida BRA",
+   "seo": "Toploader cristal com 25 unidades e cases magnéticos 4mm e 55PT da BRA: proteção rígida para cartas Pokémon raras, para guardar, transportar e expor.",
+   "texto": "Toploaders cristal e cases magnéticos BRA: proteção rígida para as cartas que merecem destaque."
+  },
+  "41374972": {
+   "nome": "Kits",
+   "titulo": "Kits de Acessórios para Cartas Pokémon | Sleeves + Toploaders BRA",
+   "seo": "Kits BRA com sleeves e toploaders, double sleeves e combos duplos: o que você precisa para proteger cartas Pokémon em um só pedido. Envio para todo o Brasil.",
+   "texto": "Combos de sleeves, toploaders e cases BRA para proteger sua coleção em um só pedido."
+  },
+  "41338856": {
+   "nome": "Pokémon TCG",
+   "titulo": "Pokémon TCG Lacrado em Português | Booster Box, Blisters e Boxes",
+   "seo": "Selados Pokémon TCG em português, lacrados de fábrica: booster box com 36 boosters, blisters, box com pôster e lançamentos como Reinado Delta. Pix e cartão.",
+   "texto": "Booster box, blisters e boxes Pokémon TCG em português, lacrados de fábrica."
+  },
+  "41338857": {
+   "nome": "Blisters e boxes",
+   "titulo": "Blisters e Boxes Pokémon TCG Lacrados em Português | Copag",
+   "seo": "Blister duplo, triplo e quádruplo e box de coleção Pokémon TCG em português, lacrados: Celebração de 30 Anos, Reinado Delta e mais. Produtos oficiais Copag.",
+   "texto": "Blisters e boxes de coleção Pokémon TCG em português, lacrados, oficiais da Copag."
+  },
+  "41338858": {
+   "nome": "Booster Box",
+   "titulo": "Booster Box Pokémon TCG 36 Boosters Lacrado em Português | Display",
+   "seo": "Booster box (display) Pokémon TCG com 36 boosters, lacrado de fábrica e em português: Escuridão Absoluta (ME05) e pré-venda de Reinado Delta. Pix e cartão.",
+   "texto": "Displays com 36 boosters, lacrados de fábrica e em português."
+  }
+ },
+ "produtos": {
+  "371725343": {
+   "nome": "Mega Delphox EX 008/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Mega Delphox EX 008/084 Escuridão Absoluta Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Delphox EX 008/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-delphox-ex-008-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725342": {
+   "nome": "Mega Excadrill EX 065/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Mega Excadrill EX 065/084 Escuridão Absoluta (ME05) Rara Dupla",
+   "descricao": "Carta Pokémon Mega Excadrill EX 065/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-excadrill-ex-065-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725341": {
+   "nome": "Slowbro 090/084 - Escuridão Absoluta (ME05) - Ilustração Rara",
+   "titulo": "Slowbro 090/084 Escuridão Absoluta Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Slowbro 090/084, Megaevolução Escuridão Absoluta (ME05), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/slowbro-090-084-escuridao-absoluta-me05-ilustracao-rara/"
+  },
+  "371725340": {
+   "nome": "Wailord EX 016/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Wailord EX 016/084 Escuridão Absoluta Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Wailord EX 016/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/wailord-ex-016-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725339": {
+   "nome": "Primarina 088/084 - Escuridão Absoluta (ME05) - Ilustração Rara",
+   "titulo": "Primarina 088/084 Escuridão Absoluta Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Primarina 088/084, Megaevolução Escuridão Absoluta (ME05), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/primarina-088-084-escuridao-absoluta-me05-ilustracao-rara/"
+  },
+  "371725338": {
+   "nome": "Nymble 096/094 - Fogo Fantasmagórico (ME02) - Ilustração Rara",
+   "titulo": "Nymble 096/094 Fogo Fantasmagórico Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Nymble 096/094, Megaevolução Fogo Fantasmagórico (ME02), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/nymble-096-094-fogo-fantasmagorico-me02-ilustracao-rara/"
+  },
+  "371725337": {
+   "nome": "Mega Diancie EX 041/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Mega Diancie EX 041/094 Fogo Fantasmagórico Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Diancie EX 041/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-diancie-ex-041-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725336": {
+   "nome": "Dhelmise 091/084 - Escuridão Absoluta (ME05) - Ilustração Rara",
+   "titulo": "Dhelmise 091/084 Escuridão Absoluta Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Dhelmise 091/084, Megaevolução Escuridão Absoluta (ME05), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/dhelmise-091-084-escuridao-absoluta-me05-ilustracao-rara/"
+  },
+  "371725334": {
+   "nome": "Yamper 099/094 - Fogo Fantasmagórico (ME02) - Ilustração Rara",
+   "titulo": "Yamper 099/094 Fogo Fantasmagórico Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Yamper 099/094, Megaevolução Fogo Fantasmagórico (ME02), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/yamper-099-094-fogo-fantasmagorico-me02-ilustracao-rara/"
+  },
+  "371725332": {
+   "nome": "Emma 107/086 - Caos Ascendente (ME04) - Ultra Rara",
+   "titulo": "Emma 107/086 Caos Ascendente (ME04) Ultra Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Emma 107/086, Megaevolução Caos Ascendente (ME04), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/emma-107-086-caos-ascendente-me04-ultra-rara/"
+  },
+  "371725330": {
+   "nome": "Morpeko EX 102/084 - Escuridão Absoluta (ME05) - Ultra Rara",
+   "titulo": "Morpeko EX 102/084 Escuridão Absoluta Ultra Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Morpeko EX 102/084, Megaevolução Escuridão Absoluta (ME05), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/morpeko-ex-102-084-escuridao-absoluta-me05-ultra-rara/"
+  },
+  "371725328": {
+   "nome": "Mega Sharpedo EX 061/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Mega Sharpedo EX 061/094 Fogo Fantasmagórico (ME02) Rara Dupla",
+   "descricao": "Carta Pokémon Mega Sharpedo EX 061/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-sharpedo-ex-061-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725327": {
+   "nome": "Wooper de Paldea 102/094 - Fogo Fantasmagórico (ME02) - Ilustração Rara",
+   "titulo": "Wooper de Paldea 102/094 Fogo Fantasmagórico (ME02) Ilustração Rara",
+   "descricao": "Carta Pokémon Wooper de Paldea 102/094, Fogo Fantasmagórico (ME02), Ilustração Rara. Em português, NM, direto do booster. Enviada em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/wooper-de-paldea-102-094-fogo-fantasmagorico-me02-ilustracao-rara/"
+  },
+  "371725326": {
+   "nome": "Mega Slowbro EX 031/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Mega Slowbro EX 031/084 Escuridão Absoluta Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Slowbro EX 031/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-slowbro-ex-031-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725325": {
+   "nome": "Mega Pyroar EX 015/086 - Caos Ascendente (ME04) - Rara Dupla",
+   "titulo": "Mega Pyroar EX 015/086 Caos Ascendente Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Pyroar EX 015/086, Megaevolução Caos Ascendente (ME04), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-pyroar-ex-015-086-caos-ascendente-me04-rara-dupla/"
+  },
+  "371725324": {
+   "nome": "Morpeko EX 055/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Morpeko EX 055/084 Escuridão Absoluta Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Morpeko EX 055/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/morpeko-ex-055-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725323": {
+   "nome": "Mega Chandelure EX 038/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Mega Chandelure EX 038/084 Escuridão Absoluta (ME05) Rara Dupla",
+   "descricao": "Carta Pokémon Mega Chandelure EX 038/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-chandelure-ex-038-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725322": {
+   "nome": "Ogerpon Máscara Fornalha EX 017/131 - Evoluções Prismáticas (PRE) - Rara Dupla",
+   "titulo": "Ogerpon Máscara Fornalha EX 017/131 Evoluções Prismáticas Rara Dupla",
+   "descricao": "Carta Pokémon Ogerpon Máscara Fornalha EX 017/131, Evoluções Prismáticas (PRE), Rara Dupla. Em português, NM, direto do booster. Enviada em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/ogerpon-mascara-fornalha-ex-017-131-evolucoes-prismaticas-pre-rara-dupla-holo/"
+  },
+  "371725321": {
+   "nome": "Cuspidor de Fogo 119/094 - Fogo Fantasmagórico (ME02) - Ultra Rara",
+   "titulo": "Cuspidor de Fogo 119/094 Fogo Fantasmagórico (ME02) Ultra Rara",
+   "descricao": "Carta Pokémon Cuspidor de Fogo 119/094, Megaevolução Fogo Fantasmagórico (ME02), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/cuspidor-de-fogo-119-094-fogo-fantasmagorico-me02-ultra-rara/"
+  },
+  "371725320": {
+   "nome": "Batalha Decisiva do Gladio 108/084 - Escuridão Absoluta (ME05) - Ultra Rara",
+   "titulo": "Batalha Decisiva do Gladio 108/084 Escuridão Absoluta Ultra Rara",
+   "descricao": "Carta Pokémon Batalha Decisiva do Gladio 108/084, Escuridão Absoluta (ME05), Ultra Rara. Em português, NM, direto do booster. Enviada em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/batalha-decisiva-do-gladio-108-084-escuridao-absoluta-me05-ultra-rara/"
+  },
+  "371725319": {
+   "nome": "Clarita 109/084 - Escuridão Absoluta (ME05) - Ultra Rara",
+   "titulo": "Clarita 109/084 Escuridão Absoluta (ME05) Ultra Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Clarita 109/084, Megaevolução Escuridão Absoluta (ME05), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/clarita-109-084-escuridao-absoluta-me05-ultra-rara/"
+  },
+  "371725316": {
+   "nome": "Jaula de Batalha 116/094 - Fogo Fantasmagórico (ME02) - Ultra Rara",
+   "titulo": "Jaula de Batalha 116/094 Fogo Fantasmagórico (ME02) Ultra Rara",
+   "descricao": "Carta Pokémon Jaula de Batalha 116/094, Megaevolução Fogo Fantasmagórico (ME02), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/jaula-de-batalha-116-094-fogo-fantasmagorico-me02-ultra-rara/"
+  },
+  "371725314": {
+   "nome": "Dawn 118/094 - Fogo Fantasmagórico (ME02) - Ultra Rara",
+   "titulo": "Dawn 118/094 Fogo Fantasmagórico (ME02) Ultra Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Dawn 118/094, Megaevolução Fogo Fantasmagórico (ME02), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/dawn-118-094-fogo-fantasmagorico-me02-ultra-rara/"
+  },
+  "371725313": {
+   "nome": "Crobat 093/086 - Caos Ascendente (ME04) - Ilustração Rara",
+   "titulo": "Crobat 093/086 Caos Ascendente (ME04) Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Crobat 093/086, Megaevolução Caos Ascendente (ME04), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/crobat-093-086-caos-ascendente-me04-ilustracao-rara/"
+  },
+  "371725311": {
+   "nome": "Toucannon 094/084 - Escuridão Absoluta (ME05) - Ilustração Rara",
+   "titulo": "Toucannon 094/084 Escuridão Absoluta Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Toucannon 094/084, Megaevolução Escuridão Absoluta (ME05), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/toucannon-094-084-escuridao-absoluta-me05-ilustracao-rara/"
+  },
+  "371725310": {
+   "nome": "Martelo Esmagador 105/084 - Escuridão Absoluta (ME05) - Ultra Rara",
+   "titulo": "Martelo Esmagador 105/084 Escuridão Absoluta (ME05) Ultra Rara",
+   "descricao": "Carta Pokémon Martelo Esmagador 105/084, Megaevolução Escuridão Absoluta (ME05), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/martelo-esmagador-105-084-escuridao-absoluta-me05-ultra-rara/"
+  },
+  "371725308": {
+   "nome": "Manectric 089/084 - Escuridão Absoluta (ME05) - Ilustração Rara",
+   "titulo": "Manectric 089/084 Escuridão Absoluta Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Manectric 089/084, Megaevolução Escuridão Absoluta (ME05), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/manectric-089-084-escuridao-absoluta-me05-ilustracao-rara/"
+  },
+  "371725307": {
+   "nome": "Oricorio EX 018/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Oricorio EX 018/094 Fogo Fantasmagórico Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Oricorio EX 018/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/oricorio-ex-018-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725306": {
+   "nome": "Mega Darkrai EX 101/084 - Escuridão Absoluta (ME05) - Ultra Rara",
+   "titulo": "Mega Darkrai EX 101/084 Escuridão Absoluta Ultra Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Darkrai EX 101/084, Megaevolução Escuridão Absoluta (ME05), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-darkrai-ex-101-084-escuridao-absoluta-me05-ultra-rara/"
+  },
+  "371725305": {
+   "nome": "Ambipom 107/094 - Fogo Fantasmagórico (ME02) - Ilustração Rara",
+   "titulo": "Ambipom 107/094 Fogo Fantasmagórico Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Ambipom 107/094, Megaevolução Fogo Fantasmagórico (ME02), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/ambipom-107-094-fogo-fantasmagorico-me02-ilustracao-rara/"
+  },
+  "371725304": {
+   "nome": "Rampardos EX 045/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Rampardos EX 045/084 Escuridão Absoluta Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Rampardos EX 045/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/rampardos-ex-045-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "371725303": {
+   "nome": "Mega Heracross EX 004/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Mega Heracross EX 004/094 Fogo Fantasmagórico (ME02) Rara Dupla",
+   "descricao": "Carta Pokémon Mega Heracross EX 004/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-heracross-ex-004-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725302": {
+   "nome": "Empoleon EX 070/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Empoleon EX 070/094 Fogo Fantasmagórico Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Empoleon EX 070/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/empoleon-ex-070-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725301": {
+   "nome": "Xerneas 091/086 - Caos Ascendente (ME04) - Ilustração Rara",
+   "titulo": "Xerneas 091/086 Caos Ascendente (ME04) Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Xerneas 091/086, Megaevolução Caos Ascendente (ME04), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/xerneas-091-086-caos-ascendente-me04-ilustracao-rara/"
+  },
+  "371725300": {
+   "nome": "Morpeko EX 117/084 - Escuridão Absoluta (ME05) - Ilustração Rara Especial",
+   "titulo": "Morpeko EX 117/084 Escuridão Absoluta (ME05) Ilustração Rara Especial",
+   "descricao": "Carta Pokémon Morpeko EX 117/084, Escuridão Absoluta (ME05), Ilustração Rara Especial. Em português, NM, direto do booster. Enviada em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/morpeko-ex-117-084-escuridao-absoluta-me05-ilustracao-rara-especial/"
+  },
+  "371725298": {
+   "nome": "Rotom EX 029/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Rotom EX 029/094 Fogo Fantasmagórico (ME02) Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Rotom EX 029/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/rotom-ex-029-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725297": {
+   "nome": "Sliggo 095/086 - Caos Ascendente (ME04) - Ilustração Rara",
+   "titulo": "Sliggo 095/086 Caos Ascendente (ME04) Ilustração Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Sliggo 095/086, Megaevolução Caos Ascendente (ME04), Ilustração Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/sliggo-095-086-caos-ascendente-me04-ilustracao-rara/"
+  },
+  "371725296": {
+   "nome": "Snorlax EX 076/131 - Evoluções Prismáticas (PRE) - Rara Dupla",
+   "titulo": "Snorlax EX 076/131 Evoluções Prismáticas Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Snorlax EX 076/131, Evoluções Prismáticas (PRE), Rara Dupla. Em português, NM, direto do booster. Enviada em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/snorlax-ex-076-131-evolucoes-prismaticas-pre-rara-dupla-holo/"
+  },
+  "371725295": {
+   "nome": "Rotom EX 111/094 - Fogo Fantasmagórico (ME02) - Ultra Rara",
+   "titulo": "Rotom EX 111/094 Fogo Fantasmagórico (ME02) Ultra Rara | Carta Pokémon",
+   "descricao": "Carta Pokémon Rotom EX 111/094, Megaevolução Fogo Fantasmagórico (ME02), Ultra Rara, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/rotom-ex-111-094-fogo-fantasmagorico-me02-ultra-rara/"
+  },
+  "371725294": {
+   "nome": "Mega Zeraora EX 114/084 - Escuridão Absoluta (ME05) - Ilustração Rara Especial",
+   "titulo": "Mega Zeraora EX 114/084 Escuridão Absoluta Ilustração Rara Especial",
+   "descricao": "Carta Pokémon Mega Zeraora EX 114/084, Escuridão Absoluta (ME05), Ilustração Rara Especial. Em português, NM, direto do booster. Enviada em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-zeraora-ex-114-084-escuridao-absoluta-me05-ilustracao-rara-especial/"
+  },
+  "371725293": {
+   "nome": "Cinccino EX 073/086 - Caos Ascendente (ME04) - Rara Dupla",
+   "titulo": "Cinccino EX 073/086 Caos Ascendente (ME04) Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Cinccino EX 073/086, Megaevolução Caos Ascendente (ME04), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/cinccino-ex-073-086-caos-ascendente-me04-rara-dupla/"
+  },
+  "371725291": {
+   "nome": "Mega Lopunny EX 084/094 - Fogo Fantasmagórico (ME02) - Rara Dupla",
+   "titulo": "Mega Lopunny EX 084/094 Fogo Fantasmagórico Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Lopunny EX 084/094, Megaevolução Fogo Fantasmagórico (ME02), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-lopunny-ex-084-094-fogo-fantasmagorico-me02-rara-dupla-holo/"
+  },
+  "371725289": {
+   "nome": "Cobalion EX 064/086 - Caos Ascendente (ME04) - Rara Dupla",
+   "titulo": "Cobalion EX 064/086 Caos Ascendente (ME04) Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Cobalion EX 064/086, Megaevolução Caos Ascendente (ME04), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/cobalion-ex-064-086-caos-ascendente-me04-rara-dupla/"
+  },
+  "371725288": {
+   "nome": "Mega Zeraora EX 027/084 - Escuridão Absoluta (ME05) - Rara Dupla",
+   "titulo": "Mega Zeraora EX 027/084 Escuridão Absoluta Rara Dupla | Carta Pokémon",
+   "descricao": "Carta Pokémon Mega Zeraora EX 027/084, Megaevolução Escuridão Absoluta (ME05), Rara Dupla, em português e NM, direto do booster. Enviada protegida em sleeve.",
+   "href": "https://mrmimic.com.br/produtos/mega-zeraora-ex-027-084-escuridao-absoluta-me05-rara-dupla/"
+  },
+  "372307143": {
+   "nome": "Elite Trainer Box Destined Rivals (EN) - Pokémon TCG",
+   "titulo": "Elite Trainer Box Destined Rivals (Inglês) Lacrada | Pokémon TCG",
+   "descricao": "Elite Trainer Box Pokémon TCG Destined Rivals em inglês, lacrada de fábrica, com 9 boosters e acessórios para jogar. Pix, cartão e envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/elite-trainer-box-destined-rivals-en-pokemon-tcg/"
+  },
+  "371725351": {
+   "nome": "Booster Display ME05 Escuridão Absoluta (PT) - 36 boosters",
+   "titulo": "Booster Box Escuridão Absoluta ME05 Lacrado 36 Boosters | Pokémon TCG",
+   "descricao": "Booster box (display) Megaevolução Escuridão Absoluta (ME05) em português, lacrado de fábrica, com 36 boosters: Mega Darkrai ex e Mega Zeraora ex. Pix e cartão.",
+   "href": "https://mrmimic.com.br/produtos/booster-display-me05-escuridao-absoluta-pt-36-boosters/"
+  },
+  "371725349": {
+   "nome": "Blister Duplo com Moeda - Celebração de 30 Anos (PT)",
+   "titulo": "Blister Duplo com Moeda Celebração de 30 Anos Lacrado | Pokémon TCG",
+   "descricao": "Blister duplo Pokémon TCG Celebração de 30 Anos em português, lacrado: 2 boosters, carta promocional e moeda comemorativa. Produto oficial Copag. Pix e cartão.",
+   "href": "https://mrmimic.com.br/produtos/blister-duplo-com-moeda-celebracao-de-30-anos-pt/"
+  },
+  "371968038": {
+   "nome": "Box Display Reinado Delta (PT) - 36 boosters",
+   "titulo": "Booster Box Reinado Delta Lacrado 36 Boosters | Pré-venda Pokémon TCG",
+   "descricao": "Booster box Megaevolução Reinado Delta em português, lacrado, com 36 boosters e Mega Rayquaza ex. Lançamento em 6 de novembro de 2026. Avise-me quando chegar.",
+   "href": "https://mrmimic.com.br/produtos/box-display-reinado-delta-pt-36-boosters-15c8r/"
+  },
+  "371967940": {
+   "nome": "Blister Quádruplo Reinado Delta (PT)",
+   "titulo": "Blister Quádruplo Reinado Delta Lacrado | Pré-venda Pokémon TCG",
+   "descricao": "Blister quádruplo Megaevolução Reinado Delta em português, lacrado: 4 boosters e carta promocional. Lançamento em 6 de novembro de 2026. Avise-me quando chegar.",
+   "href": "https://mrmimic.com.br/produtos/blister-quadruplo-reinado-delta-pt-173iw/"
+  },
+  "371967559": {
+   "nome": "Blister Triplo Reinado Delta (PT)",
+   "titulo": "Blister Triplo Reinado Delta Lacrado | Pré-venda Pokémon TCG",
+   "descricao": "Blister triplo Megaevolução Reinado Delta em português, lacrado: 3 boosters e carta promocional. Lançamento em 6 de novembro de 2026. Avise-me quando chegar.",
+   "href": "https://mrmimic.com.br/produtos/blister-triplo-reinado-delta-pt-1nsup/"
+  },
+  "371725353": {
+   "nome": "Box Coleção com Pôster - Celebração de 30 Anos (PT)",
+   "titulo": "Box Coleção com Pôster Celebração de 30 Anos Lacrada | Pokémon TCG",
+   "descricao": "Box de coleção Pokémon TCG Celebração de 30 Anos em português, lacrada, com boosters, cartas promocionais e pôster comemorativo. Produto oficial Copag.",
+   "href": "https://mrmimic.com.br/produtos/box-colecao-com-poster-celebracao-de-30-anos-pt/"
+  },
+  "372387369": {
+   "nome": "Kit 2 Toploader Cristal BRA 25 Unidades 63x88mm",
+   "titulo": "Kit 2 Toploader Cristal BRA 25 Unidades 63x88mm",
+   "descricao": "Kit com 2 pacotes de toploader cristal BRA, 25 unidades cada, 63x88mm: proteção rígida para guardar, enviar e expor cartas Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-2-toploader-cristal-bra-25-unidades/"
+  },
+  "372387366": {
+   "nome": "Kit Sleeve Básico BRA 200 Unidades + Toploader Cristal 25",
+   "titulo": "Kit Sleeve Básico BRA 200 Unidades + Toploader Cristal 25",
+   "descricao": "Kit BRA com sleeves 63x88mm e toploader cristal: a camada macia e a proteção rígida para cartas Pokémon em um só pedido. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-sleeve-basico-bra-200-toploader-cristal-25/"
+  },
+  "372387360": {
+   "nome": "Kit Double Sleeve Premium BRA 180 + Toploader Cristal 25",
+   "titulo": "Kit Double Sleeve Premium BRA 180 + Toploader Cristal 25",
+   "descricao": "Kit BRA com sleeves 63x88mm e toploader cristal: a camada macia e a proteção rígida para cartas Pokémon em um só pedido. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-double-sleeve-premium-bra-180-toploader-cristal-25/"
+  },
+  "372387355": {
+   "nome": "Kit Double Sleeve BRA 200 Unidades + Toploader Cristal 25",
+   "titulo": "Kit Double Sleeve BRA 200 Unidades + Toploader Cristal 25",
+   "descricao": "Kit BRA com sleeves 63x88mm e toploader cristal: a camada macia e a proteção rígida para cartas Pokémon em um só pedido. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-double-sleeve-bra-200-toploader-cristal-25/"
+  },
+  "372387339": {
+   "nome": "Kit 2 Sleeves Foil BRA 50 Unidades 63x88mm",
+   "titulo": "Kit 2 Sleeves Foil BRA 50 Unidades 63x88mm | Sleeves Holográficos",
+   "descricao": "Kit com 2 pacotes de sleeve foil BRA, 50 unidades cada, 63x88mm, com acabamento holográfico, para cartas Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-2-sleeves-foil-bra-50-unidades/"
+  },
+  "372387332": {
+   "nome": "Kit 2 Sleeves BRA Sabores 60 Unidades - Banana e Cereja",
+   "titulo": "Kit 2 Sleeves BRA Sabores 60 Unidades - Banana e Cereja",
+   "descricao": "Kit com 2 pacotes de sleeve BRA Sabores, 60 unidades cada, nas versões banana e cereja, 63x88mm, para cartas Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-2-sleeves-bra-sabores-60-unidades-banana-e-cereja/"
+  },
+  "372387326": {
+   "nome": "Kit 2 Double Sleeves Premium BRA 180 Unidades 63x88mm",
+   "titulo": "Kit 2 Double Sleeves Premium BRA 180 Unidades 63x88mm | Sleeves BRA",
+   "descricao": "Kit com 2 pacotes de double sleeve premium BRA, padrão 63x88mm: proteção reforçada para cartas Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-2-double-sleeves-premium-bra-180-unidades/"
+  },
+  "372387321": {
+   "nome": "Kit 2 Double Sleeves BRA 200 Unidades 63x88mm",
+   "titulo": "Kit 2 Double Sleeves BRA 200 Unidades 63x88mm | Sleeves BRA",
+   "descricao": "Kit com 2 pacotes de double sleeve BRA, padrão 63x88mm: proteção reforçada para cartas Pokémon e outros TCGs, com economia no combo. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/kit-2-double-sleeves-bra-200-unidades/"
+  },
+  "372387309": {
+   "nome": "Sleeve Foil BRA - 50 Unidades",
+   "titulo": "Sleeve Foil BRA 50 Unidades 63x88mm | Sleeve Holográfico para Cartas",
+   "descricao": "Sleeve foil BRA, 50 unidades, 63x88mm, com acabamento holográfico: protege e dá brilho às cartas Pokémon no deck ou na pasta. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-foil-bra-50-unidades/"
+  },
+  "371725376": {
+   "nome": "Pasta Premium Colors 3x3 BRA - Roxa/Azul - Sem Caixa",
+   "titulo": "Pasta Premium 3x3 BRA Roxa/Azul | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 3x3 nas cores roxa/azul, sem caixa: 9 cartas por página para organizar e exibir a coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa/"
+  },
+  "371725375": {
+   "nome": "Case Magnético BRA 55PT - Unitário",
+   "titulo": "Case Magnético 55PT BRA Unitário | Proteção para Carta Pokémon",
+   "descricao": "Case magnético BRA 55PT, unitário: acrílico rígido com fecho magnético para proteger e expor uma carta Pokémon rara. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/case-magnetico-bra-55pt-unitario/"
+  },
+  "371725374": {
+   "nome": "Pasta Premium Colors 3x3 BRA - Rosa/Cinza - Sem Caixa",
+   "titulo": "Pasta Premium 3x3 BRA Rosa/Cinza | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 3x3 nas cores rosa/cinza, sem caixa: 9 cartas por página para organizar e exibir a coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-colors-3x3-bra-rosa-cinza-s-caixa/"
+  },
+  "371725370": {
+   "nome": "Sleeve Colors BRA - Azul - 50 Unidades",
+   "titulo": "Sleeve Colors BRA Azul 50 Unidades 63x88mm | Sleeve para Cartas",
+   "descricao": "Sleeve BRA Colors na cor azul, 50 unidades, 63x88mm: proteção e identidade para o deck Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-colors-bra-azul-50-unidades/"
+  },
+  "371725369": {
+   "nome": "Pasta Premium 1x1 BRA - Preta",
+   "titulo": "Pasta Premium 1x1 BRA Preta | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 1x1 na cor preta: uma carta por página, para destacar as cartas mais valiosas da coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-1x1-bra-preta/"
+  },
+  "371725367": {
+   "nome": "Pasta Premium Colors 3x3 BRA - Cinza/Dourada - Sem Caixa",
+   "titulo": "Pasta Premium 3x3 BRA Cinza/Dourada | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 3x3 nas cores cinza/dourada, sem caixa: 9 cartas por página para organizar e exibir a coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-colors-3x3-bra-cinza-dourada-s-caixa/"
+  },
+  "371725365": {
+   "nome": "Toploader Cristal BRA - 25 Unidades",
+   "titulo": "Toploader Cristal BRA 25 Unidades | Proteção Rígida para Cartas",
+   "descricao": "Toploader cristal BRA, pacote com 25 unidades, 63x88mm: proteção rígida e transparente para guardar e enviar cartas Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/toploader-cristal-bra-25-unidades/"
+  },
+  "371725363": {
+   "nome": "Case Magnético 4mm Cards BRA - Unitário",
+   "titulo": "Case Magnético 4mm BRA Unitário | Proteção para Carta Pokémon",
+   "descricao": "Case magnético BRA 4mm, unitário: acrílico rígido com fecho magnético para proteger e expor uma carta Pokémon rara. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/case-magnetico-4mm-cards-bra-unitario/"
+  },
+  "371725362": {
+   "nome": "Sleeve Sabores BRA - Cereja - Vermelho - 60 Unidades",
+   "titulo": "Sleeve Sabores BRA Cereja 60 Unidades 63x88mm | Sleeve para Cartas",
+   "descricao": "Sleeve BRA Sabores cereja, 60 unidades, 63x88mm, para cartas Pokémon e outros TCGs, no deck ou na pasta. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-sabores-bra-cereja-vermelho-60-unidades/"
+  },
+  "371725361": {
+   "nome": "Pasta Premium 1x1 BRA - Rosa",
+   "titulo": "Pasta Premium 1x1 BRA Rosa | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 1x1 na cor rosa: uma carta por página, para destacar as cartas mais valiosas da coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-1x1-bra-rosa/"
+  },
+  "371725359": {
+   "nome": "Pasta Premium 1x1 BRA - Roxa",
+   "titulo": "Pasta Premium 1x1 BRA Roxa | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 1x1 na cor roxa: uma carta por página, para destacar as cartas mais valiosas da coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-1x1-bra-roxa/"
+  },
+  "371725358": {
+   "nome": "Sleeve Colors BRA - Vermelho - 50 Unidades",
+   "titulo": "Sleeve Colors BRA Vermelho 50 Unidades 63x88mm | Sleeve para Cartas",
+   "descricao": "Sleeve BRA Colors na cor vermelho, 50 unidades, 63x88mm: proteção e identidade para o deck Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-colors-bra-vermelho-50-unidades/"
+  },
+  "371725356": {
+   "nome": "Pasta Premium Colors 3x3 BRA - Preta/Amarela - Sem Caixa",
+   "titulo": "Pasta Premium 3x3 BRA Preta/Amarela | Pasta para Cartas Pokémon",
+   "descricao": "Pasta premium BRA 3x3 nas cores preta/amarela, sem caixa: 9 cartas por página para organizar e exibir a coleção Pokémon. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/pasta-premium-colors-3x3-bra-preta-amarela-s-caixa/"
+  },
+  "371725355": {
+   "nome": "Sleeve Sabores BRA - Banana - Amarelo - 60 Unidades",
+   "titulo": "Sleeve Sabores BRA Banana 60 Unidades 63x88mm | Sleeve para Cartas",
+   "descricao": "Sleeve BRA Sabores banana, 60 unidades, 63x88mm, para cartas Pokémon e outros TCGs, no deck ou na pasta. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-sabores-bra-banana-amarelo-60-unidades/"
+  },
+  "371725352": {
+   "nome": "Double Sleeve BRA - 200 Unidades",
+   "titulo": "Double Sleeve BRA 200 Unidades 63x88mm | Sleeve para Cartas Pokémon",
+   "descricao": "Double sleeve BRA, 200 unidades, padrão 63x88mm: proteção reforçada para cartas Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/double-sleeve-bra-200-unidades/"
+  },
+  "371725350": {
+   "nome": "Sleeve Básico Duplo Cards BRA - Transparente - 200 Unidades",
+   "titulo": "Sleeve Básico BRA Transparente 200 Unidades | Sleeve para Cartas",
+   "descricao": "Sleeve básico BRA transparente, 200 unidades, 63x88mm: proteção contra riscos e digitais para cartas Pokémon, no deck, na pasta ou no envio.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-basico-duplo-cards-bra-transparente-200-unidades/"
+  },
+  "371725347": {
+   "nome": "Double Sleeve Premium BRA - 180 Unidades",
+   "titulo": "Double Sleeve Premium BRA 180 Unidades 63x88mm | Sleeve para Cartas",
+   "descricao": "Double sleeve premium BRA, 180 unidades, padrão 63x88mm: proteção reforçada para cartas Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/double-sleeve-premium-bra-180-unidades/"
+  },
+  "371725344": {
+   "nome": "Sleeve Colors BRA - Verde - 50 Unidades",
+   "titulo": "Sleeve Colors BRA Verde 50 Unidades 63x88mm | Sleeve para Cartas",
+   "descricao": "Sleeve BRA Colors na cor verde, 50 unidades, 63x88mm: proteção e identidade para o deck Pokémon e outros TCGs. Envio para todo o Brasil.",
+   "href": "https://mrmimic.com.br/produtos/sleeve-colors-bra-verde-50-unidades/"
+  }
+ }
+}
