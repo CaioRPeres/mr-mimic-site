@@ -408,11 +408,10 @@ try {
 
 /* ===== redes.js ===== */
 try {
-/* Rodape: troca o telefone escrito por icones de contato (WhatsApp abre o chat, Instagram, YouTube). */
+/* Rodapé: troca a lista de contato do tema por ícones (Instagram, e-mail; YouTube oculto até existir canal).
+   Sem telefone no site por decisão do Caio (06/10/2026). */
 (function () {
   const LINKS = [
-    { n: "WhatsApp",  h: "https://wa.me/5522999975004?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Mr.%20Mimic",
-      s: '<path d="M20.5 3.5A11.8 11.8 0 0 0 2.3 17.7L1 23l5.5-1.4A11.8 11.8 0 0 0 20.5 3.5zm-8.4 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.3.9.9-3.2-.2-.4a9.8 9.8 0 1 1 8 4.3zm5.4-7.3c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>' },
     { n: "Instagram", h: "https://instagram.com/mrmimicbr",
       s: '<path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.5.2-1.8.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.8-.3 1.8C3.5 8.5 3.5 8.9 3.5 12s0 3.5.1 4.7c.1 1.1.2 1.5.3 1.8.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.8.3 1.8.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.5-.2 1.8-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.8.3-1.8.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.5-.3-1.8-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.8-.3-1.8-.3-1.2-.1-1.6-.1-4.7-.1zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>' },
     { n: "E-mail",    h: "mailto:contato@mrmimic.com.br",
@@ -421,9 +420,9 @@ try {
     { n: "YouTube",   h: "https://youtube.com/@mrmimicbr", oculto: true,
       s: '<path d="M23 7.2a2.9 2.9 0 0 0-2-2C19.2 4.7 12 4.7 12 4.7s-7.2 0-9 .5a2.9 2.9 0 0 0-2 2C.5 9 .5 12 .5 12s0 3 .5 4.8a2.9 2.9 0 0 0 2 2c1.8.5 9 .5 9 .5s7.2 0 9-.5a2.9 2.9 0 0 0 2-2c.5-1.8.5-4.8.5-4.8s0-3-.5-4.8zM9.7 15.1V8.9l6 3.1-6 3.1z"/>' },
   ];
-  const tel = document.querySelector('footer a[href^="tel:"], a.contact-link[href^="tel:"]');
-  if (!tel) return;
-  const ul = tel.closest("ul") || tel.parentElement;
+  const ancora = document.querySelector('footer a.contact-link, footer a[href^="mailto:"]');
+  if (!ancora) return;
+  const ul = ancora.closest("ul") || ancora.parentElement;
   const row = document.createElement("div");
   row.className = "mm-redes";
   row.innerHTML = LINKS.filter(l => !l.oculto).map(l => `<a class="mm-rede" href="${l.h}"${l.h.startsWith("mailto:") ? "" : ' target="_blank" rel="noopener"'} aria-label="${l.n}" title="${l.n}"><svg viewBox="0 0 24 24" aria-hidden="true">${l.s}</svg></a>`).join("");
@@ -443,9 +442,10 @@ try {
   const previa = /^(127\.0\.0\.1|localhost)$/.test(location.hostname);
   const base = MM_A;
   const FAIXA = null;   // ex.: [40, 60] — percentuais do preço de venda; null = texto sem numero ate o Caio fechar
-  const ZAP = "https://wa.me/5522999975004?text=Ola!%20Quero%20vender%20minhas%20cartas%20para%20a%20Mr.%20Mimic";
+  const CONTATO = "https://www.instagram.com/mrmimicbr/";   // sem telefone no site (decisão do Caio, 06/10/2026)
+  const EMAIL = "contato@mrmimic.com.br";
   const I = {
-    zap: '<svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 2.3 17.7L1 23l5.5-1.4A11.8 11.8 0 0 0 20.5 3.5zm-8.4 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.3.9.9-3.2-.2-.4a9.8 9.8 0 1 1 8 4.3zm5.4-7.3c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>',
+    insta: '<svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 4.8a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/></svg>',
     foto: '<svg viewBox="0 0 24 24"><path d="M4 7h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2zm8 2.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>',
     lupa: '<svg viewBox="0 0 24 24"><path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm-1 3h2v2h2v2h-2v2H9v-2H7V9h2V7z"/></svg>',
     lista: '<svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h14V5H5zm2 2h3v3H7V7zm5 1h5v1h-5V8zM7 12h3v3H7v-3zm5 1h5v1h-5v-1z"/></svg>',
@@ -460,7 +460,7 @@ try {
     sleeve: '<svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 3h6v10H9V7z"/></svg>',
   };
   const passos = [
-    ["Manda foto ou lista", "no WhatsApp. Pode ser foto da pasta mesmo.", I.foto],
+    ["Manda foto ou lista", "no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", I.foto],
     ["Avaliamos carta a carta", "estado, raridade e o que ela vale hoje.", I.lupa],
     ["Você recebe a oferta aberta", "item por item, pra conferir cada número.", I.lista],
     ["Fechou? Conferimos e pagamos", "Pix em até 1 dia útil depois de conferir — pelo correio ou presencial.", I.pix],
@@ -483,7 +483,7 @@ try {
         <div class="mm-veb">VENDA PRA GENTE</div>
         <h2>Compramos a sua coleção</h2>
         <p>Carta avulsa, pasta inteira ou lacrado. Avaliação carta a carta e <b>Pix em até 1 dia útil depois da conferência</b>.</p>
-        <a class="mm-vbtn" href="${ZAP}" target="_blank" rel="noopener">${I.zap} Mandar minha lista no WhatsApp</a>
+        <a class="mm-vbtn" href="${CONTATO}" target="_blank" rel="noopener">${I.insta} Mandar minha lista no Instagram</a>
       </div>
       <img class="mm-vmascote" src="${base}hero/p5-moedas2.webp" alt="Mr. Mimic devolvendo moedas pelas cartas">
     </section>
@@ -516,8 +516,8 @@ try {
       <div class="mm-vnao"><b>O que não compramos:</b> ${nao.map(n => `<span>✕ ${n}</span>`).join("")}</div>
     </section>
     <section class="mm-vfim">
-      <a class="mm-vbtn" href="${ZAP}" target="_blank" rel="noopener">${I.zap} Mandar minha lista no WhatsApp</a>
-      <small>Você recebe a oferta item por item e decide com calma.</small>
+      <a class="mm-vbtn" href="${CONTATO}" target="_blank" rel="noopener">${I.insta} Mandar minha lista no Instagram</a>
+      <small>Prefere e-mail? Mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
     </section>`;
   alvo.replaceWith(sec);
   const ctl = document.querySelector(".category-controls-container"); if (ctl) ctl.style.display = "none";
@@ -525,3 +525,58 @@ try {
 })();
 
 } catch (e) { console.warn("mm venda.js", e); }
+
+/* ===== seo.js ===== */
+try {
+/* SEO da loja real: só o que a Nuvemshop NÃO entrega.
+   O tema já injeta, por script, Organization, WebPage com BreadcrumbList e Product com Offer
+   (conferido em 06/10/2026 na página de produto). Repetir isso confundiria o Google, então aqui vai apenas:
+   - WebSite com SearchAction na home (busca da loja aparece no Google)
+   - título e descrição de reserva para a home e para as páginas institucionais, caso o servidor
+     mande o texto genérico ou vazio (o valor definitivo fica nos campos de SEO do admin). */
+(function () {
+  const LOJA = "https://mrmimic.com.br";
+  const NOME = "Mr. Mimic";
+  const path = location.pathname;
+
+  const TITULO_HOME = NOME + " | Cartas Pokémon avulsas, selados e acessórios TCG";
+  const DESCRICOES = {
+    "/": "Loja de Pokémon TCG: cartas avulsas NM em português e japonês, boxes e blisters lacrados, sleeves, toploaders e pastas BRA. Compramos sua coleção. Pix e envio para todo o Brasil.",
+    "/contato/": "Fale com a Mr. Mimic pelo e-mail contato@mrmimic.com.br, pelo Instagram @mrmimicbr ou pelo formulário. Cartas Pokémon TCG, selados e acessórios.",
+    "/venda-suas-cartas/": "Compramos sua coleção de cartas Pokémon: de 1 carta à coleção inteira, avaliação carta a carta e pagamento no Pix. Também compramos games, consoles e figures.",
+    "/envio-e-entrega/": "Prazos e formas de envio da Mr. Mimic: postagem em até 1 dia útil após o pagamento, Correios e transportadoras, embalagem reforçada para cartas e lacrados.",
+    "/trocas-e-devolucoes/": "Política de trocas e devoluções da Mr. Mimic, conforme o Código de Defesa do Consumidor: desistência em 7 dias, produto com defeito, cartas e lacrados.",
+    "/politica-de-privacidade/": "Como a Mr. Mimic TCG & Colecionáveis trata seus dados pessoais, de acordo com a LGPD: o que coletamos, para que usamos e como pedir exclusão."
+  };
+
+  function garanteDescricao(txt) {
+    let m = document.querySelector('meta[name="description"]');
+    if (!m) { m = document.createElement("meta"); m.name = "description"; document.head.appendChild(m); }
+    if (!m.content || /^Compre produtos de|^Compre online/.test(m.content)) m.content = txt;
+  }
+
+  function emite(dados) {
+    const s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.textContent = JSON.stringify(dados);
+    document.head.appendChild(s);
+  }
+
+  const chave = path === "" ? "/" : path;
+  if (DESCRICOES[chave]) garanteDescricao(DESCRICOES[chave]);
+
+  if (chave === "/") {
+    if (/^Loja online de/.test(document.title)) document.title = TITULO_HOME;
+    emite({
+      "@context": "https://schema.org", "@type": "WebSite",
+      name: NOME, url: LOJA + "/", inLanguage: "pt-BR",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: { "@type": "EntryPoint", urlTemplate: LOJA + "/search/?q={termo}" },
+        "query-input": "required name=termo"
+      }
+    });
+  }
+})();
+
+} catch (e) { console.warn("mm seo.js", e); }

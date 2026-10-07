@@ -106,7 +106,7 @@ venda = troca(venda, 'const base = previa ? "" : "https://mrmimic.com.br/";', 'c
 venda = re.sub(r'\$\{base\}(hero/[^"?]+)\.png(\?[^"]*)?', r'${base}\1.webp', venda)
 
 partes = [('hero2.js', hero), ('home-categorias.js', cats), ('cor-card.js', le('cor-card.js')),
-          ('produto.js', prod), ('redes.js', le('redes.js')), ('venda.js', venda)]
+          ('produto.js', prod), ('redes.js', le('redes.js')), ('venda.js', venda), ('seo.js', le('seo.js'))]
 saida = []
 for nome, txt in partes:
     for de, para in URLS.items():
