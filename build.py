@@ -1,130 +1,101 @@
-# Monta o tema da prévia para a loja real (mrmimic.com.br, Nuvemshop, tema Morelia).
-#
-#   dist/mm-core.css  -> colar em Loja online > Layout > Editar layout atual > "Edição de css avançada"
-#                        (textarea #text-css_code, limite 58.000 caracteres)
-#   dist/mm.js        -> carregado por UMA linha no campo do tema
-#                        Editar layout > Rodapé da página > Selos personalizados > "Código HTML ou Javascript do selo"
-#                        (textarea #text-custom_seal_code; "Configurações > Códigos externos" NÃO tem campo de JS livre):
-#                        <script src="https://cdn.jsdelivr.net/gh/CaioRPeres/mr-mimic-site@<commit>/dist/mm.js"></script>
-#   assets/           -> imagens usadas pelos scripts e pelo CSS (servidas pelo jsDelivr junto com o mm.js)
-#
-# Publicar uma mudança: mexer na prévia -> python3 build.py <base com o commit ATUAL da loja> -> git commit + push
-#   -> trocar o <commit> da linha do selo pelo novo -> "Publicar alterações". Se o CSS mudou, colar de novo o mm-core.css.
-#   URL presa ao commit = arquivo imutável, sem risco de cache velho no navegador do cliente.
-#
-# Fonte: ../previa-html/*.js e ../mimic-oficial.css (a prévia continua sendo onde se mexe).
-# Uso:   python build.py <base>     base = URL da pasta do repositório no jsDelivr, terminando em "/"
-import os, re, sys, json, shutil, subprocess
-from PIL import Image
+"""Monta o tema da Mr. Mimic para a loja real (mrmimic.com.br, Nuvemshop, tema Morelia).
+
+    python3 build.py
+
+Lê src/ e grava:
+  dist/mm-core.css   colar no admin: Loja online > Layout > Editar layout atual > "Edição de css avançada"
+  dist/mm-extra.css  só para conferência; o conteúdo vai embutido no mm.js
+  dist/mm.js         carregado por uma linha no rodapé do tema (ver README.md, "Publicar")
+
+As imagens que os scripts usam ficam em assets/ e são servidas pelo jsDelivr junto com o mm.js.
+"""
+import json
+import os
+import re
+import sys
+
+import css as tema_css
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-PREV = os.path.join(AQUI, '..', 'previa-html')
-BASE = sys.argv[1] if len(sys.argv) > 1 else 'https://cdn.jsdelivr.net/gh/CaioRPeres/mr-mimic-site@main/'
-os.makedirs(os.path.join(AQUI, 'dist'), exist_ok=True)
+SRC = os.path.join(AQUI, 'src')
+DIST = os.path.join(AQUI, 'dist')
 
-# ---------- imagens ----------
-PNG_WEBP = ['hero/p1-v6.png', 'hero/p2.png', 'hero/p3.png', 'hero/p4.png', 'hero/p5-moedas2.png',
-            'hero/luz-hero-1.png', 'hero/luz-hero-2.png', 'hero/luz-hero-3.png', 'hero/luz-hero-4.png',
-            'hero/luz-hero-5-ouro.png', 'hero/luz-hero-6.png']
-COPIA = [f'hero/banner-{n}{c}.webp' for n in ('30-anos', 'escuridao-absoluta', 'cartas-avulsas', 'acessorios', 'compramos', 'reinado-delta') for c in ('', '-cel')] + [
-         'img-jp/pikachu-ex-234-193-mega-dream-ex-jp-ilustracao-secreta.jpg',
-         'img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp',
-         'img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp',
-         'img-prod/sleeve-basico-duplo-cards-bra-transparente-200-unidades-1.webp',
-         'img-prod/toploader-cristal-bra-25-unidades-1.webp',
-         'img-prod/case-magnetico-4mm-cards-bra-unitario-1.webp']
-for f in PNG_WEBP:
-    d = os.path.join(AQUI, 'assets', f[:-4] + '.webp'); os.makedirs(os.path.dirname(d), exist_ok=True)
-    s = os.path.join(PREV, f)
-    if not os.path.exists(d) or os.path.getmtime(d) < os.path.getmtime(s):
-        Image.open(s).save(d, 'WEBP', quality=86, method=6)
-for f in COPIA:
-    d = os.path.join(AQUI, 'assets', f); os.makedirs(os.path.dirname(d), exist_ok=True)
-    shutil.copy2(os.path.join(PREV, f), d)
-shutil.copy2(os.path.join(PREV, 'logo-oficial.png'), os.path.join(AQUI, 'assets', 'logo-oficial.png'))
+# O logo do cabeçalho é uma imagem de fundo no CSS colado no admin, com endereço preso a este commit.
+# Mantendo o mesmo endereço, o mm-core.css não muda a cada build e não precisa ser colado de novo.
+BASE_DO_CSS = 'https://cdn.jsdelivr.net/gh/CaioRPeres/mr-mimic-site@92d2d55ea43998895f79bae92ea2abd1a182408a/'
 
-# ---------- CSS ----------
-subprocess.run([sys.executable, os.path.join(AQUI, 'split_css.py'), os.path.join(AQUI, '..', 'mimic-oficial.css'), BASE],
-               check=True, cwd=AQUI)
-extra = open(os.path.join(AQUI, 'dist', 'mm-extra.css')).read()
+# Ordem importa: o slider entra antes da grade de categorias, que se posiciona logo depois dele;
+# a cor dos cards vem antes do produto.js, que usa a tabela de cores.
+MODULOS_JS = ['hero', 'home-categorias', 'cor-card', 'produto', 'redes', 'venda', 'seo']
+# CSS dos módulos acima, depois do tema. Tudo dele vai para o extra (só existe quando o script roda).
+CSS_DOS_MODULOS = ['hero', 'home-categorias']
 
-# ---------- scripts ----------
-URLS = {'catalogo.html': '/cartas-avulsas/', 'pokemon-tcg.html': '/pokemon-tcg/',
-        'acessorios.html': '/acessorios/', 'venda-suas-cartas.html': '/venda-suas-cartas/'}
-HOME = 'if (!document.querySelector(\'[data-store^="home-"]\')) return;'
 
-def troca(txt, de, para, n=None, nome=''):
-    c = txt.count(de)
-    assert c and (n is None or c == n), f'{nome}: esperava {n or ">=1"} de {de!r}, achei {c}'
-    return txt.replace(de, para)
+def ler(*caminho):
+    with open(os.path.join(SRC, *caminho), encoding='utf-8') as f:
+        return f.read()
 
-def webp(m):  # "hero/x.png?s=2" -> MM_A+"hero/x.webp"
-    return 'MM_A+"' + m.group(1) + '.webp"'
 
-def le(nome):
-    return open(os.path.join(PREV, nome)).read()
+def gravar(nome, texto):
+    with open(os.path.join(DIST, nome), 'w', encoding='utf-8') as f:
+        f.write(texto)
 
-# Os preços que aparecem no texto do hero vêm da loja no ar (conferidos em 06/10/2026, páginas de categoria).
-hero = le('hero2.js')
-hero = troca(hero, '(function () {\n', '(function () {\n  ' + HOME + '\n', 1, 'hero2')
-hero = re.sub(r'"(hero/[^"?]+)\.png(\?[^"]*)?"', webp, hero)
-hero = re.sub(r'"(hero/[^"?]+\.jpg)(\?[^"]*)?"', r'MM_A+"\1"', hero)
-hero = re.sub(r'(?<!MM_A\+)"(hero/[^"?]+\.webp)(\?[^"]*)?"', r'MM_A+"\1"', hero)
-# a loja real não tem carrossel: o hero entra no lugar da mensagem de boas-vindas (que repete o hero)
-hero = troca(hero, 'else document.body.prepend(sec);',
-             'else { const bv = document.querySelector(\'[data-store="home-welcome-message"]\') || document.querySelector(\'[data-store^="home-"]\');'
-             ' const alvo = bv.closest("section") || bv; alvo.parentElement.insertBefore(sec, alvo);'
-             ' if (bv.matches(\'[data-store="home-welcome-message"]\')) alvo.style.display = "none"; }', 1, 'hero2')
 
-cats = le('home-categorias.js')
-cats = troca(cats, '(function () {\n', '(function () {\n  ' + HOME + '\n', 1, 'home-categorias')
-cats = re.sub(r'img:"((img-jp|img-prod)/[^"]+)"', r'img:MM_A+"\1"', cats)
-# loja real: "Destaques" vem em GRADE (sem swiper); vira carrossel clonando a fileira de baixo (ainda não iniciada pelo tema)
-cats = troca(cats, '  if (secs.length < 2) return;\n', '''  if (secs.length < 2) return;
-  if (!secs[0].querySelector(".swiper-container") && secs[1].querySelector(".swiper-container")) {
-    const g = secs[0], c = secs[1].cloneNode(true);
-    c.querySelectorAll("*").forEach(e => { if (typeof e.className === "string" && /js-swiper-new|js-products-new/.test(e.className)) e.className = e.className.replace(/js-swiper-new/g, "js-swiper-feat").replace(/js-products-new/g, "js-products-feat"); });
-    const cc = c.querySelector(".swiper-container"); cc.className = "js-swiper-feat swiper-container"; cc.removeAttribute("style");
-    const wc = cc.querySelector(".swiper-wrapper"); wc.innerHTML = ""; wc.removeAttribute("style");
-    c.dataset.mmClone = "1"; c.style.order = getComputedStyle(g).order;
-    g.parentElement.insertBefore(c, g); g.style.display = "none"; secs[0] = c;
-  }
-''', 1, 'home-categorias')
-cats = troca(cats, 'const ok = secs.every(s => (s.querySelector(".swiper-container")||{}).swiper);',
-             'const ok = secs.filter(s => !s.dataset.mmClone).every(s => (s.querySelector(".swiper-container")||{}).swiper);', 1, 'home-categorias')
-# na loja cada fileira se completa com até 8 da categoria
-cats = troca(cats, '[["catalogo.html", 6]]', '[["catalogo.html", 8]]', 1, 'home-categorias')
-cats = troca(cats, '[["pokemon-tcg.html", 7]]', '[["pokemon-tcg.html", 8]]', 1, 'home-categorias')
+def montar_css():
+    css = tema_css.encurtar(tema_css.minificar(ler('css', 'tema.css')))
+    css = css.replace("url('logo-oficial.png')", f"url('{BASE_DO_CSS}assets/logo-oficial.png')")
+    core, extra = tema_css.dividir(css)
+    assert len(core) <= tema_css.LIMITE_CORE, f'mm-core.css com {len(core)} caracteres passa do limite do campo do admin'
 
-prod = le('produto.js')
-prod = troca(prod, 'const previa = /^(127\\.0\\.0\\.1|localhost)$/.test(location.hostname);', 'const previa = false;', 1, 'produto')
-prod = troca(prod, '"https://mrmimic.com.br/" + i.img', 'MM_A + i.img', 1, 'produto')
+    for nome in CSS_DOS_MODULOS:
+        modulo = tema_css.encurtar(tema_css.minificar(ler('css', nome + '.css')))
+        sobra_no_core, _ = tema_css.dividir(modulo)
+        assert not sobra_no_core, f'{nome}.css tem regra que não é de elemento do script: {sobra_no_core[:120]}'
+        extra += modulo
+    return core, extra
 
-venda = le('venda.js')
-venda = troca(venda, '(function () {\n', '(function () {\n  if (!/^\\/venda-suas-cartas\\/?$/.test(location.pathname)) return;\n', 1, 'venda')
-venda = troca(venda, 'const base = previa ? "" : "https://mrmimic.com.br/";', 'const base = MM_A;', 1, 'venda')
-venda = re.sub(r'\$\{base\}(hero/[^"?]+)\.png(\?[^"]*)?', r'${base}\1.webp', venda)
 
-partes = [('hero2.js', hero), ('home-categorias.js', cats), ('cor-card.js', le('cor-card.js')),
-          ('produto.js', prod), ('redes.js', le('redes.js')), ('venda.js', venda), ('seo.js', le('seo.js'))]
-saida = []
-for nome, txt in partes:
-    for de, para in URLS.items():
-        txt = txt.replace('"' + de + '"', '"' + para + '"').replace("'" + de + "'", "'" + para + "'")
-    saida.append(f'/* ===== {nome} ===== */\ntry {{\n{txt}\n}} catch (e) {{ console.warn("mm {nome}", e); }}\n')
-
-prel = ('/* Mr. Mimic: scripts do tema na loja real. GERADO por loja-real/build.py a partir de previa-html/; nao editar aqui. */\n'
+def montar_js(extra):
+    cores = json.loads(ler('dados', 'cores-produtos.json'))
+    preludio = (
+        '/* Mr. Mimic: scripts do tema na loja real. GERADO por build.py a partir de src/; não editar aqui. */\n'
         '(function () {\n'
-        '  var me = (document.currentScript && document.currentScript.src) || "";\n'
-        '  window.MM_BASE = me ? me.replace(/dist\\/[^\\/]*$/, "") : ' + json.dumps(BASE) + ';\n'
-        '  window.MM_A = window.MM_BASE + "assets/";\n'
-        '  if (!document.getElementById("mm-extra")) { var st = document.createElement("style"); st.id = "mm-extra";\n'
-        '    st.textContent = ' + json.dumps(extra) + ';\n'
-        '    document.head.appendChild(st); }\n'
+        '  var eu = (document.currentScript && document.currentScript.src) || "";\n'
+        '  var base = eu ? eu.replace(/dist\\/[^\\/]*$/, "") : ' + json.dumps(BASE_DO_CSS) + ';\n'
+        '  window.MM = {\n'
+        '    asset: function (caminho) { return base + "assets/" + caminho; },\n'
+        '    naHome: function () { return !!document.querySelector(\'[data-store^="home-"]\'); },\n'
+        '    cores: ' + json.dumps(cores, ensure_ascii=False) + '\n'
+        '  };\n'
+        '  if (!document.getElementById("mm-extra")) {\n'
+        '    var estilo = document.createElement("style"); estilo.id = "mm-extra";\n'
+        '    estilo.textContent = ' + json.dumps(extra, ensure_ascii=False) + ';\n'
+        '    document.head.appendChild(estilo);\n'
+        '  }\n'
         '})();\n')
-js = prel + '\n'.join(saida)
-open(os.path.join(AQUI, 'dist', 'mm.js'), 'w').write(js)
-# o que ainda aponta para a prévia não pode sobrar
-sobra = re.findall(r'["\'][\w-]+\.html["\']', js) + re.findall(r'(?<!MM_A\+)"hero/[^"]+"', js)
-assert not sobra, f'caminhos da prévia sobrando no mm.js: {sobra[:5]}'
-print('mm.js', len(js), 'bytes;', 'assets', sum(len(f) for _, _, f in os.walk(os.path.join(AQUI, 'assets'))), 'arquivos')
+    # cada módulo isolado: um erro num não derruba os outros
+    modulos = [f'/* ===== {nome}.js ===== */\ntry {{\n{ler("js", nome + ".js")}\n}} catch (e) {{ console.warn("mm {nome}.js", e); }}\n'
+               for nome in MODULOS_JS]
+    return preludio + '\n'.join(modulos)
+
+
+def conferir(js):
+    paginas_da_previa = re.findall(r'["\'][\w-]+\.html["\']', js)
+    assert not paginas_da_previa, f'link para página da prévia no mm.js: {paginas_da_previa[:3]}'
+    telefone = re.search(r'wa\.me/|api\.whatsapp|\(\d\d\)\s?9\d{4}-?\d{4}', js)
+    assert not telefone, f'telefone no mm.js: {telefone.group(0)} (decisão do Caio: nada de telefone no site)'
+
+
+def main():
+    os.makedirs(DIST, exist_ok=True)
+    core, extra = montar_css()
+    js = montar_js(extra)
+    conferir(js)
+    gravar('mm-core.css', core)
+    gravar('mm-extra.css', extra)
+    gravar('mm.js', js)
+    print(f'mm-core.css {len(core)} caracteres (limite {tema_css.LIMITE_CORE}) | mm-extra.css {len(extra)} | mm.js {len(js)}')
+
+
+if __name__ == '__main__':
+    sys.exit(main())

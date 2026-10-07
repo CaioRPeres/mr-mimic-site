@@ -1,0 +1,635 @@
+/* Tema da Mr. Mimic sobre o tema Morelia da Nuvemshop.
+   O arquivo está na ordem em que as decisões foram tomadas (03/10 a 06/10/2026): a regra de baixo vence a de cima.
+   Nenhuma declaração aqui é sobrescrita pelo mesmo seletor mais abaixo; o checar.py avisa se isso voltar a acontecer
+   (e "python3 css_mortas.py --limpar" tira o que ficou morto).
+   O build.py minifica e divide: o que é de elemento dos nossos scripts, de :hover/:focus ou que a Nuvemshop apagaria
+   vai para o mm.js; o resto é o mm-core.css colado no admin. */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@400;900&family=Figtree:wght@400;500;600;700&display=swap');
+body{font-family:'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{text-underline-offset:3px}
+h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.section-title,.product-name,.page-header h1,.category-header h1{font-family:'Londrina Solid','Arial Black',sans-serif !important;font-weight:900 !important;letter-spacing:.01em;color:#241B38;text-transform:none}
+.section-title,.home-section-title,[data-store="home-products-featured"] h2,[data-store="home-products-new"] h2{font-family:'Londrina Solid',sans-serif !important;font-weight:900 !important;letter-spacing:.01em;text-transform:none;color:#241B38}
+.head-main,.head-main p,.head-main span,.head-main a,.head-main .nav-list-link{color:#EDE6FA}
+.head-main svg{fill:#EDE6FA}
+.head-main .btn,.head-main .btn:hover{background:transparent !important;border-color:transparent !important;box-shadow:none !important;transform:none !important}
+.head-main .section-adbar,.section-adbar{background:#FFD12E !important;color:#241B38 !important;font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;border-bottom:3px solid #120C1E}
+.head-main .section-adbar a,.head-main .section-adbar span{color:#241B38 !important}
+.logo-img{width:auto !important}
+.head-main .nav-list-link,.nav-desktop-list a{font-family:'Figtree',sans-serif !important;font-weight:700;margin:4px 3px;display:inline-block;line-height:1.3;transition:background .15s ease,transform .15s ease}
+.nav-dropdown-content .nav-list-link{font-family:'Figtree',sans-serif}
+.nav-dropdown-content .nav-list-link:hover{border-color:#241B38}
+.btn,.btn-primary,.btn-secondary,.btn-default{text-transform:none;border:3px solid #241B38 !important;transition:transform .12s ease,box-shadow .12s ease}
+.btn-primary:active,.btn-secondary:active,.btn-default:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #241B38 !important}
+.btn-link{border:0 !important;box-shadow:none !important;border-radius:0 !important;background:transparent !important;font-weight:700}
+.btn-link:hover{transform:none;color:#241B38 !important}
+.item{overflow:hidden}
+.item-image{margin:0}
+.item-name,.js-item-name,.item-name a{font-family:'Figtree',sans-serif !important;font-weight:700 !important;opacity:1 !important;text-shadow:none;letter-spacing:0}
+.item-price,.price,.product-price,.js-price-display{font-family:'Londrina Solid',sans-serif;font-weight:900;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.item-price-compare,.price-compare,del{font-size:.85rem;font-family:'Figtree',sans-serif}
+.label,.label-primary,.label-accent{font-family:'Figtree',sans-serif;font-weight:700;text-transform:uppercase}
+.label span,.label-primary span,.label-accent span{color:#241B38 !important}
+.section-featured-home,.section-products-related{background:transparent !important}
+.section-newsletter-home,.section-newsletter-home-colors{border-top:3px solid #241B38;border-bottom:3px solid #241B38}
+.home-category-name{color:#241B38}
+.form-control,input.form-control,textarea.form-control,.form-select{font-family:'Figtree',sans-serif}
+.form-quantity{overflow:hidden}
+.form-quantity .form-quantity-icon,.form-quantity .form-quantity-icon:hover{border:0 !important;box-shadow:none !important;background:transparent !important;border-radius:0 !important;transform:none !important}
+.form-quantity .form-control{border:0 !important;box-shadow:none !important;background:transparent !important;text-align:center;border-radius:0 !important;font-weight:700}
+.modal,.modal-body,.modal-scrollable-area,.modal .modal-footer,.modal-sticky-close{background:#FFFFFF !important;color:#241B38}
+.modal-header{border-bottom:3px solid #241B38}
+.card{padding:14px}
+.alert,.alert-warning,.alert-info{background:#FBEFD3;color:#241B38;border:3px solid #241B38;border-left:10px solid #FFD12E;border-radius:16px;box-shadow:5px 5px 0 #241B38}
+.item-colors-bullet{border-color:#241B38}
+.js-quickshop,.quickshop{background:#FFFFFF}
+footer,.footer,.footer-colors{background:#241B38 !important;border-top:3px solid #120C1E;color:#B3A4D4}
+footer p,footer span,footer li,footer label,.footer p,.footer span,.footer li,.footer-colors p,.footer-colors span{color:#B3A4D4}
+.footer a,.footer-colors a,footer a{color:#EDE6FA}
+footer h2,footer h3,footer h4,.footer h2,.footer h3,.footer h4{color:#EDE6FA}
+footer .form-control,.footer .form-control{background:#2E2347 !important;color:#EDE6FA !important;border-color:#120C1E !important}
+.footer-colors .btn-primary{background:#FFD12E !important;color:#241B38 !important}
+.newsletter-btn,.btn-link.newsletter-btn{background:#FFD12E !important;color:#241B38 !important;border:2.5px solid #241B38 !important;border-radius:999px !important;box-shadow:2px 2px 0 #241B38 !important;margin:3px !important;padding:4px 16px !important;font-family:'Figtree',sans-serif !important;font-weight:700;text-decoration:none !important}
+.newsletter-btn:hover{background:#F3CD77 !important}
+.js-notification-cookie-banner,.notification-primary{background:#241B38 !important;color:#EDE6FA !important;border-top:3px solid #120C1E}
+.js-notification-cookie-banner span,.js-notification-cookie-banner p,.notification-primary span{color:#EDE6FA !important}
+.js-notification-cookie-banner a,.notification-primary a{color:#FFD12E !important}
+.swiper-container{padding-top:10px !important;margin-top:-10px !important;padding-bottom:12px !important;margin-bottom:-12px !important;padding-right:10px !important}
+.swiper-pagination-bullet{border-radius:999px !important;width:26px;height:10px;border:2px solid #241B38;opacity:1}
+.swiper-pagination-bullet-active{width:40px}
+.swiper-button-prev,.swiper-button-next{border-radius:999px !important}
+.swiper-button-disabled{opacity:.4 !important}
+.section-slider-home,.section-banners-home{position:relative}
+.section-slider .mt-2.text-center{margin:0 !important;height:0 !important;line-height:0}
+.section-slider .swiper-button-prev,.section-slider .swiper-button-next{position:absolute !important;top:50% !important;transform:translateY(-50%);margin:0 12px !important;z-index:6;width:52px !important;height:52px !important;background-color:#FFFFFF !important;border:3px solid #241B38;border-radius:999px !important;box-shadow:3px 3px 0 #241B38;opacity:.95;transition:opacity .15s ease,background-color .15s ease;display:flex !important;align-items:center;justify-content:center}
+.section-slider .swiper-button-prev{left:0 !important;right:auto !important}
+.section-slider .swiper-button-next{right:0 !important;left:auto !important}
+.section-slider .swiper-button-prev:hover,.section-slider .swiper-button-next:hover{opacity:1;background-color:#FFD12E !important}
+.section-slider .swiper-button-prev svg,.section-slider .swiper-button-next svg{fill:#241B38 !important;width:22px !important;height:22px !important}
+.item-image,.product-slider-image,.product-image,.product-detail-slider,.js-product-slide,.swiper-slide{background:transparent !important}
+.product-detail-slider{border:3px solid #241B38;border-radius:18px;box-shadow:5px 5px 0 #241B38;padding:18px}
+.product-detail-slider .swiper-slide{background:transparent !important}
+.js-shipping-calculator-form .form-label,.shipping-calculator-form .form-label{font-size:0 !important;line-height:0}
+.js-shipping-calculator-form .form-label::before,.shipping-calculator-form .form-label::before{content:"Calcule seu frete";line-height:1.4}
+.price-container{position:relative;padding:18px 20px 10px !important;margin:0 !important}
+.js-price-display{font-size:2.8rem;line-height:1}
+.js-price-container{margin-bottom:6px !important}
+.js-product-payments-container,.js-product-payments-container span{color:#241B38;font-size:.9rem;margin-bottom:0 !important}
+.js-product-payments-container a,.js-product-payments-container .btn-link{color:#473869 !important;font-size:.84rem}
+.js-product-form{position:relative;padding:10px 20px 18px;margin-top:0 !important;display:flex;flex-direction:column}
+.js-product-form > .text-accent{order:1;align-self:flex-start;font-size:0;background:#D8433A;color:#FFFFFF;border:2.5px solid #241B38;border-radius:999px;padding:5px 14px 6px;margin:6px 0 14px !important;box-shadow:2px 2px 0 #241B38}
+.js-product-form > .text-accent::before{content:"⚡ Última unidade em estoque";font-family:'Figtree',sans-serif;font-weight:700;font-size:14px;letter-spacing:.02em;color:#FFFFFF}
+.js-product-form > .mb-4:not(.row){order:2;margin-bottom:14px !important}
+.js-product-form > .row.mb-4{order:3;margin-bottom:0 !important}
+.js-product-form > .row{order:3;margin-bottom:0 !important;position:relative;padding-bottom:30px}
+.js-product-quantity-container .font-smallest{position:absolute;left:0;top:100%;margin-top:-17px;padding:0 !important;white-space:nowrap;text-align:left !important;font-family:'Figtree',sans-serif;font-weight:700;font-size:.86rem;color:#24704F}
+.js-product-quantity-container .font-smallest::before{content:"● "}
+.js-product-form > .text-accent:not([style*="none"]) ~ .row .font-smallest{display:none}
+.js-product-form::after{order:4;white-space:pre-line;font-size:.86rem;line-height:1.8;margin-top:14px;padding-top:12px;border-top:2px dashed #E0D7EF}
+[data-store^="product-description"] .user-content::before{content:"Sobre este item";display:block;font-family:'Londrina Solid',sans-serif;font-weight:900;font-size:1.7rem;letter-spacing:.01em;margin:18px 0 8px}
+.user-content,.user-content p,.user-content li{color:#241B38}
+.js-home-sections-container{display:flex;flex-direction:column}
+[data-store="home-slider"]{order:1}
+[data-store="home-products-featured"]{order:2}
+[data-store="home-products-new"]{order:3}
+[data-store="banner-services"]{order:7}
+[data-store="home-newsletter"]{order:8}
+[data-store="home-institutional-message"]{order:4;background:#241B38;border-top:3px solid #120C1E;border-bottom:3px solid #120C1E;padding:54px 0}
+[data-store="home-institutional-message"] .col-md-8{display:flex;flex-direction:column;align-items:center}
+.js-institutional-message-text{order:1;font-size:3rem !important;line-height:1;margin-bottom:14px !important;color:#EDE6FA !important;text-shadow:3px 3px 0 #473869}
+.js-institutional-message-title{order:2;font-family:'Figtree',sans-serif;font-size:1.05rem;line-height:1.6;color:#B3A4D4 !important;max-width:760px;margin-bottom:26px !important}
+.js-institutional-message-button{order:3;background:#FFD12E !important;color:#241B38 !important;font-family:'Figtree',sans-serif;font-weight:700;font-size:1.05rem;padding:13px 28px;border:3px solid #120C1E;border-radius:999px;text-decoration:none !important;box-shadow:4px 4px 0 #120C1E}
+a.mm-cta{display:inline-block;background:#FFD12E;color:#241B38 !important;font-family:'Figtree',sans-serif;font-weight:700;font-size:1.1rem;padding:14px 30px;margin:10px 0 6px;border:3px solid #241B38;border-radius:999px;text-decoration:none !important;box-shadow:4px 4px 0 #241B38;transition:transform .12s ease,box-shadow .12s ease}
+a.mm-cta strong{font-weight:700;color:#241B38}
+a.mm-cta:hover{background:#F3CD77;transform:translate(-2px,-2px);box-shadow:6px 6px 0 #241B38}
+.js-notification-cookie-banner strong,.js-notification-cookie-banner b,.notification-primary strong,footer strong,.footer strong,.head-main strong{color:#FFFFFF !important}
+@media(max-width:768px){.section-slider .swiper-button-prev,.section-slider .swiper-button-next{width:42px !important;height:42px !important}}
+.item .item-price-compare,.item .price-compare,.item del{color:#B3A4D4 !important}
+.item .js-product-item-image-container-private,.item [class*=item-image-container]{background:#3B2C5A !important}
+.item .placeholder-fade{background:rgba(36,27,56,.12) !important}
+/* ---- camada escura: necroplasma contido ---- */
+html,body{background:#15102A !important;color:#E9E4F5 !important}
+body,p,span,li,td,label,.text-primary,strong,b{color:#E9E4F5 !important}
+a{color:#FFE066 !important}
+a:hover{color:#FFEC99 !important}
+.head-main{background:#0F0B1F !important}
+.section-adbar{background:#FFD12E !important;color:#241B38 !important;border-bottom:3px solid #0F0B1F !important}
+.section-adbar a,.section-adbar span{color:#241B38 !important}
+h1,h2,h3,h4,h5,.h1,.h2,.h3,.section-title,.product-name,.page-header h1,.category-header h1{color:#F3EFFC !important;text-shadow:3px 3px 0 #3A2C5E !important}
+.item-name,.js-item-name,.item-name a{color:#E9E4F5 !important}
+.item .item-price,.item .price,.item .product-price{color:#FFE066 !important;}
+.item-price-compare,.price-compare,del{color:#8B7FB0 !important}
+.item-price,.price,.product-price,.js-price-display{color:#FFE066 !important}
+.btn-primary,.btn-primary:hover,.btn-primary:focus{fill:#241B38 !important}
+.btn-link{color:#FFE066 !important}
+.label,.label-primary,.label-accent{background:#FFD12E !important;color:#241B38 !important}
+.card,.modal,.modal-body,.modal-scrollable-area,.modal .modal-footer{background:#241B38 !important;color:#E9E4F5 !important;border-color:#0F0B1F !important;box-shadow:5px 5px 0 #0F0B1F !important}
+.modal-header{background:#1D1633 !important;border-bottom-color:#4A3B70 !important}
+.form-control,input.form-control,textarea.form-control,.form-select,.form-quantity{background:#1D1633 !important;color:#E9E4F5 !important}
+.form-control::placeholder{color:#8B7FB0 !important}
+.form-quantity svg{fill:#E9E4F5 !important}
+.section-newsletter-home,.section-newsletter-home-colors{background:#1D1633 !important;border-color:#4A3B70 !important}
+.divider,hr{border-color:#3A2C5E !important}
+.category-controls,.js-category-controls,.category-header,.breadcrumbs,.section-main{background:#15102A !important}
+.js-swiper-product,.product-detail-slider,.price-container,.js-product-form,.nav-dropdown-content,.desktop-dropdown{background:#241B38 !important;border-color:#0F0B1F !important;color:#E9E4F5 !important}
+.nav-dropdown-content a,.nav-dropdown-content span{color:#E9E4F5 !important}
+.product-installments,.text-accent{color:#FFE066 !important}
+.text-muted,.product-description,.product-description *,.js-product-description,.section-content,.accordion-title{color:#CFC7E4 !important}
+.section-title,.product-detail-title,h2,h3,h4{color:#F3EFFC !important}
+.footer-main,.footer{background:#0F0B1F !important}
+.breadcrumbs,.breadcrumbs a,.breadcrumbs span{color:#A99FC6 !important}
+.js-product-description h2,.js-product-description h3,.product-description h2,.product-description h3{color:#F3EFFC !important;text-shadow:3px 3px 0 #3A2C5E !important}
+.placeholder-fade{background:rgba(15,11,31,.25) !important}
+.swiper-pagination-bullet{background:#6B5D92 !important}
+.swiper-pagination-bullet-active{background:#FFD12E !important}
+.swiper-button-next svg,.swiper-button-prev svg{fill:#E9E4F5 !important}
+[data-store^="product-description"] .user-content::before{color:#F3EFFC !important;text-shadow:3px 3px 0 #3A2C5E !important}
+[data-store^="product-description"] .user-content::after{color:#CFC7E4 !important;border-top-color:#4A3B70 !important}
+[data-store^="product-description"] .user-content{color:#CFC7E4 !important}
+[data-store^="product-description"] h2,[data-store^="product-description"] h3{color:#F3EFFC !important;text-shadow:3px 3px 0 #3A2C5E !important}
+
+.item-image{border-radius:0 !important}
+.label,.label-primary,.label-accent{border-radius:999px !important}
+.card,.modal,.js-product-form,.price-container,.js-swiper-product{border:3px solid #0F0B1F !important;border-radius:18px !important}
+.head-main .nav-list-link,.nav-desktop-list a{background:#241B38 !important;color:#E9E4F5 !important;border:2.5px solid #0F0B1F !important;border-radius:999px !important;text-transform:none !important;letter-spacing:0 !important;font-size:.98rem !important;padding:6px 16px !important}
+.head-main .nav-list-link:hover,.nav-desktop-list a:hover{background:#FFD12E !important;color:#241B38 !important;box-shadow:3px 3px 0 #0F0B1F !important}
+.item{background:#312654 !important}
+.item-image{background:#211839 !important}
+.card,.modal,.js-product-form,.price-container,.js-swiper-product{background:#2A2046 !important;border-color:#090612 !important;box-shadow:6px 6px 0 #090612 !important}
+.btn-primary:hover{box-shadow:7px 7px 0 #090612 !important}
+.head-main .nav-list-link,.nav-desktop-list a{box-shadow:3px 3px 0 #090612 !important;border-color:#090612 !important}
+/* ---- destaques em verde necroplasma: vantagem para o cliente ----
+   especificidade dobrada (.label.x) para vencer as regras do tema ---- */
+.label.js-free-shipping-minimum-label,.label.js-shipping-label-private,
+.label.js-offer-label,.label.label-accent,
+.labels .label-offer-percentage,.label-offer-percentage{
+  background:#9CFF3D !important;color:#152600 !important;border-color:#0F0B1F !important}
+.label.js-free-shipping-minimum-label span,.label.js-shipping-label-private span,
+.label.js-offer-label span,.label.label-accent span,
+.label-offer-percentage span,.label-offer-percentage-text{color:#152600 !important}
+.text-success,.free-shipping,.js-free-shipping,
+.cart-coupon-discount-label,.js-coupon-discount-amount,
+.js-offer-percentage,.js-cart-notification-discount-label{color:#9CFF3D !important}
+
+
+/* ---- menu principal: tudo visivel, sem slider ---- */
+.js-nav-desktop-list-arrow,[class*=nav-desktop-list-arrow]{display:none !important}
+.nav-desktop-list,.js-nav-desktop-list,.nav-desktop-with-scroll{
+  overflow:visible !important;overflow-x:visible !important;flex-wrap:wrap !important;
+  justify-content:center !important;row-gap:8px;column-gap:4px;max-width:100% !important;scrollbar-width:none}
+.nav-desktop-list::-webkit-scrollbar{display:none}
+.nav-desktop{overflow:visible !important}
+.head-main .nav-list-link,.nav-desktop-list > .nav-main-item > .nav-item-container > a{white-space:nowrap}
+
+/* ---- submenu: lista limpa, sem pilula ---- */
+.nav-dropdown-content,.desktop-dropdown{border-radius:18px !important}
+
+/* ---- grade do catalogo: responsiva de verdade ---- */
+@media (min-width:1400px){ .js-product-table .item-product{flex:0 0 20% !important;max-width:20% !important} }
+@media (max-width:767px){
+  .js-product-table .item-product{flex:0 0 50% !important;max-width:50% !important}
+        }
+
+/* ---- submenu v2: cartao centrado, links em linha ---- */
+.nav-dropdown-content,.desktop-dropdown{
+  background:transparent !important;border:0 !important;box-shadow:none !important;padding:8px 16px 20px !important}
+.nav-dropdown-content > .container{
+  background:#241B38 !important;border:3px solid #090612 !important;border-radius:18px !important;margin:0 auto !important}
+.nav-dropdown-content .list-subitems,.nav-dropdown-content .desktop-list-subitems{
+  display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:6px !important;
+  grid-template-columns:none !important;list-style:none;margin:0;padding:0}
+.nav-dropdown-content .list-subitems > li,.nav-dropdown-content .desktop-list-subitems > li{margin:0;padding:0}
+.nav-dropdown-content .nav-list-link,.desktop-dropdown .nav-list-link{
+  display:block !important;width:auto !important;background:transparent !important;
+  box-shadow:none !important;border-radius:999px !important;margin:0 !important;
+  text-align:center !important;font-weight:600 !important;color:#E9E4F5 !important;
+  white-space:nowrap !important;line-height:1.3 !important;transform:none !important}
+.nav-dropdown-content .nav-list-link:hover,.desktop-dropdown .nav-list-link:hover{
+  background:#FFD12E !important;color:#241B38 !important;box-shadow:none !important;transform:none !important}
+
+/* ---- menu: quebra de verdade (a lista era display:block com white-space:nowrap) ---- */
+.nav-desktop-list,.js-nav-desktop-list{
+  display:flex !important;flex-wrap:wrap !important;justify-content:center !important;
+  white-space:normal !important;align-items:center;width:100% !important;max-width:100% !important}
+.nav-desktop-list > li,.js-nav-desktop-list > li{flex:0 0 auto;white-space:normal}
+
+/* ---- largura util: o tema travava tudo em 1020px ---- */
+@media (min-width:1280px){ .container,.head-logo-row,.js-head-logo-row{max-width:1200px !important} }
+@media (min-width:1500px){ .container,.head-logo-row,.js-head-logo-row{max-width:1400px !important} }
+@media (min-width:1800px){ .container,.head-logo-row,.js-head-logo-row{max-width:1560px !important} }
+#mm-filtros .linha{max-width:1560px !important}
+/* o submenu continua estreito de proposito */
+.nav-dropdown-content > .container{max-width:920px !important}
+/* texto corrido nao acompanha: leitura sofre acima de ~75 caracteres */
+[data-store^="product-description"] .user-content,.js-product-description{max-width:760px}
+
+/* ---- colunas acompanham a largura ---- */
+@media (min-width:1600px){
+  .js-product-table .item-product{flex:0 0 16.6666% !important;max-width:16.6666% !important}
+}
+@media (min-width:1280px) and (max-width:1599px){
+  .js-product-table .item-product{flex:0 0 20% !important;max-width:20% !important}
+}
+
+/* ---- hover do card: o relevo acende em amarelo estrela ---- */
+.item{transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+
+
+/* ---- banner: em vez de cortar a arte, estreita o quadro (a altura cai junto) ---- */
+.js-slider,[class*=slider]:has(img[alt*="Carrossel"]),[class*=swiper]:has(img[alt*="Carrossel"]){
+  max-width:1440px !important;margin-left:auto !important;margin-right:auto !important}
+@media (max-width:1200px){
+  .js-slider,[class*=slider]:has(img[alt*="Carrossel"]),[class*=swiper]:has(img[alt*="Carrossel"]){max-width:100% !important}
+}
+
+/* =====================================================================
+   CORREÇÃO DE PROPORÇÕES (03/10, "corrige tudo") — escala única:
+   tipos 60/32/16/13 · botões 44/34 · espaçamento em 8px · contorno+sombra
+   dura só no card e no botão principal. Tudo abaixo sobrepõe o que veio antes.
+   ===================================================================== */
+
+/* --- cabeçalho: 88px, fixo, logo 48px, menu em texto --- */
+.head-main{border-bottom:1px solid #2A2046 !important}
+.nav-desktop-list,.js-nav-desktop-list{row-gap:0 !important;column-gap:0 !important}
+.head-main .nav-list-link,.nav-desktop-list > .nav-main-item > .nav-item-container > a{
+  background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;
+  color:#E9E4F5 !important;font:600 14px/1 Figtree,system-ui !important;letter-spacing:0 !important;
+  padding:10px 12px !important;margin:0 !important;transform:none !important;
+  border-bottom:3px solid transparent !important;transition:color .15s,border-color .15s}
+.head-main .nav-list-link:hover,.nav-desktop-list a:hover,.nav-main-item.active > .nav-item-container > a{
+  color:#FFD12E !important;border-bottom-color:#FFD12E !important;background:transparent !important;transform:none !important;box-shadow:none !important}
+.nav-main-item.item-with-subitems > .nav-list-link::after{content:" ▾";color:#9C8FC4}
+.nav-dropdown-content > .container{border-width:1px !important;box-shadow:0 12px 32px rgba(6,4,14,.55) !important;padding:8px 10px !important}
+.nav-dropdown-content .nav-list-link,.desktop-dropdown .nav-list-link{font-size:14px !important;padding:9px 14px !important;border:0 !important}
+.nav-dropdown-content .nav-list-link:hover{background:#FFD12E !important;color:#241B38 !important;border-bottom-color:transparent !important}
+
+/* --- botões: uma escala --- */
+.btn,.btn-primary,.btn-secondary,.btn-default{font:700 15px/1 Figtree,system-ui !important;letter-spacing:0;
+  border-radius:999px !important;padding:0 22px !important;height:44px;line-height:44px !important;
+  display:inline-flex;align-items:center;justify-content:center}
+.btn-primary,.btn-primary:hover,.btn-primary:focus{background:#FFD12E !important;color:#241B38 !important;
+  border:3px solid #090612 !important;box-shadow:4px 4px 0 #090612 !important}
+.btn-primary:hover{transform:translate(-2px,-2px)}
+.btn-secondary,.btn-default{background:transparent !important;color:#E9E4F5 !important;
+  border:1.5px solid #4A3B70 !important;box-shadow:none !important;height:34px;line-height:34px !important;font-size:14px !important;padding:0 16px !important}
+.btn-secondary:hover,.btn-default:hover{border-color:#FFD12E !important;color:#FFD12E !important;transform:none !important;box-shadow:none !important}
+.btn-link{height:auto;line-height:1.4 !important;padding:0 !important}
+
+/* --- etiquetas, setas, campos: planos --- */
+.label,.label-primary,.label-accent,.label.js-free-shipping-minimum-label,.label.js-offer-label{
+  border:0 !important;box-shadow:none !important;font-size:11px !important;padding:4px 10px !important;letter-spacing:.06em}
+.item .label,.item .label-primary,.item .label-accent{box-shadow:none !important;border:0 !important}
+/* setas dos carrosseis — SO os botoes (o seletor anterior pegava o slide "swiper-slide-next"/"-prev") */
+.js-swiper-home-control,.swiper-button-prev,.swiper-button-next,
+a[class*="js-swiper"][class*="prev"],a[class*="js-swiper"][class*="next"],
+button[class*="js-swiper"][class*="prev"],button[class*="js-swiper"][class*="next"],
+[class*="js-swiper"][class*="control"]{
+  background:rgba(36,27,56,.85) !important;border:1.5px solid #4A3B70 !important;box-shadow:none !important;color:#E9E4F5 !important}
+.swiper-slide:has(> .js-item-product){border:0 !important;background:transparent !important;box-shadow:none !important;outline:0 !important}
+.form-control,input.form-control,textarea.form-control,.form-select,.form-quantity{
+  border:1.5px solid #4A3B70 !important;box-shadow:none !important;border-radius:10px !important}
+.form-control:focus{border-color:#FFD12E !important;outline:0 !important}
+
+/* --- cards: o único lugar com contorno + sombra dura (menor) --- */
+.item{border:2px solid #090612 !important;border-radius:14px !important;box-shadow:4px 4px 0 #090612 !important;padding-bottom:4px !important}
+.item:hover{transform:translate(-2px,-3px) !important}
+.item-image{border-bottom:2px solid #090612 !important}
+.item-description{padding:10px 12px 6px !important}
+.item-name,.js-item-name,.item-name a{font-size:14px !important;line-height:1.3 !important}
+.item-price{line-height:1.1 !important}
+.js-product-table .item-product,.item-product{padding-left:8px !important;padding-right:8px !important}
+.js-product-table{margin-left:-8px !important;margin-right:-8px !important;row-gap:16px}
+.swiper-slide .item{min-height:1px;visibility:visible !important}
+
+/* --- tipos: 60 / 32 / 16 / 13 --- */
+.section-title,.home-section-title,[data-store="home-products-featured"] h2,[data-store="home-products-new"] h2,
+.page-header h1,.category-header h1,.product-name,h1,.h1{font-size:32px !important;line-height:1.1 !important;text-shadow:2px 2px 0 #3A2C5E !important;margin:0 0 16px !important}
+.product-name{font-size:32px !important}
+body,p,li,td,label,.form-control{font-size:16px !important}
+.breadcrumbs,.breadcrumbs a,.breadcrumbs span,small,.text-muted{font-size:13px !important}
+
+/* --- espaçamento em 8px --- */
+.section-featured-home,.section-products-related,[data-store^="home-products"],.section-newsletter-home{padding-top:48px !important;padding-bottom:48px !important}
+.category-body .container{padding-top:24px !important}
+.mt-4{margin-top:24px !important} .mb-5{margin-bottom:48px !important}
+#mm-filtros{padding:12px 16px}
+#mm-filtros button.f,#mm-filtros select{border-width:1.5px !important;box-shadow:none !important;font-size:13px}
+#mm-filtros button.f.on{border-color:#FFD12E !important}
+.labels,.js-labels-floating-group{z-index:5}
+/* cabeçalho: remove o respiro do tema que ainda sobrava (174px -> ~96px) */
+.head-main .container,.head-main .row,.head-main [class*="head-"]{padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important}
+.head-main .head-logo-row,.js-head-logo-row{min-height:0 !important}
+.head-main .nav-desktop{margin:0 !important;min-height:0 !important}
+.head-main .nav-desktop-list,.head-main .js-nav-desktop-list{margin:0 !important;padding:0 !important}
+.head-main .nav-list-link{padding:8px 12px !important}
+/* cabeçalho v2: logo maior (letreiro maior em relação ao baú) e mais respiro até o menu */
+.head-main .head-logo-row,.js-head-logo-row{padding:12px 0 0 !important}
+.head-main .nav-desktop{padding:14px 0 6px !important}
+/* logo oficial (03/10): MR. MIMIC em CAPS, Londrina Solid Black, tagline Lilita */
+.logo-img{content:url('logo-oficial.png') !important}
+/* cards com altura padrão: nome reserva 2 linhas, card estica até a altura da fileira */
+.swiper-slide:has(> .js-item-product),.js-product-table .item-product,.item-product{display:flex !important;height:auto !important}
+.js-item-info-container.item,.item{display:flex !important;flex-direction:column !important;height:100% !important}
+.item-description{flex:1 1 auto !important;display:flex !important;flex-direction:column !important}
+.item-name a{-webkit-box-orient:vertical}
+.item-price-container,.item .price-container{margin-top:auto !important}
+.swiper-wrapper:has(.js-item-product){align-items:stretch !important}
+/* padrão de card v2: foto quadrada fixa, nome com exatamente 2 linhas (corta com …), fileira esticada */
+.item-image,.js-product-item-image-container-private,[class*="item-image-container"]{flex:0 0 auto !important;width:100% !important;aspect-ratio:1/1;overflow:hidden}
+.item-name,.js-item-name{display:-webkit-box !important;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.item-name a{-webkit-line-clamp:unset}
+.js-product-table.row,.row.row-grid{align-items:stretch !important}
+/* caixa da foto ocupa a largura toda do card (o tema estreitava quando a imagem era mais baixa que larga) */
+.js-product-item-image-container-private,.js-item-image-padding,.item-image-wrapper{width:100% !important;max-width:none !important;margin-left:0 !important;margin-right:0 !important}
+.js-item-image-padding{padding-bottom:100% !important}
+.js-product-item-image-private,.item-image img{object-fit:contain !important;object-position:center !important}
+/* o .item virou filho de flex (swiper-slide/display:flex) e encolhia para a largura do texto: ocupa 100% sempre */
+.swiper-slide > .js-item-product,.swiper-slide > .item-product,.js-item-product,.item-product{flex:1 1 100% !important;width:100% !important;min-width:0 !important}
+.js-item-info-container.item,.item{flex:1 1 100% !important;width:100% !important;min-width:0 !important;align-self:stretch !important}
+
+/* --- setas dos carrosseis de produtos v3 (04/10): so um chevron amarelo em cada lateral, sem circulo nem "1 / 8" --- */
+.section-featured-home .col-12{position:relative}
+.section-featured-home [class*="-controls"]{position:absolute !important;top:0;bottom:26%;left:-56px;right:-56px;margin:0 !important;padding:0 !important;
+  display:flex !important;justify-content:space-between;align-items:center;pointer-events:none;z-index:5}
+.section-featured-home [class*="-controls"] .swiper-pagination-fraction{display:none !important}
+.section-featured-home .swiper-button-prev,.section-featured-home .swiper-button-next{pointer-events:auto;position:static !important;width:44px !important;height:72px !important;margin:0 !important;
+  background:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;cursor:pointer;opacity:.85;transition:opacity .15s,transform .15s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 40'%3E%3Cpath d='M5 3l15 17L5 37' fill='none' stroke='%23FFD12E' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat:no-repeat !important;background-position:center !important;background-size:22px 36px !important}
+.section-featured-home .swiper-button-prev{transform:scaleX(-1)}
+.section-featured-home .swiper-button-prev svg,.section-featured-home .swiper-button-next svg{display:none !important}
+.section-featured-home .swiper-button-next:hover{opacity:1;transform:translateX(3px)}
+.section-featured-home .swiper-button-prev:hover{opacity:1;transform:scaleX(-1) translateX(3px)}
+.section-featured-home .swiper-button-disabled{opacity:.2 !important}
+@media(max-width:1320px){.section-featured-home [class*="-controls"]{left:-40px;right:-40px}.section-featured-home .swiper-button-prev,.section-featured-home .swiper-button-next{width:34px !important;background-size:17px 28px !important}}
+@media(max-width:900px){.section-featured-home [class*="-controls"]{display:none !important}}
+
+/* --- rolagem so vertical (04/10): a luz do hero e os menus largos extrapolavam a largura e a pagina deslizava no eixo X --- */
+html{overflow-x:hidden !important;overflow-x:clip !important}
+body{overflow-x:clip !important}
+
+/* --- celular (04/10): menos ar entre as fileiras, nome do card menor, logo um pouco menor no topo --- */
+@media(max-width:640px){
+  .section-featured-home{padding-top:20px !important;padding-bottom:12px !important}
+  .section-featured-home h2,.section-featured-home .section-title{font-size:26px !important;margin-bottom:10px !important}
+  .item-name,.js-item-name{font-size:12.5px !important}
+  .item .price,.item-price,.js-price-display{font-size:15px !important}
+  .mm-verttudo{margin-top:6px !important;font-size:13px !important}
+}
+@media(max-width:768px){
+    .head-main .head-logo-row,.js-head-logo-row{padding-top:6px !important;padding-bottom:6px !important}
+}
+
+/* --- pagina de produto no escuro (04/10): texto de confianca e titulo do frete legiveis --- */
+.js-product-form::after{color:#C9BCEB !important}
+@media(max-width:640px){
+  .page-header.py-4{padding-top:14px !important;padding-bottom:6px !important}
+  .page-header h1{margin-bottom:8px !important}
+  .category-body .container.mt-4{margin-top:4px !important;padding-top:0 !important}
+}
+
+/* --- hover do card na cor do produto (04/10): cor-card.js poe --cor em cada card; sem cor, amarelo estrela --- */
+.item:hover{box-shadow:6px 7px 0 var(--cor,#FFD12E) !important;border-color:var(--cor,#FFD12E) !important}
+.item:hover .item-image{border-bottom-color:var(--cor,#FFD12E) !important}
+@media (max-width:767px){ .item:hover{box-shadow:5px 6px 0 var(--cor,#FFD12E) !important} }
+
+/* --- pagina de produto (04/10): nome menor, preco e compra maiores --- */
+h1.js-product-name{font-size:28px !important;line-height:1.12 !important;margin-bottom:10px !important}
+h1.js-product-name .mm-sub{display:block;font-family:Figtree,system-ui,sans-serif;font-weight:600;font-size:14px;line-height:1.3;letter-spacing:0;color:#C9BCEB;text-shadow:none;margin-top:6px}
+.js-price-container .js-price-display{line-height:1 !important}
+.js-addtocart,input.js-addtocart,.btn-add-to-cart{height:54px !important;font-size:17px !important;font-weight:800 !important;width:100% !important}
+.form-quantity .js-quantity-down,.form-quantity .js-quantity-up{height:54px !important;width:46px !important;font-size:20px !important}
+.form-quantity input,.form-quantity .js-quantity-input{height:54px !important;font-size:17px !important;font-weight:700 !important}
+@media(max-width:640px){
+  h1.js-product-name{font-size:22px !important}
+  h1.js-product-name .mm-sub{font-size:13px}
+    .form-quantity .js-quantity-down,.form-quantity .js-quantity-up{height:44px !important}
+}
+@media(max-width:640px){
+  /* quantidade em linha (−  1  +) em cima do botao, em vez da coluna empilhada do lado */
+  .row:has(> .js-product-quantity-container) > [class*="col-"]{flex:0 0 100% !important;max-width:100% !important;padding-right:15px !important}
+  .js-product-quantity-container{margin-bottom:10px !important}
+  .form-quantity.form-quantity-product{flex-direction:row !important;flex-wrap:nowrap !important;width:160px !important;align-items:center}
+  .form-quantity.form-quantity-product > *{flex:0 0 auto !important}
+  .form-quantity .js-quantity-input,.form-quantity input{width:60px !important;text-align:center}
+}
+@media(max-width:640px){
+  .form-quantity.form-quantity-product > .form-control-container{flex:0 0 60px !important;width:60px !important;max-width:60px !important}
+}
+
+/* --- setas v3 tambem nos sliders da pagina de produto ("Produtos similares" etc.) --- */
+.products-section .products-section-container{position:relative}
+.products-section .products-section-slider-controls-container{position:absolute !important;top:0;bottom:26%;left:-56px;right:-56px;margin:0 !important;padding:0 !important;
+  display:flex !important;justify-content:space-between;align-items:center;pointer-events:none;z-index:5}
+.products-section .products-section-slider-controls-container .swiper-pagination,.products-section .products-section-slider-controls-container [class*="pagination"]{display:none !important}
+.products-section .swiper-button-prev,.products-section .swiper-button-next{pointer-events:auto;position:static !important;width:44px !important;height:72px !important;margin:0 !important;
+  background:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;cursor:pointer;opacity:.85;transition:opacity .15s,transform .15s;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 40'%3E%3Cpath d='M5 3l15 17L5 37' fill='none' stroke='%23FFD12E' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat:no-repeat !important;background-position:center !important;background-size:22px 36px !important}
+.products-section .swiper-button-prev{transform:scaleX(-1)}
+.products-section .swiper-button-prev svg,.products-section .swiper-button-next svg{display:none !important}
+.products-section .swiper-button-next:hover{opacity:1;transform:translateX(3px)}
+.products-section .swiper-button-prev:hover{opacity:1;transform:scaleX(-1) translateX(3px)}
+.products-section .swiper-button-disabled{opacity:.2 !important}
+@media(max-width:1320px){.products-section .products-section-slider-controls-container{left:-40px;right:-40px}.products-section .swiper-button-prev,.products-section .swiper-button-next{width:34px !important;background-size:17px 28px !important}}
+@media(max-width:900px){.products-section .products-section-slider-controls-container{display:none !important}}
+/* setas da galeria de fotos do produto (quando houver mais de uma foto): mesmo chevron amarelo, sobre a foto */
+.js-swiper-product-prev,.js-swiper-product-next{width:40px !important;height:64px !important;background:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;opacity:.85;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 40'%3E%3Cpath d='M5 3l15 17L5 37' fill='none' stroke='%23FFD12E' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat:no-repeat !important;background-position:center !important;background-size:20px 32px !important}
+.js-swiper-product-prev{transform:scaleX(-1)}
+.js-swiper-product-prev svg,.js-swiper-product-next svg{display:none !important}
+.js-swiper-product-prev:hover,.js-swiper-product-next:hover{opacity:1}
+
+/* --- newsletter (04/10): botao "Enviar" como pilula DENTRO do campo, alinhado e sem sombra dura --- */
+.input-append{position:relative}
+.input-append .form-control,.input-append input.form-control{height:48px !important;padding-right:108px !important;border-radius:999px !important}
+.input-append .btn,.input-append input.btn,.input-append input[type="submit"]{position:absolute !important;top:5px !important;right:5px !important;bottom:auto !important;height:38px !important;line-height:38px !important;
+  padding:0 18px !important;font-size:14px !important;font-weight:800 !important;border-radius:999px !important;box-shadow:none !important;transform:none !important;margin:0 !important;background:#FFD12E !important;color:#241B38 !important;border:0 !important}
+.input-append .btn:hover,.input-append input.btn:hover{background:#FFE066 !important;transform:none !important;box-shadow:none !important}
+
+/* --- secao newsletter da home: menos vazio, titulo no tamanho dos outros --- */
+.js-home-sections-container section:has(.input-append){padding-top:28px !important;padding-bottom:28px !important}
+section:has(.input-append) h2,section:has(.input-append) .section-title,section:has(.input-append) h4{font-size:26px !important;margin-bottom:4px !important}
+section:has(.input-append) p{font-size:15px !important;color:#C9BCEB !important}
+
+/* --- preco discreto, produto em destaque (04/10, desejo > preco): preco em Figtree creme; o amarelo fica so para acao e vantagem --- */
+.js-price-container .js-price-display{font-family:Figtree,system-ui,sans-serif !important;color:#F4EDE1 !important;text-shadow:none !important;letter-spacing:-.01em}
+.js-installment-price,.product-installment-value,.js-price-container .font-small{color:#C9BCEB !important}
+.js-compare-price-display,.price-compare{color:#8F84B3 !important;font-size:15px !important}
+.item .price,.item-price,.item .js-price-display,.js-product-table .js-price-display{font-family:Figtree,system-ui,sans-serif !important;text-shadow:none !important}
+.item .item-name,.item .js-item-name{color:#F4EDE1 !important;font-weight:700 !important}
+/* preco ainda mais discreto (04/10): abaixo do nome na hierarquia, peso medio */
+.js-price-container .js-price-display{font-size:24px !important;font-weight:600 !important}
+.js-installment-price,.product-installment-value,.js-price-container .font-small{font-size:13px !important}
+.item .price,.item-price,.item .js-price-display,.js-product-table .js-price-display{font-size:14px !important;font-weight:600 !important;color:#E4DCF5 !important}
+@media(max-width:640px){
+  .js-price-container .js-price-display{font-size:21px !important}
+  .item .price,.item-price,.item .js-price-display{font-size:13px !important}
+}
+
+/* --- rodape: icones de contato (redes.js) no lugar do telefone escrito --- */
+.mm-redes{display:flex;justify-content:center;gap:14px;margin:10px 0 4px}
+.mm-rede{width:46px;height:46px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:rgba(49,38,84,.6);transition:transform .15s,background .15s,color .15s,border-color .15s}
+.mm-rede svg{width:22px;height:22px;fill:currentColor}
+.mm-rede:hover{background:#FFD12E;border-color:#FFD12E}
+@media(max-width:640px){.mm-rede{width:50px;height:50px}.mm-rede svg{width:24px;height:24px}}
+/* icones de contato nas cores originais das marcas (04/10) */
+.mm-rede{border:0 !important;color:#fff !important}
+.mm-rede[aria-label="WhatsApp"]{background:#25D366 !important}
+.mm-rede[aria-label="Instagram"]{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%) !important}
+.mm-rede[aria-label="YouTube"]{background:#FF0000 !important}
+.mm-rede:hover{color:#fff !important;transform:translateY(-2px) scale(1.06);filter:brightness(1.08)}
+
+/* --- tipografia por funcao (04/10): Londrina so em display >= 20 px; abaixo disso, Figtree --- */
+.js-shipping-calculator-form .form-label::before,.shipping-calculator-form .form-label::before{font-family:Figtree,system-ui,sans-serif !important;font-weight:800 !important;font-size:14px !important;letter-spacing:.04em;text-transform:uppercase;color:#C9BCEB !important}
+h5,h6,.h5,.h6{font-family:Figtree,system-ui,sans-serif !important;font-weight:700 !important}
+
+/* --- auditoria de cores (04/10): tudo na paleta --- */
+h3,.h3,.mm-hero h2{color:#F4EDE1 !important}                       /* títulos no creme, como os de seção (era #F3EFFC) */
+.crumb,.crumbs a,.breadcrumbs a,.separator{color:#B9AEDA !important} /* migalhas no lilás da paleta (era #A99FC6) */
+.js-product-payments-container .btn-link,a.btn-link.no-underline.font-small{color:#B9AEDA !important;opacity:1 !important} /* "Ver mais detalhes" legível (era #473869, contraste 1,5) */
+/* mesmas correcoes com especificidade acima das regras de classe do tema (:not(#mm) vale um id) */
+h3:not(#mm),.h3:not(#mm),.mm-hero h2:not(#mm),.user-content h3:not(#mm){color:#F4EDE1 !important}
+.crumb:not(#mm),.crumbs a:not(#mm),.separator:not(#mm){color:#B9AEDA !important}
+.js-product-payments-container a.btn-link:not(#mm),.js-product-form a.btn-link.font-small:not(#mm){color:#B9AEDA !important}
+.js-product-form > .text-accent:not(#mm){background:#C8302A !important;color:#fff !important}  /* vermelho de urgencia com contraste >= 4,5 sobre branco */
+
+/* --- embalagem por faixa (04/10): sleeve em toda carta; toploader so quando o preco comporta (produto.js marca .mm-toploader) --- */
+.js-product-form::after{content:"✔ Embalagem reforçada — carta vai em sleeve, lacrado vai em caixa\A✔ Pix, cartão ou boleto — pagamento seguro (Nuvem Pago)\A✔ Conferido à mão por quem também coleciona" !important}
+.js-product-form.mm-toploader::after{content:"✔ Embalagem reforçada — carta vai em sleeve + toploader, lacrado vai em caixa\A✔ Pix, cartão ou boleto — pagamento seguro (Nuvem Pago)\A✔ Conferido à mão por quem também coleciona" !important}
+
+/* --- "Proteja sua carta" com produtos (produto.js) --- */
+.mm-proteja{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 6px}
+.mm-prot{display:flex;flex-direction:column;background:#312654;border:2px solid #090612;border-radius:14px;box-shadow:4px 4px 0 #090612;overflow:hidden;text-decoration:none !important;color:#F4EDE1 !important;transition:transform .15s,box-shadow .15s}
+.mm-prot:hover{transform:translate(-2px,-3px)}
+.mm-prot-img{display:block;background:#211839;aspect-ratio:1/1;padding:10px}
+.mm-prot-img img{width:100%;height:100%;object-fit:contain;display:block}
+.mm-prot-txt{display:flex;flex-direction:column;gap:3px;padding:10px 12px 4px;flex:1}
+.mm-prot-txt b{font:700 14px/1.25 Figtree,system-ui}
+.mm-prot-txt small{font:500 12px/1.3 Figtree,system-ui;color:#B9AEDA}
+.mm-prot-preco{font:600 14px Figtree,system-ui;color:#E4DCF5;margin-top:4px}
+.mm-prot-btn{margin:8px 12px 12px;align-self:flex-start;background:#FFD12E;color:#241B38;font:800 13px/1 Figtree,system-ui;padding:9px 16px;border-radius:999px}
+.mm-proteja-mais{margin:6px 0 14px}
+.mm-proteja-mais a{color:#FFD12E !important;font:700 14px Figtree,system-ui;text-decoration:none}
+@media(max-width:640px){.mm-proteja{grid-template-columns:1fr 1fr;gap:10px}.mm-prot-txt small{display:none}}
+.mm-prot .mm-prot-btn,.user-content a .mm-prot-btn{color:#241B38 !important}
+.mm-prot .mm-prot-txt b,.mm-prot .mm-prot-txt small,.mm-prot .mm-prot-preco{text-decoration:none !important}
+/* vitrine "Proteja sua carta": titulo amarelo, painel, hover na cor do produto */
+.mm-proteja-box{background:#1B1434;border:1.5px solid #4A3B70;border-radius:18px;padding:18px 18px 12px;margin:22px 0}
+.user-content h3.mm-proteja-titulo{color:#FFD12E !important;font-size:28px !important;margin:0 0 6px !important;text-shadow:2px 2px 0 #090612}
+.user-content h3.mm-proteja-titulo::before{content:"COMBINA COM ESTA CARTA";display:block;font:800 11px/1 Figtree,system-ui;letter-spacing:.1em;color:#9CFF3D;margin-bottom:8px;text-shadow:none}
+.mm-proteja-box > p{margin-bottom:10px}
+.mm-prot:hover{box-shadow:6px 7px 0 var(--cor,#FFD12E);border-color:var(--cor,#FFD12E)}
+.user-content h3.mm-proteja-titulo:not(#mm){color:#FFD12E !important}
+
+/* --- pagina "Venda suas cartas" (venda.js): mascote com recompensa + passos visuais --- */
+.mm-venda{max-width:1400px;margin:0 auto 40px;padding:0 16px}
+.mm-vhero{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px;min-height:380px;padding:24px 32px;border-radius:22px;overflow:hidden;background:#1B1434;border:2px solid #090612;box-shadow:6px 6px 0 #090612}
+.mm-vluz{position:absolute;width:1300px;height:746px;pointer-events:none;z-index:0}
+.mm-vtxt{position:relative;z-index:1}
+.mm-veb{font:800 13px/1 Figtree,system-ui;letter-spacing:.14em;color:#FFD12E;margin-bottom:12px}
+.mm-vhero h2{font-family:'Londrina Solid',sans-serif;font-weight:900;font-size:52px;line-height:1;color:#F4EDE1;text-shadow:3px 3px 0 #090612;margin:0 0 12px}
+.mm-vhero p{font:500 17px/1.45 Figtree,system-ui;color:#C9BCEB;margin:0 0 20px;max-width:520px}
+.mm-vhero p b{color:#9CFF3D;font-weight:800}
+.mm-vmascote{position:relative;z-index:1;width:100%;max-width:420px;justify-self:center;filter:drop-shadow(0 14px 22px rgba(6,4,14,.5))}
+.mm-vbtn{display:inline-flex;align-items:center;gap:10px;background:#FFD12E !important;color:#241B38 !important;font:800 17px/1 Figtree,system-ui;padding:16px 24px;border-radius:999px;border:2px solid #090612;box-shadow:4px 4px 0 #090612;text-decoration:none !important;transition:transform .15s,box-shadow .15s}
+.mm-vbtn:hover{transform:translate(-1px,-2px);box-shadow:6px 7px 0 #090612}
+.mm-vbtn svg{width:22px;height:22px;fill:#241B38}
+.mm-venda h3{font-family:'Londrina Solid',sans-serif;font-weight:900;font-size:32px;color:#F4EDE1;text-shadow:2px 2px 0 #3A2C5E;text-align:center;margin:44px 0 18px}
+.mm-vpassos ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:p}
+.mm-vpassos li{position:relative;background:#312654;border:2px solid #090612;border-radius:16px;box-shadow:4px 4px 0 #090612;padding:22px 18px 18px;display:flex;flex-direction:column;gap:6px}
+.mm-vn{position:absolute;top:-14px;left:16px;width:32px;height:32px;border-radius:999px;background:#FFD12E;color:#241B38;font:900 16px/32px Figtree,system-ui;text-align:center;border:2px solid #090612}
+.mm-vi{display:inline-flex;width:48px;height:48px;border-radius:12px;background:#211839;align-items:center;justify-content:center;margin:6px 0 4px}
+.mm-vi svg{width:26px;height:26px;fill:#FFD12E}
+.mm-vpassos b{font:800 17px/1.2 Figtree,system-ui;color:#F4EDE1}
+.mm-vpassos small{font:500 14px/1.4 Figtree,system-ui;color:#C9BCEB}
+.mm-vgrade{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mm-vtile{background:#312654;border:2px solid #090612;border-radius:16px;box-shadow:4px 4px 0 #090612;padding:18px;display:flex;flex-direction:column;gap:6px;transition:transform .15s,box-shadow .15s,border-color .15s}
+.mm-vtile:hover{transform:translate(-2px,-3px);box-shadow:6px 7px 0 var(--cor);border-color:var(--cor)}
+.mm-vtile .mm-vi svg{fill:var(--cor)}
+.mm-vtile b{font:800 17px/1.2 Figtree,system-ui;color:var(--cor)}
+.mm-vtile small{font:500 14px/1.4 Figtree,system-ui;color:#C9BCEB}
+.mm-vnao{margin:18px 0 0;font:500 14px/1.6 Figtree,system-ui;color:#B9AEDA;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.mm-vnao b{color:#F4EDE1}
+.mm-vnao span{background:#211839;border:1px solid #4A3B70;border-radius:999px;padding:5px 12px;color:#E4DCF5}
+.mm-vfim{text-align:center;margin-top:44px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.mm-vfim small{font:500 14px Figtree,system-ui;color:#B9AEDA}
+@media(max-width:900px){.mm-vpassos ol,.mm-vgrade{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){
+  .mm-vhero{grid-template-columns:1fr;padding:22px 18px;text-align:center;min-height:0}
+  .mm-vhero h2{font-size:38px}.mm-vhero p{margin-left:auto;margin-right:auto;font-size:16px}
+  .mm-vmascote{max-width:260px;order:-1}  .mm-venda h3{font-size:26px;margin-top:32px}
+  .mm-vpassos ol,.mm-vgrade{grid-template-columns:1fr;gap:20px}
+  .mm-vbtn{font-size:16px;padding:15px 20px}
+}
+/* venda: luz centrada no mascote (o miolo do png fica a 66% da largura / 50% da altura) */
+.mm-vluz{right:auto !important;left:calc(76% - 858px) !important;top:50% !important;transform:translateY(-50%) !important}
+.mm-vfim small{max-width:560px;line-height:1.5}
+@media(max-width:640px){.mm-vluz{left:calc(50% - 594px) !important;top:150px !important;width:900px !important;height:517px !important;transform:translateY(-50%) !important}}
+/* venda: "dois jeitos de fechar" */
+.mm-vgrade2{grid-template-columns:1fr 1fr;max-width:1000px;margin:0 auto}
+.mm-vgrade2 .mm-vtile small{font-size:15px;line-height:1.5;color:#D6CBEE}
+.mm-vgrade2 .mm-vtile small strong{color:#F4EDE1;font-weight:800}
+.mm-vregra{text-align:center;margin:16px auto 0;max-width:640px;font:600 14px/1.5 Figtree,system-ui;color:#B9AEDA}
+@media(max-width:640px){.mm-vgrade2{grid-template-columns:1fr}}
+.mm-vcompro .mm-vgrade{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.mm-vcompro .mm-vgrade{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.mm-vcompro .mm-vgrade{grid-template-columns:1fr}}
+/* venda: "quanto pagamos" */
+.mm-vquanto-box{max-width:820px;margin:0 auto;background:#1B1434;border:1.5px solid #4A3B70;border-radius:18px;padding:22px 24px}
+.mm-vq-lead{font:500 17px/1.5 Figtree,system-ui;color:#E4DCF5;margin:0 0 14px}
+.mm-vq-lead b{color:#FFD12E;font-weight:800}
+.mm-vq-lista{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.mm-vq-lista li{font:500 15px/1.5 Figtree,system-ui;color:#C9BCEB;display:flex;gap:10px;align-items:baseline}
+.mm-vq-mais,.mm-vq-menos{flex:0 0 auto;font:800 12px/1 Figtree,system-ui;letter-spacing:.06em;border-radius:999px;padding:5px 10px}
+.mm-vq-mais{background:#9CFF3D;color:#152600}.mm-vq-menos{background:#4A3B70;color:#E4DCF5}
+.mm-vq-nota{font:500 14px/1.5 Figtree,system-ui;color:#B9AEDA;margin:0;border-top:1px dashed #4A3B70;padding-top:12px}
+@media(max-width:640px){.mm-vquanto-box{padding:18px 16px}.mm-vq-lead{font-size:16px}}
+.mm-vq-lista .mm-vq-mais:not(#mm){color:#152600 !important;background:#9CFF3D !important}
+.mm-vq-lista .mm-vq-menos:not(#mm){color:#E4DCF5 !important;background:#4A3B70 !important}
+/* rodape: e-mail (04/10) */
+.mm-rede[aria-label="E-mail"]{background:#FFD12E !important;color:#241B38 !important}
+.mm-rede-mail{display:block;text-align:center;margin:10px 0 2px;font:600 14px Figtree,system-ui;color:#C9BCEB !important;text-decoration:none}
+.mm-rede-mail:hover{color:#FFD12E !important;text-decoration:underline}
+/* pagina de contato: links dentro dos blocos */
+.mm-pg .cx .mm-ctl{display:inline-block;margin-top:8px;font:700 15px Figtree,system-ui;color:#FFD12E !important;text-decoration:none}
+.mm-pg .cx .mm-ctl:hover{text-decoration:underline}
+
+/* --- produto "em breve" (04/10): estoque zero na loja; na previa, [data-mm-breve]. Etiqueta amarela + "Avise-me" no lugar do preco --- */
+.mm-breve .item-image::after,.js-item-product[data-mm-breve] .item-image::after{position:absolute;top:10px;left:10px;z-index:3;font:800 11px/1 Figtree,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#241B38;background:#FFD12E;border-radius:999px;padding:5px 10px}
+.mm-breve .item-image{position:relative}
+.mm-breve .js-price-display,.js-item-product[data-mm-breve] .js-price-display{display:inline-block;font:800 13px/1 Figtree,system-ui !important;color:#241B38 !important;background:#FFD12E;border-radius:999px;padding:8px 14px;margin-top:2px}
+.mm-breve .js-price-display::before{content:"\1F514  "}
+.mm-breve .label.js-free-shipping-minimum-label{display:none !important}
+.mm-breve .item-image img{opacity:.96}
+.js-item-product[data-mm-breve] .item-image{position:relative}
+.js-item-product[data-mm-breve] .js-price-display::before{content:"\1F514  "}
+.js-item-product[data-mm-breve] .label.js-free-shipping-minimum-label{display:none !important}
+.mm-breve .item-image::after,.js-item-product[data-mm-breve] .item-image::after{content:"EM BREVE · NOV/2026" !important}
+
+/* --- 06/10/2026: barra Filtrar/Ordenar das categorias volta (na prévia era trocada pelo filtros.js, que não foi para a loja) --- */
+.js-category-controls,.category-controls{display:block !important;background:#15102A !important;border-top:1px solid #3A2C5E !important;border-bottom:1px solid #3A2C5E !important}
+.category-controls .btn,.category-controls button,.category-controls select,.category-controls .form-control{background:#312654 !important;color:#F4EDE1 !important;border:1.5px solid #4A3B70 !important;border-radius:999px !important;font-family:'Figtree',sans-serif !important;font-weight:700 !important}
+.category-controls select option{background:#312654;color:#F4EDE1}
+.category-controls .btn:hover,.category-controls button:hover{border-color:#FFD12E !important;color:#FFD12E !important}
+.category-controls a.js-modal-open.btn-link{display:inline-flex !important;align-items:center;gap:8px;height:40px;padding:0 20px !important;background:#312654 !important;color:#F4EDE1 !important;border:1.5px solid #4A3B70 !important;border-radius:999px !important;font:700 14px 'Figtree',sans-serif !important;text-decoration:none !important}
+.category-controls a.js-modal-open.btn-link::before{content:'\2630';font-size:15px;line-height:1}
+.category-controls a.js-modal-open.btn-link:hover{border-color:#FFD12E !important;color:#FFD12E !important}
+.category-controls .category-controls-container{padding:10px 0 !important}
+.category-controls svg,.category-controls .icon-inline{color:#F4EDE1 !important;fill:#F4EDE1 !important}
+/* --- 06/10/2026: o rodapé já tem os ícones do redes.js; o ícone nativo do Instagram ficava duplicado --- */
+footer a.social-icon{display:none !important}
+
+/* --- 06/10/2026: ajustes colados direto no admin e aprovados pelo Caio (incorporados à fonte para não se perderem) --- */
+.logo-img{max-height:62px !important;max-width:none !important}
+.item-name,.js-item-name{height:calc(14px*1.3*2) !important;min-height:0 !important;overflow:hidden !important;line-height:1.3 !important}
+.item-name a{display:inline !important;overflow:hidden}
+@media (min-width:821px){
+  .mm-hero .mmh-quadro{max-width:none !important;width:100% !important;height:28.59vw !important;max-height:549px !important}
+  .mm-hero .mmh-slide.banner{border-radius:0 !important}
+  .mm-hero .mmh-seta.esq{left:16px !important}
+  .mm-hero .mmh-seta.dir{right:16px !important}
+}
+@media (min-width:1921px){
+  .mm-hero .mmh-slide.full .mmh-full{object-fit:contain !important;mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+}
