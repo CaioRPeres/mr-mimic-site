@@ -44,7 +44,6 @@
   sec.className = "mm-venda";
   sec.innerHTML = `
     <section class="mm-vhero">
-      <img class="mm-vluz" src="${MM.asset("hero/luz-hero-5-ouro.webp")}" alt="">
       <div class="mm-vtxt">
         <div class="mm-veb">VENDA PRA GENTE</div>
         <h2>Compramos a sua coleção</h2>

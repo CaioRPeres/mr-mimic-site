@@ -1,8 +1,5 @@
 .mm-hero{position:relative;overflow:visible;background:#15102A;margin:0 0 8px}
 .mm-hero .mmh-quadro{position:relative;max-width:1400px;margin:0 auto;height:400px;overflow:visible}
-.mm-hero .mmh-luz{position:absolute;left:-360px;top:-420px;width:2160px;height:1240px;max-width:none;z-index:0;
-    pointer-events:none;opacity:0;transition:opacity .6s ease}
-.mm-hero .mmh-luz.on{opacity:1}
 .mm-hero .mmh-slide{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:flex;align-items:center;justify-content:flex-start;opacity:0;transition:opacity .5s ease;pointer-events:none}
 .mm-hero .mmh-slide.on{opacity:1;pointer-events:auto}
 .mm-hero .mmh-texto{width:50%;padding:0 0 0 8px}
@@ -48,8 +45,7 @@
   .mm-hero h2{font-size:40px !important;max-width:none;margin-left:auto;margin-right:auto}
   .mm-hero .mmh-arte{position:relative;width:100%;height:220px}
   .mm-hero .mmh-arte img{display:block;opacity:1 !important;visibility:visible !important;width:auto;height:auto;max-height:200px}
-  .mm-hero .mmh-luz{left:calc(50% - 792px);top:-217px;width:1200px;height:686px;transform:none}
-  .mm-hero .mmh-arte.com-bg{height:220px;width:100%;-webkit-mask-image:none;mask-image:none;border-radius:16px}
+    .mm-hero .mmh-arte.com-bg{height:220px;width:100%;-webkit-mask-image:none;mask-image:none;border-radius:16px}
   .mm-hero .mmh-arte.com-bg img.mmh-prod{max-height:200px}
   .mm-hero .mmh-seta{display:none}
   .mm-hero .mmh-slide.banner{padding:0 12px 26px;min-height:0;border-radius:0;overflow:visible}

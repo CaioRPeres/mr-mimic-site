@@ -26,9 +26,9 @@ BASE_DO_CSS = 'https://cdn.jsdelivr.net/gh/CaioRPeres/mr-mimic-site@92d2d55ea439
 
 # Ordem importa: o slider entra antes da grade de categorias, que se posiciona logo depois dele;
 # a cor dos cards vem antes do produto.js, que usa a tabela de cores.
-MODULOS_JS = ['hero', 'home-categorias', 'cor-card', 'produto', 'redes', 'venda', 'seo']
+MODULOS_JS = ['hero', 'home-categorias', 'cor-card', 'produto', 'redes', 'rodape', 'venda', 'seo']
 # CSS dos módulos acima, depois do tema. Tudo dele vai para o extra (só existe quando o script roda).
-CSS_DOS_MODULOS = ['hero', 'home-categorias']
+CSS_DOS_MODULOS = ['hero', 'home-categorias', 'rodape']
 
 
 def ler(*caminho):

@@ -59,10 +59,9 @@ def conferir_imagens():
     pedidas = set()
     for nome in os.listdir(os.path.join(RAIZ, 'src', 'js')):
         pedidas |= set(re.findall(r'MM\.asset\("([^"]+)"\)', ler('src', 'js', nome)))
-    hero = ler('src', 'js', 'hero.js')   # o slider monta o nome: hero/<banner>.webp, hero/<banner>-cel.webp, hero/<luz>.webp
+    hero = ler('src', 'js', 'hero.js')   # o slider monta o nome: hero/<banner>.webp e hero/<banner>-cel.webp
     for banner in re.findall(r'banner: "([^"]+)"', hero):
         pedidas |= {f'hero/{banner}.webp', f'hero/{banner}-cel.webp'}
-    pedidas |= {f'hero/{luz}.webp' for luz in re.findall(r'luz: "([^"]+)"', hero)}
     faltando = sorted(p for p in pedidas if not os.path.isfile(os.path.join(RAIZ, 'assets', p)))
     conferir(not faltando, f'{len(pedidas)} imagens pedidas pelos scripts existem' + (f'; faltam: {faltando}' if faltando else ''))
 
