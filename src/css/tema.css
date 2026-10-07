@@ -8,15 +8,12 @@
 body{font-family:'Figtree',system-ui,sans-serif}
 h1,h2,h3,h4,h5,.h1,.h2,.h3,.h4,.section-title,.product-name,.page-header h1,.category-header h1{font-family:'Londrina Solid','Arial Black',sans-serif !important;font-weight:900 !important;letter-spacing:.01em;color:#241B38;text-transform:none}
 .section-title,.home-section-title,[data-store="home-products-featured"] h2,[data-store="home-products-new"] h2{font-family:'Londrina Solid',sans-serif !important;font-weight:900 !important;letter-spacing:.01em;text-transform:none;color:#241B38}
-.head-main,.head-main p,.head-main span,.head-main a,.head-main .nav-list-link{color:#EDE6FA}
+.head-main,.head-main p,.head-main span,.head-main a{color:#EDE6FA}
 .head-main svg{fill:#EDE6FA}
 .head-main .btn,.head-main .btn:hover{background:transparent !important;border-color:transparent !important;box-shadow:none !important;transform:none !important}
 .head-main .section-adbar,.section-adbar{background:#FFD12E !important;color:#241B38 !important;font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem;border-bottom:3px solid #120C1E}
 .head-main .section-adbar a,.head-main .section-adbar span{color:#241B38 !important}
 .logo-img{width:auto !important}
-.head-main .nav-list-link,.nav-desktop-list a{font-family:'Figtree',sans-serif !important;font-weight:700;margin:4px 3px;display:inline-block;line-height:1.3;transition:background .15s ease,transform .15s ease}
-.nav-dropdown-content .nav-list-link{font-family:'Figtree',sans-serif}
-.nav-dropdown-content .nav-list-link:hover{border-color:#241B38}
 .btn,.btn-primary,.btn-secondary,.btn-default{text-transform:none;border:3px solid #241B38 !important;transition:transform .12s ease,box-shadow .12s ease}
 .btn-primary:active,.btn-secondary:active,.btn-default:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #241B38 !important}
 .btn-link{border:0 !important;box-shadow:none !important;border-radius:0 !important;background:transparent !important;font-weight:700}
@@ -129,8 +126,7 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.section-title,.product-name,.page-header h1,.categor
 .section-newsletter-home,.section-newsletter-home-colors{background:#1D1633 !important;border-color:#4A3B70 !important}
 .divider,hr{border-color:#3A2C5E !important}
 .category-controls,.js-category-controls,.category-header,.breadcrumbs,.section-main{background:#15102A !important}
-.js-swiper-product,.product-detail-slider,.price-container,.js-product-form,.nav-dropdown-content,.desktop-dropdown{background:#241B38 !important;border-color:#0F0B1F !important;color:#E9E4F5 !important}
-.nav-dropdown-content a,.nav-dropdown-content span{color:#E9E4F5 !important}
+.js-swiper-product,.product-detail-slider,.price-container,.js-product-form{background:#241B38 !important;border-color:#0F0B1F !important;color:#E9E4F5 !important}
 .product-installments,.text-accent{color:#FFE066 !important}
 .text-muted,.product-description,.product-description *,.js-product-description,.section-content,.accordion-title{color:#CFC7E4 !important}
 .section-title,.product-detail-title,h2,h3,h4{color:#F3EFFC !important}
@@ -149,13 +145,10 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.section-title,.product-name,.page-header h1,.categor
 .item-image{border-radius:0 !important}
 .label,.label-primary,.label-accent{border-radius:999px !important}
 .card,.modal,.js-product-form,.price-container,.js-swiper-product{border:3px solid #0F0B1F !important;border-radius:18px !important}
-.head-main .nav-list-link,.nav-desktop-list a{background:#241B38 !important;color:#E9E4F5 !important;border:2.5px solid #0F0B1F !important;border-radius:999px !important;text-transform:none !important;letter-spacing:0 !important;font-size:.98rem !important;padding:6px 16px !important}
-.head-main .nav-list-link:hover,.nav-desktop-list a:hover{background:#FFD12E !important;color:#241B38 !important;box-shadow:3px 3px 0 #0F0B1F !important}
 .item{background:#312654 !important}
 .item-image{background:#211839 !important}
 .card,.modal,.js-product-form,.price-container,.js-swiper-product{background:#2A2046 !important;border-color:#090612 !important;box-shadow:6px 6px 0 #090612 !important}
 .btn-primary:hover{box-shadow:7px 7px 0 #090612 !important}
-.head-main .nav-list-link,.nav-desktop-list a{box-shadow:3px 3px 0 #090612 !important;border-color:#090612 !important}
 /* ---- destaques em verde necroplasma: vantagem para o cliente ----
    especificidade dobrada (.label.x) para vencer as regras do tema ---- */
 .label.js-free-shipping-minimum-label,.label.js-shipping-label-private,
@@ -170,54 +163,17 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.section-title,.product-name,.page-header h1,.categor
 .js-offer-percentage,.js-cart-notification-discount-label{color:#9CFF3D !important}
 
 
-/* ---- menu principal: tudo visivel, sem slider ---- */
-.js-nav-desktop-list-arrow,[class*=nav-desktop-list-arrow]{display:none !important}
-.nav-desktop-list,.js-nav-desktop-list,.nav-desktop-with-scroll{
-  overflow:visible !important;overflow-x:visible !important;flex-wrap:wrap !important;
-  justify-content:center !important;row-gap:8px;column-gap:4px;max-width:100% !important}
-.nav-desktop-list::-webkit-scrollbar{display:none}
-.nav-desktop{overflow:visible !important}
-.head-main .nav-list-link,.nav-desktop-list > .nav-main-item > .nav-item-container > a{white-space:nowrap}
-
-/* ---- submenu: lista limpa, sem pilula ---- */
-.nav-dropdown-content,.desktop-dropdown{border-radius:18px !important}
-
 /* ---- grade do catalogo: responsiva de verdade ---- */
 @media (min-width:1400px){ .js-product-table .item-product{flex:0 0 20% !important;max-width:20% !important} }
 @media (max-width:767px){
   .js-product-table .item-product{flex:0 0 50% !important;max-width:50% !important}
         }
 
-/* ---- submenu v2: cartao centrado, links em linha ---- */
-.nav-dropdown-content,.desktop-dropdown{
-  background:transparent !important;border:0 !important;box-shadow:none !important;padding:8px 16px 20px !important}
-.nav-dropdown-content > .container{
-  background:#241B38 !important;border:3px solid #090612 !important;border-radius:18px !important;margin:0 auto !important}
-.nav-dropdown-content .list-subitems,.nav-dropdown-content .desktop-list-subitems{
-  display:flex !important;flex-wrap:wrap !important;justify-content:center !important;gap:6px !important;
-  grid-template-columns:none !important;list-style:none;margin:0;padding:0}
-.nav-dropdown-content .list-subitems > li,.nav-dropdown-content .desktop-list-subitems > li{margin:0;padding:0}
-.nav-dropdown-content .nav-list-link,.desktop-dropdown .nav-list-link{
-  display:block !important;width:auto !important;background:transparent !important;
-  box-shadow:none !important;border-radius:999px !important;margin:0 !important;
-  text-align:center !important;font-weight:600 !important;color:#E9E4F5 !important;
-  white-space:nowrap !important;line-height:1.3 !important;transform:none !important}
-.nav-dropdown-content .nav-list-link:hover,.desktop-dropdown .nav-list-link:hover{
-  background:#FFD12E !important;color:#241B38 !important;box-shadow:none !important;transform:none !important}
-
-/* ---- menu: quebra de verdade (a lista era display:block com white-space:nowrap) ---- */
-.nav-desktop-list,.js-nav-desktop-list{
-  display:flex !important;flex-wrap:wrap !important;justify-content:center !important;
-  white-space:normal !important;align-items:center;width:100% !important;max-width:100% !important}
-.nav-desktop-list > li,.js-nav-desktop-list > li{flex:0 0 auto;white-space:normal}
-
 /* ---- largura util: o tema travava tudo em 1020px ---- */
 @media (min-width:1280px){ .container,.head-logo-row,.js-head-logo-row{max-width:1200px !important} }
 @media (min-width:1500px){ .container,.head-logo-row,.js-head-logo-row{max-width:1400px !important} }
 @media (min-width:1800px){ .container,.head-logo-row,.js-head-logo-row{max-width:1560px !important} }
 #mm-filtros .linha{max-width:1560px !important}
-/* o submenu continua estreito de proposito */
-.nav-dropdown-content > .container{max-width:920px !important}
 /* texto corrido nao acompanha: leitura sofre acima de ~75 caracteres */
 [data-store^="product-description"] .user-content,.js-product-description{max-width:760px}
 
@@ -246,20 +202,8 @@ h1,h2,h3,h4,h5,.h1,.h2,.h3,.section-title,.product-name,.page-header h1,.categor
    dura só no card e no botão principal. Tudo abaixo sobrepõe o que veio antes.
    ===================================================================== */
 
-/* --- cabeçalho: 88px, fixo, logo 48px, menu em texto --- */
+/* --- cabeçalho: 88px, fixo, logo 48px (o menu está na seção "Menu do cabeçalho", no fim) --- */
 .head-main{border-bottom:1px solid #2A2046 !important}
-.nav-desktop-list,.js-nav-desktop-list{row-gap:0 !important;column-gap:0 !important}
-.head-main .nav-list-link,.nav-desktop-list > .nav-main-item > .nav-item-container > a{
-  background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;
-  color:#E9E4F5 !important;font:600 14px/1 Figtree,system-ui !important;letter-spacing:0 !important;
-  padding:10px 12px !important;margin:0 !important;transform:none !important;
-  border-bottom:3px solid transparent !important;transition:color .15s,border-color .15s}
-.head-main .nav-list-link:hover,.nav-desktop-list a:hover,.nav-main-item.active > .nav-item-container > a{
-  color:#FFD12E !important;border-bottom-color:#FFD12E !important;background:transparent !important;transform:none !important;box-shadow:none !important}
-.nav-main-item.item-with-subitems > .nav-list-link::after{content:" ▾";color:#9C8FC4}
-.nav-dropdown-content > .container{border-width:1px !important;box-shadow:0 12px 32px rgba(6,4,14,.55) !important;padding:8px 10px !important}
-.nav-dropdown-content .nav-list-link,.desktop-dropdown .nav-list-link{font-size:14px !important;padding:9px 14px !important;border:0 !important}
-.nav-dropdown-content .nav-list-link:hover{background:#FFD12E !important;color:#241B38 !important;border-bottom-color:transparent !important}
 
 /* --- botões: uma escala --- */
 .btn,.btn-primary,.btn-secondary,.btn-default{font:700 15px/1 Figtree,system-ui !important;letter-spacing:0;
@@ -317,12 +261,8 @@ body,p,li,td,label,.form-control{font-size:16px !important}
 /* cabeçalho: remove o respiro do tema que ainda sobrava (174px -> ~96px) */
 .head-main .container,.head-main .row,.head-main [class*="head-"]{padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important}
 .head-main .head-logo-row,.js-head-logo-row{min-height:0 !important}
-.head-main .nav-desktop{margin:0 !important;min-height:0 !important}
-.head-main .nav-desktop-list,.head-main .js-nav-desktop-list{margin:0 !important;padding:0 !important}
-.head-main .nav-list-link{padding:8px 12px !important}
 /* cabeçalho v2: logo maior (letreiro maior em relação ao baú) e mais respiro até o menu */
 .head-main .head-logo-row,.js-head-logo-row{padding:12px 0 0 !important}
-.head-main .nav-desktop{padding:14px 0 6px !important}
 /* logo oficial (03/10): MR. MIMIC em CAPS, Londrina Solid Black, tagline Lilita */
 .logo-img{content:url('logo-oficial.png') !important}
 /* cards com altura padrão: nome reserva 2 linhas, card estica até a altura da fileira */
@@ -630,3 +570,60 @@ footer a.social-icon{display:none !important}
 @media (min-width:1921px){
   .mm-hero .mmh-slide.full .mmh-full{object-fit:contain !important;mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
 }
+
+/* =====================================================================
+   MENU DO CABEÇALHO (06/10/2026, refeito: "o menu do header tá bagunçado e feio").
+   Substitui as rodadas antigas (pílulas, cartão centralizado, links em linha), que se desfaziam umas às outras.
+   ===================================================================== */
+
+/* --- barra do computador: texto creme; a página atual e o hover ganham amarelo e sublinhado --- */
+.head-main .nav-desktop{overflow:visible !important;margin:0 !important;min-height:0 !important;padding:8px 0 10px !important}
+.js-nav-desktop-list-arrow,[class*=nav-desktop-list-arrow]{display:none !important}
+.head-main .nav-desktop-list,.head-main .js-nav-desktop-list{display:flex !important;flex-wrap:wrap !important;justify-content:center !important;align-items:center;gap:2px 10px !important;margin:0 !important;padding:0 !important;width:100% !important;max-width:100% !important;overflow:visible !important;white-space:normal !important}
+.head-main .nav-desktop-list > li{flex:0 0 auto}
+/* item simples: li > a; item com submenu: li > .nav-item-container > a */
+.head-main .nav-desktop-list > li > a.nav-list-link,
+.head-main .nav-desktop-list > li > .nav-item-container > a.nav-list-link{
+  display:inline-flex !important;align-items:center;gap:7px;padding:10px 14px !important;margin:0 !important;
+  font:600 15px/1 Figtree,system-ui,sans-serif !important;letter-spacing:.01em !important;color:#F4EDE1 !important;white-space:nowrap;
+  border:0 !important;border-radius:0 !important;box-shadow:none !important;transform:none !important;
+  background:linear-gradient(#FFD12E,#FFD12E) no-repeat center bottom 3px/0 2px !important;
+  transition:color .15s ease,background-size .2s ease}
+/* página atual (o tema marca o link com .selected) */
+.head-main .nav-desktop-list > li > a.nav-list-link.selected{color:#FFD12E !important;background-size:calc(100% - 28px) 2px !important}
+/* hover, submenu aberto (o tema põe .active no li) e foco pelo teclado */
+.head-main .nav-desktop-list > li:hover > a.nav-list-link,
+.head-main .nav-desktop-list > li:hover > .nav-item-container > a.nav-list-link,
+.head-main .nav-desktop-list > li.active > .nav-item-container > a.nav-list-link,
+.head-main .nav-desktop-list > li > a.nav-list-link:focus-visible,
+.head-main .nav-desktop-list > li > .nav-item-container > a.nav-list-link:focus-visible{color:#FFD12E !important;background-size:calc(100% - 28px) 2px !important}
+/* seta do "Produtos": vira para cima quando o submenu abre */
+.head-main .nav-desktop-list > .nav-dropdown > .nav-item-container > a::after{content:"";width:6px;height:6px;margin:-3px 0 0 1px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}
+.head-main .nav-desktop-list > .nav-dropdown:hover > .nav-item-container > a::after{transform:translateY(3px) rotate(225deg)}
+
+/* --- submenu do computador: cartão escuro com uma coluna por categoria --- */
+.head-main .nav-dropdown-content,.head-main .desktop-dropdown{background:transparent !important;border:0 !important;box-shadow:none !important;padding:6px 16px 28px !important;color:#E9E4F5 !important}
+.head-main .nav-dropdown-content > .container{max-width:760px !important;margin:0 auto !important;padding:24px 30px 22px !important;background:#1E1638 !important;border:1px solid #3A2C5E !important;border-radius:18px !important;box-shadow:0 20px 44px rgba(6,4,14,.6) !important}
+.head-main .nav-dropdown-content .desktop-list-subitems{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:0 36px !important;margin:0 !important;padding:0 !important;list-style:none}
+.head-main .nav-dropdown-content .desktop-list-subitems > li{margin:0 !important;padding:0 !important}
+/* título da coluna = a categoria (leva para a página dela) */
+.head-main .nav-dropdown-content .desktop-list-subitems > li > .nav-item-container > a{display:block !important;margin:0 0 8px !important;padding:0 0 10px !important;font:900 21px/1.1 'Londrina Solid',sans-serif !important;letter-spacing:.01em !important;color:#F4EDE1 !important;text-align:left !important;white-space:normal !important;background:none !important;border:0 !important;border-bottom:1px solid #3A2C5E !important;border-radius:0 !important;box-shadow:none !important;transition:color .15s ease}
+/* subcategorias em lista, sem o "-" que o tema punha na frente */
+.head-main .nav-dropdown-content .list-subitems .list-subitems{display:block !important;margin:0 !important;padding:0 !important;list-style:none}
+.head-main .nav-dropdown-content .list-subitems .list-subitems li{margin:0 !important;padding:0 !important}
+.head-main .nav-dropdown-content .list-subitems .list-subitems a{display:block !important;margin:0 !important;padding:7px 0 !important;font:500 14.5px/1.3 Figtree,system-ui,sans-serif !important;color:#C9BCEB !important;text-align:left !important;white-space:normal !important;background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;transform:none !important;transition:color .15s ease,transform .15s ease}
+.head-main .nav-dropdown-content .list-subitems .list-subitems a::before{content:none !important;display:none !important}
+.head-main .nav-dropdown-content .desktop-list-subitems > li > .nav-item-container > a:hover{color:#FFD12E !important}
+.head-main .nav-dropdown-content .list-subitems .list-subitems a:hover{color:#FFD12E !important;transform:translateX(3px) !important}
+
+/* --- menu do celular (gaveta): itens creme separados por linha, setas visíveis, submenu escuro até o fim --- */
+.modal-nav-hamburger .nav-primary .nav-list > .nav-item,
+.modal-nav-hamburger .nav-list-panel .modal-body > .nav-item{border-bottom:1px solid #3A2C5E;margin:0 !important;padding:0 !important}
+.modal-nav-hamburger .nav-list-link{display:flex !important;align-items:center;justify-content:space-between;padding:16px 24px !important;font:600 17px/1.2 Figtree,system-ui,sans-serif !important;color:#F4EDE1 !important;text-decoration:none !important}
+.modal-nav-hamburger .nav-list-link:hover,.modal-nav-hamburger .nav-list-link:focus-visible{color:#FFD12E !important}
+.modal-nav-hamburger .nav-list-panel .modal-body > .nav-item:first-child .nav-list-link{color:#FFD12E !important;font-weight:700 !important}
+.modal-nav-hamburger .nav-list-arrow svg,.modal-nav-hamburger .modal-back svg,.modal-nav-hamburger .js-toggle-menu-back svg{fill:#FFD12E !important;color:#FFD12E !important}
+.modal-nav-hamburger .nav-list-panel{background:#241B38 !important}
+.modal-nav-hamburger .nav-list-panel .modal-header{background:#1B1434 !important;border-bottom:1px solid #3A2C5E !important}
+.modal-nav-hamburger .nav-list-panel .modal-header,.modal-nav-hamburger .nav-list-panel .modal-header *{color:#F4EDE1 !important;font-weight:700}
+.modal-nav-hamburger .nav-list-panel .modal-body{box-shadow:none !important}   /* a sombra dura dos modais aparecia como faixa escura sob o último item */
