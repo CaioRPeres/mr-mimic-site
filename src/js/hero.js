@@ -1,14 +1,16 @@
 /* Slider da home: seis banners prontos (gerados por banners/faz_banner.py), um por slide,
    com a versão larga (1920x549) e a de celular (1080x1080). Estilo em src/css/hero.css.
-   Sem a luz em raios que vazava atrás do quadro (o Caio pediu para tirar, 07/10/2026). */
+   Sem a luz em raios que vazava atrás do quadro (o Caio pediu para tirar, 07/10/2026).
+   Escuridão Absoluta saiu em 08/10/2026: vendeu tudo e não vai repor. No lugar entrou a ETB de
+   Destined Rivals, em primeiro, que é a peça cara com uma unidade só. */
 (function () {
   if (!MM.naHome()) return;
 
   const SLIDES = [
+    { banner: "banner-etb-destined-rivals", href: "/produtos/elite-trainer-box-destined-rivals-en-pokemon-tcg/",
+      texto: "Elite Trainer Box Destined Rivals, em inglês e lacrada, última em estoque" },
     { banner: "banner-30-anos", href: "/pokemon-tcg/",
       texto: "Celebração de 30 Anos: Box com Pôster e Blister Duplo, estoque novo" },
-    { banner: "banner-escuridao-absoluta", href: "/pokemon-tcg/",
-      texto: "Escuridão Absoluta: Booster Display lacrado em português" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas: Ilustração Rara, Ultra Rara e EX" },
     { banner: "banner-acessorios", href: "/acessorios/",
