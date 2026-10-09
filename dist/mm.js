@@ -34,7 +34,7 @@ try {
     { banner: "banner-30-anos", href: "/pokemon-tcg/",
       texto: "Celebração de 30 Anos: Box com Pôster e Blister Duplo, estoque novo" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
-      texto: "Cartas avulsas a partir de R$ 4,90, com o Charizard 4/102 da Celebração de 30 Anos" },
+      texto: "Cartas avulsas BR, EN e JP, do R$ 4,90 ao Charizard 4/102 de R$ 950" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Acessórios: sleeves, toploaders, cases e pastas" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
