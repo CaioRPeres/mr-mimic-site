@@ -21,7 +21,10 @@ try {
    com a versão larga (1920x549) e a de celular (1080x1080). Estilo em src/css/hero.css.
    Sem a luz em raios que vazava atrás do quadro (o Caio pediu para tirar, 07/10/2026).
    Escuridão Absoluta saiu em 08/10/2026: vendeu tudo e não vai repor. No lugar entrou a ETB de
-   Destined Rivals, em primeiro, que é a peça cara com uma unidade só. */
+   Destined Rivals, em primeiro, que é a peça cara com uma unidade só.
+   Cartas avulsas refeito em 09/10/2026 (kits-site/faz_banner_avulsas.py): o antigo não tinha preço
+   nenhum e mostrava as cartas cortadas. Agora o herói é o Charizard 4/102 a R$ 950, a faixa começa
+   em R$ 4,90 e a peça não cita número de cartas, que muda toda semana. */
 (function () {
   if (!MM.naHome()) return;
 
@@ -31,7 +34,7 @@ try {
     { banner: "banner-30-anos", href: "/pokemon-tcg/",
       texto: "Celebração de 30 Anos: Box com Pôster e Blister Duplo, estoque novo" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
-      texto: "Cartas avulsas: Ilustração Rara, Ultra Rara e EX" },
+      texto: "Cartas avulsas a partir de R$ 4,90, com o Charizard 4/102 da Celebração de 30 Anos" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Acessórios: sleeves, toploaders, cases e pastas" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
