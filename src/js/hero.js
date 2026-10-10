@@ -5,15 +5,17 @@
    Destined Rivals, em primeiro, que é a peça cara com uma unidade só.
    Cartas avulsas refeito em 09/10/2026 (kits-site/faz_banner_avulsas.py): o antigo não tinha preço
    nenhum e mostrava as cartas cortadas. Agora o herói é o Charizard 4/102 a R$ 950, a faixa começa
-   em R$ 4,90 e a peça não cita número de cartas, que muda toda semana. */
+   em R$ 4,90 e a peça não cita número de cartas, que muda toda semana.
+   30 Anos refeito em 10/10/2026 no mesmo padrão (banners/faz_banner_novo.py): só o Box com Pôster, a
+   R$ 189,90, com a arte entrando no roxo em meio-tom; o slide leva direto ao produto. */
 (function () {
   if (!MM.naHome()) return;
 
   const SLIDES = [
     { banner: "banner-etb-destined-rivals", href: "/produtos/elite-trainer-box-destined-rivals-en-pokemon-tcg/",
       texto: "Elite Trainer Box Destined Rivals, em inglês e lacrada, última em estoque" },
-    { banner: "banner-30-anos", href: "/pokemon-tcg/",
-      texto: "Celebração de 30 Anos: Box com Pôster e Blister Duplo, estoque novo" },
+    { banner: "banner-30-anos", href: "/produtos/box-colecao-com-poster-celebracao-de-30-anos-pt/",
+      texto: "Box com Pôster da Celebração de 30 Anos, em português, R$ 189,90" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas BR, EN e JP, do R$ 4,90 ao Charizard 4/102 de R$ 950" },
     { banner: "banner-acessorios", href: "/acessorios/",
