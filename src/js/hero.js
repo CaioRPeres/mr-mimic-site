@@ -7,7 +7,10 @@
    nenhum e mostrava as cartas cortadas. Agora o herói é o Charizard 4/102 a R$ 950, a faixa começa
    em R$ 4,90 e a peça não cita número de cartas, que muda toda semana.
    30 Anos refeito em 10/10/2026 no mesmo padrão (banners/faz_banner_novo.py): só o Box com Pôster, a
-   R$ 189,90, com a arte entrando no roxo em meio-tom; o slide leva direto ao produto. */
+   R$ 189,90, com a arte entrando no roxo em meio-tom; o slide leva direto ao produto.
+   Acessórios refeito em 11/10/2026 no mesmo padrão: fundo azul com malha de hexágonos (escudo), os acessórios
+   BRA reais em grupo compacto e o baú cavaleiro, arranjo "Fila B" escolhido pelo Caio entre composições do
+   Ideogram e refeito com as fotos reais. */
 (function () {
   if (!MM.naHome()) return;
 
@@ -19,7 +22,7 @@
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas BR, EN e JP, do R$ 4,90 ao Charizard 4/102 de R$ 950" },
     { banner: "banner-acessorios", href: "/acessorios/",
-      texto: "Acessórios: sleeves, toploaders, cases e pastas" },
+      texto: "Proteja sua coleção: acessórios BRA avulsos e em kits, a partir de R$ 20,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
       texto: "Compramos suas cartas, de 1 carta à coleção inteira" },
     { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
