@@ -26,6 +26,15 @@ CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 falhas = []
 
 
+def _n_slides():
+    """Quantos slides o hero.js declara (um `banner:` por item da lista SLIDES)."""
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src', 'js', 'hero.js'), encoding='utf-8') as f:
+        return len(re.findall(r'^\s*\{\s*banner:', f.read(), re.M))
+
+
+N_SLIDES = _n_slides()
+
+
 def conferir(ok, mensagem):
     print(('  ok    ' if ok else '  FALHA ') + mensagem)
     if not ok:
@@ -137,8 +146,8 @@ def conferir_loja():
     carta = uma_carta()
     # (caminho, largura, o que tem que estar lá)
     casos = [
-        ('/', 1440, lambda r: r['slides'] == 6 and r['categorias'] == 6 and r['fileiras'] == 3 and r['titulo'].startswith('Mr. Mimic |')),
-        ('/', 390, lambda r: r['slides'] == 6 and r['fileiras'] == 3),
+        ('/', 1440, lambda r: r['slides'] == N_SLIDES and r['categorias'] == 6 and r['fileiras'] == 3 and r['titulo'].startswith('Mr. Mimic |')),
+        ('/', 390, lambda r: r['slides'] == N_SLIDES and r['fileiras'] == 3),
         ('/venda-suas-cartas/', 1440, lambda r: r['venda'] >= 5),
         ('/contato/', 1440, lambda r: r['titulo'].startswith('Contato |')),
         ('/produtos/', 1440, lambda r: r['titulo'].startswith('Todos os Produtos')),
