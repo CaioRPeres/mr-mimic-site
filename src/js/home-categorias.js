@@ -12,7 +12,7 @@
       foto: MM.asset("img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp") },
     { nome: "Acessórios", sub: "sleeves, pastas, toploaders", href: "/acessorios/", cor: "#7B5CFF",
       foto: MM.asset("img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp") },
-    { nome: "Colecionáveis", sub: "em breve", href: "#", breve: true, cor: "#9CFF3D" },
+    { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#9CFF3D" },
     { nome: "Games", sub: "em breve", href: "#", breve: true, cor: "#35D6FF" },
     { nome: "Figures", sub: "em breve", href: "#", breve: true, cor: "#FF9F1C" },
   ];

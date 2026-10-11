@@ -29,7 +29,9 @@ try {
    R$ 189,90, com a arte entrando no roxo em meio-tom; o slide leva direto ao produto.
    Acessórios refeito em 11/10/2026 no mesmo padrão: fundo azul com malha de hexágonos (escudo), os acessórios
    BRA reais em grupo compacto e o baú cavaleiro, arranjo "Fila B" escolhido pelo Caio entre composições do
-   Ideogram e refeito com as fotos reais. */
+   Ideogram e refeito com as fotos reais.
+   Pelúcias e brinquedos (Sunny) entrou em 5º em 11/10/2026, fundo ciano, arranjo "Grupo B" escolhido pelo Caio;
+   aponta para a categoria nova /pelucias-e-brinquedos/. */
 (function () {
   if (!MM.naHome()) return;
 
@@ -42,6 +44,8 @@ try {
       texto: "Cartas avulsas BR, EN e JP, do R$ 4,90 ao Charizard 4/102 de R$ 950" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Proteja sua coleção: acessórios BRA avulsos e em kits, a partir de R$ 20,90" },
+    { banner: "banner-sunny", href: "/pelucias-e-brinquedos/",
+      texto: "Brinquedos e pelúcias licenciados de Pokémon e Super Mario, a partir de R$ 301,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
       texto: "Compramos suas cartas, de 1 carta à coleção inteira" },
     { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
@@ -135,7 +139,7 @@ try {
       foto: MM.asset("img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp") },
     { nome: "Acessórios", sub: "sleeves, pastas, toploaders", href: "/acessorios/", cor: "#7B5CFF",
       foto: MM.asset("img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp") },
-    { nome: "Colecionáveis", sub: "em breve", href: "#", breve: true, cor: "#9CFF3D" },
+    { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#9CFF3D" },
     { nome: "Games", sub: "em breve", href: "#", breve: true, cor: "#35D6FF" },
     { nome: "Figures", sub: "em breve", href: "#", breve: true, cor: "#FF9F1C" },
   ];
