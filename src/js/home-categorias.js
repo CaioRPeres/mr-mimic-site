@@ -1,4 +1,5 @@
-/* Home: grade "O que você procura?" logo abaixo do slider e três fileiras de produtos por categoria
+/* Home: grade "O que você procura?" logo abaixo do slider (6 blocos, todos com link e foto desde 11/10/2026;
+   fotos dos blocos sem produto do tema em assets/img-cat/) e três fileiras de produtos por categoria
    (cartas avulsas, selados, acessórios). O tema entrega só duas fileiras quase iguais ("Destaques",
    em grade, e "Lançamentos", em carrossel); aqui elas viram carrosséis de uma categoria cada, completados
    com produtos buscados na página da categoria. Estilo em src/css/home-categorias.css. */
@@ -12,9 +13,14 @@
       foto: MM.asset("img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp") },
     { nome: "Acessórios", sub: "sleeves, pastas, toploaders", href: "/acessorios/", cor: "#7B5CFF",
       foto: MM.asset("img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp") },
-    { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#9CFF3D" },
-    { nome: "Games", sub: "em breve", href: "#", breve: true, cor: "#35D6FF" },
-    { nome: "Figures", sub: "em breve", href: "#", breve: true, cor: "#FF9F1C" },
+    { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#35D6FF",
+      foto: MM.asset("img-cat/sunny.webp") },
+    // Games e Figures ("em breve", sem link) saíram em 11/10/2026: bloco morto na home. No lugar, duas portas que existem:
+    // a compra de cartas e o lançamento do Reinado Delta (a busca mostra só os produtos dele, com o avise-me).
+    { nome: "Compramos cartas", sub: "avaliação grátis · Pix", href: "/venda-suas-cartas/", cor: "#9CFF3D",
+      foto: MM.asset("img-cat/compramos.webp") },
+    { nome: "Reinado Delta", sub: "chega 06/11 · avise-me", href: "/search/?q=reinado%20delta", cor: "#FF9F1C",
+      foto: MM.asset("img-cat/reinado-delta.webp") },
   ];
   const PRODUTOS_POR_FILEIRA = 8;   // 2 páginas de 4
   const ESPERA_SWIPER_MS = 100, ESPERA_SWIPER_TENTATIVAS = 80;   // até 8 s

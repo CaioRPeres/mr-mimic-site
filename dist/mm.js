@@ -22,9 +22,11 @@ try {
    Sem a luz em raios que vazava atrás do quadro (o Caio pediu para tirar, 07/10/2026).
    Escuridão Absoluta saiu em 08/10/2026: vendeu tudo e não vai repor. No lugar entrou a ETB de
    Destined Rivals, em primeiro, que é a peça cara com uma unidade só.
-   Cartas avulsas refeito em 09/10/2026 (kits-site/faz_banner_avulsas.py): o antigo não tinha preço
-   nenhum e mostrava as cartas cortadas. Agora o herói é o Charizard 4/102 a R$ 950, a faixa começa
-   em R$ 4,90 e a peça não cita número de cartas, que muda toda semana.
+   Cartas avulsas refeito em 09/10/2026 e de novo em 11/10/2026 (banners/faz_banner_novo.py, cartas-avulsas): o
+   Charizard 4/102 saiu na permuta das caixas do pôster; agora o herói é a Dialga V-ASTRO (JP) a R$ 849,90, com as
+   outras cartas mais raras em estoque no leque. A faixa começa em R$ 4,90 e a peça não cita número de cartas.
+   ETB Destined Rivals refeita em 11/10/2026 no padrão novo (etb-destined-rivals): preço fora da arte, caixa inteira,
+   chamada também no celular. Todos os 7 banners ganharam a chamada (botão) na versão de celular em 11/10/2026.
    30 Anos refeito em 10/10/2026 no mesmo padrão (banners/faz_banner_novo.py): só o Box com Pôster, a
    R$ 189,90, com a arte entrando no roxo em meio-tom; o slide leva direto ao produto.
    Acessórios refeito em 11/10/2026 no mesmo padrão: fundo azul com malha de hexágonos (escudo), os acessórios
@@ -45,7 +47,7 @@ try {
     { banner: "banner-30-anos", href: "/produtos/box-colecao-com-poster-celebracao-de-30-anos-pt/",
       texto: "Box com Pôster da Celebração de 30 Anos, em português, R$ 189,90" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
-      texto: "Cartas avulsas BR, EN e JP, do R$ 4,90 ao Charizard 4/102 de R$ 950" },
+      texto: "Cartas avulsas BR, EN e JP, de R$ 4,90 à Dialga V-ASTRO de R$ 849,90, todas Near Mint" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Proteja sua coleção: acessórios BRA avulsos e em kits, a partir de R$ 20,90" },
     { banner: "banner-sunny", href: "/pelucias-e-brinquedos/",
@@ -129,7 +131,8 @@ try {
 
 /* ===== home-categorias.js ===== */
 try {
-/* Home: grade "O que você procura?" logo abaixo do slider e três fileiras de produtos por categoria
+/* Home: grade "O que você procura?" logo abaixo do slider (6 blocos, todos com link e foto desde 11/10/2026;
+   fotos dos blocos sem produto do tema em assets/img-cat/) e três fileiras de produtos por categoria
    (cartas avulsas, selados, acessórios). O tema entrega só duas fileiras quase iguais ("Destaques",
    em grade, e "Lançamentos", em carrossel); aqui elas viram carrosséis de uma categoria cada, completados
    com produtos buscados na página da categoria. Estilo em src/css/home-categorias.css. */
@@ -143,9 +146,14 @@ try {
       foto: MM.asset("img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp") },
     { nome: "Acessórios", sub: "sleeves, pastas, toploaders", href: "/acessorios/", cor: "#7B5CFF",
       foto: MM.asset("img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp") },
-    { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#9CFF3D" },
-    { nome: "Games", sub: "em breve", href: "#", breve: true, cor: "#35D6FF" },
-    { nome: "Figures", sub: "em breve", href: "#", breve: true, cor: "#FF9F1C" },
+    { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#35D6FF",
+      foto: MM.asset("img-cat/sunny.webp") },
+    // Games e Figures ("em breve", sem link) saíram em 11/10/2026: bloco morto na home. No lugar, duas portas que existem:
+    // a compra de cartas e o lançamento do Reinado Delta (a busca mostra só os produtos dele, com o avise-me).
+    { nome: "Compramos cartas", sub: "avaliação grátis · Pix", href: "/venda-suas-cartas/", cor: "#9CFF3D",
+      foto: MM.asset("img-cat/compramos.webp") },
+    { nome: "Reinado Delta", sub: "chega 06/11 · avise-me", href: "/search/?q=reinado%20delta", cor: "#FF9F1C",
+      foto: MM.asset("img-cat/reinado-delta.webp") },
   ];
   const PRODUTOS_POR_FILEIRA = 8;   // 2 páginas de 4
   const ESPERA_SWIPER_MS = 100, ESPERA_SWIPER_TENTATIVAS = 80;   // até 8 s
