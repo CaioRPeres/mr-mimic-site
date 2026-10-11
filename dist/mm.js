@@ -31,7 +31,9 @@ try {
    BRA reais em grupo compacto e o baú cavaleiro, arranjo "Fila B" escolhido pelo Caio entre composições do
    Ideogram e refeito com as fotos reais.
    Pelúcias e brinquedos (Sunny) entrou em 5º em 11/10/2026, fundo ciano, arranjo "Grupo B" escolhido pelo Caio;
-   aponta para a categoria nova /pelucias-e-brinquedos/. */
+   aponta para a categoria nova /pelucias-e-brinquedos/.
+   Compramos suas cartas refeito em 11/10/2026 no mesmo padrão: só o baú comendo cartas (língua refeita), sem
+   leque; o Caio achou cartas + baú poluído. */
 (function () {
   if (!MM.naHome()) return;
 
@@ -47,7 +49,7 @@ try {
     { banner: "banner-sunny", href: "/pelucias-e-brinquedos/",
       texto: "Brinquedos e pelúcias licenciados de Pokémon e Super Mario, a partir de R$ 301,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
-      texto: "Compramos suas cartas, de 1 carta à coleção inteira" },
+      texto: "Compramos suas cartas, de 1 carta à coleção inteira, e pagamos no Pix" },
     { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
       texto: "Reinado Delta chega na loja em 6 de novembro" },
   ];
