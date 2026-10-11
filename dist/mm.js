@@ -27,6 +27,8 @@ try {
    outras cartas mais raras em estoque no leque. A faixa começa em R$ 4,90 e a peça não cita número de cartas.
    ETB Destined Rivals refeita em 11/10/2026 no padrão novo (etb-destined-rivals): preço fora da arte, caixa inteira,
    chamada também no celular. Todos os 7 banners ganharam a chamada (botão) na versão de celular em 11/10/2026.
+   ETB Ascended Heroes entrou em 2º em 11/10/2026 (produto novo da aba selados): fundo = arte oficial do cabeçalho da
+   coleção, logo EN, caixa real; 8 slides.
    30 Anos refeito em 10/10/2026 no mesmo padrão (banners/faz_banner_novo.py): só o Box com Pôster, a
    R$ 189,90, com a arte entrando no roxo em meio-tom; o slide leva direto ao produto.
    Acessórios refeito em 11/10/2026 no mesmo padrão: fundo azul com malha de hexágonos (escudo), os acessórios
@@ -44,6 +46,8 @@ try {
   const SLIDES = [
     { banner: "banner-etb-destined-rivals", href: "/produtos/elite-trainer-box-destined-rivals-en-pokemon-tcg/",
       texto: "Elite Trainer Box Destined Rivals, em inglês e lacrada, última em estoque" },
+    { banner: "banner-etb-ascended-heroes", href: "/produtos/elite-trainer-box-ascended-heroes-en-pokemon-tcg-cwk5f/",
+      texto: "Elite Trainer Box Ascended Heroes, em inglês e lacrada, R$ 1.239,90, só 3 unidades" },
     { banner: "banner-30-anos", href: "/produtos/box-colecao-com-poster-celebracao-de-30-anos-pt/",
       texto: "Box com Pôster da Celebração de 30 Anos, em português, R$ 189,90" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
