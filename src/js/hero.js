@@ -14,7 +14,9 @@
    Pelúcias e brinquedos (Sunny) entrou em 5º em 11/10/2026, fundo ciano, arranjo "Grupo B" escolhido pelo Caio;
    aponta para a categoria nova /pelucias-e-brinquedos/.
    Compramos suas cartas refeito em 11/10/2026 no mesmo padrão: só o baú comendo cartas (língua refeita), sem
-   leque; o Caio achou cartas + baú poluído. */
+   leque; o Caio achou cartas + baú poluído.
+   Reinado Delta refeito em 11/10/2026: fundo verde da coleção com o Rayquaza (Ideogram sobre a arte oficial),
+   produtos reais com a ETB em destaque, logo PT; sem preço, "em breve" com Avise-me. Fecha o padrão novo nos 7. */
 (function () {
   if (!MM.naHome()) return;
 
@@ -32,7 +34,7 @@
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
       texto: "Compramos suas cartas, de 1 carta à coleção inteira, e pagamos no Pix" },
     { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
-      texto: "Reinado Delta chega na loja em 6 de novembro" },
+      texto: "Reinado Delta chega na loja em 6 de novembro: display, blisters e Treinador Avançado, cadastre o avise-me" },
   ];
   const TROCA_A_CADA_MS = 6500;
   const PRE_CARREGA_SEGUNDO_MS = 1500;
