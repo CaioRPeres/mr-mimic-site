@@ -623,3 +623,7 @@ footer a.social-icon{display:none !important}
 .modal-nav-hamburger .nav-list-panel .modal-header{background:#1B1434 !important;border-bottom:1px solid #3A2C5E !important}
 .modal-nav-hamburger .nav-list-panel .modal-header,.modal-nav-hamburger .nav-list-panel .modal-header *{color:#F4EDE1 !important;font-weight:700}
 .modal-nav-hamburger .nav-list-panel .modal-body{box-shadow:none !important}   /* a sombra dura dos modais aparecia como faixa escura sob o último item */
+
+/* --- produto esgotado (26/10/2026, pedido do Caio): além da tarja, foto apagada e em cinza e texto mais fraco; a tarja fica inteira. Classe posta pelo esgotado.js --- */
+.mm-esgotado .item-image img{opacity:.35 !important;filter:grayscale(1)}
+.mm-esgotado .item-description{opacity:.5}

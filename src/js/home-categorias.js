@@ -99,10 +99,16 @@
       const chave = nomeDe(sl).toLowerCase();
       if (sl.classList.contains("swiper-slide-duplicate") || !cfg.mantem(sl) || vistos.has(chave)) sl.remove(); else vistos.add(chave);
     });
+    // disponível primeiro (26/10/2026): completa com a categoria, que já vem com os esgotados no fim, até ter
+    // PRODUTOS_POR_FILEIRA disponíveis; depois os esgotados vão para o fim e o que passar de 8 sai
     const trilho = sec.querySelector(".swiper-wrapper");
-    if (trilho.children.length < PRODUTOS_POR_FILEIRA) {
-      try { (await buscarProdutos(cfg.href, PRODUTOS_POR_FILEIRA - trilho.children.length, vistos)).forEach(sl => trilho.appendChild(sl)); } catch (e) {}
+    const esgotado = sl => !!(MM.esgotado && MM.esgotado(sl));
+    const disponiveis = () => [...trilho.children].filter(sl => !esgotado(sl));
+    if (disponiveis().length < PRODUTOS_POR_FILEIRA) {
+      try { (await buscarProdutos(cfg.href, PRODUTOS_POR_FILEIRA - disponiveis().length, vistos)).forEach(sl => trilho.appendChild(sl)); } catch (e) {}
     }
+    const esgotados = [...trilho.children].filter(esgotado);
+    disponiveis().concat(esgotados).forEach((sl, i) => { if (i < PRODUTOS_POR_FILEIRA) trilho.appendChild(sl); else sl.remove(); });
     const verTudo = document.createElement("a"); verTudo.className = "mm-verttudo"; verTudo.href = cfg.href; verTudo.textContent = "Ver tudo em " + cfg.titulo + " →";
     sec.appendChild(verTudo);
 
