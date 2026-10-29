@@ -674,8 +674,6 @@ try {
   if (!alvo) return;
   const CONFIG = {
     pctGiro: { alto: 0.60, baixo: 0.50, muitoBaixo: 0.40 },   // faixa de vendas da Liga: 5-7 alto, 2-4 baixo, 1 muito baixo
-    cond: { NM: 1, SP: 0.85, MP: 0.70, HP: 0.50 },            // fator sobre o preço NM
-    condLabel: { NM: "NM (quase nova)", SP: "SP (pouco usada)", MP: "MP (usada)", HP: "HP (muito usada)" },
     data: "29/10/2026",
     bonusCredito: 0.10,
     prazoResposta: "2 dias úteis",
@@ -722,7 +720,8 @@ try {
   const pctDoGiro = q => q >= 5 ? CONFIG.pctGiro.alto : q >= 2 ? CONFIG.pctGiro.baixo : CONFIG.pctGiro.muitoBaixo;
   const cards = D.map((r, i) => ({ id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(r[3] * pctDoGiro(r[4]) * 10) / 10 }));
   const BRL = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-  const priceOf = (c, cond) => Math.floor(c.nm * CONFIG.cond[cond] * 10) / 10;
+  const priceOf = c => c.nm;   // só NM: a buylist compra apenas carta quase nova
+  const foto = c => MM.asset("buylist/" + String(c.id).padStart(2, "0") + ".jpg");   // mesma ordem de D
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
   const css = `
@@ -733,7 +732,11 @@ try {
 .mmb input,.mmb select{font:600 15px Figtree,system-ui;color:#F4EDE1;background:#211839;border:2px solid #090612;border-radius:10px;padding:10px 12px;min-width:0}
 .mmb-tools input{flex:1 1 200px}
 .mmb-count{font:500 14px Figtree,system-ui;color:#B9AEDA;margin:0 0 12px}
-.mmb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.mmb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.mmb-img{display:block;width:100%;aspect-ratio:350/489;object-fit:cover;border-radius:8px;background:#211839}
+.mmb-nm{align-self:flex-start;background:#9CFF3D;color:#241B38;border-radius:6px;padding:1px 8px;font:800 11px Figtree,system-ui;letter-spacing:.05em}
+.mmb-card h4{font-size:19px !important}
+.mmb-card button{width:100%}
 .mmb-card{background:#312654;border:2px solid #090612;border-radius:16px;box-shadow:4px 4px 0 #090612;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .mmb-ed{font:800 11px Figtree,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#B9AEDA}
 .mmb-card h4{font:900 22px/1.05 'Londrina Solid',sans-serif;color:#F4EDE1;margin:0;overflow-wrap:anywhere}
@@ -770,7 +773,7 @@ try {
   alvo.className = "mmb";
   alvo.innerHTML = `
     <h3>Buylist: o que pagamos hoje</h3>
-    <p class="mmb-sub">Escolha a carta e o estado, veja o valor <b>antes</b> de vender e monte sua lista. Preços de ${CONFIG.data}, fixos por unidade.</p>
+    <p class="mmb-sub">Veja o valor <b>antes</b> de vender e monte sua lista. Compramos <b>somente cartas NM</b> (quase novas, sem marca de uso). Preços de ${CONFIG.data}, fixos por unidade.</p>
     <div class="mmb-lay">
       <div>
         <div class="mmb-tools">
@@ -805,12 +808,12 @@ try {
         </div>
       </aside>
     </div>
-    <p class="mmb-regras"><b>Regras.</b> O valor é a nossa expectativa de compra por unidade, no estado escolhido; a aprovação final considera estoque e procura e pode haver contraproposta. Respondemos em até ${CONFIG.prazoResposta}; só depois de aprovado você recebe o endereço para postar nos Correios e informa o rastreio. Chegou como informado, o Pix sai em até ${CONFIG.prazoPagamento} depois da conferência. Se vier pior, avisamos antes de pagar e fazemos uma contraproposta; se você não aceitar, as cartas voltam e o frete de volta é por conta de quem vende. Preços atualizados periodicamente.</p>`;
+    <p class="mmb-regras"><b>Regras.</b> Só compramos carta em estado NM; o valor é a nossa expectativa de compra por unidade, e a aprovação final considera estoque e procura e pode haver contraproposta. Respondemos em até ${CONFIG.prazoResposta}; só depois de aprovado você recebe o endereço para postar nos Correios e informa o rastreio. Chegou como informado, o Pix sai em até ${CONFIG.prazoPagamento} depois da conferência. Se vier pior, avisamos antes de pagar e fazemos uma contraproposta; se você não aceitar, as cartas voltam e o frete de volta é por conta de quem vende. Preços atualizados periodicamente.</p>`;
 
   const $ = id => document.getElementById(id);
   const state = { bag: {} };
-  try { const s = JSON.parse(localStorage.getItem("mm-bag") || "{}"); if (s && typeof s === "object") state.bag = s; } catch (e) {}
-  const save = () => { try { localStorage.setItem("mm-bag", JSON.stringify(state.bag)); } catch (e) {} };
+  try { const s = JSON.parse(localStorage.getItem("mm-bag-nm") || "{}"); if (s && typeof s === "object") state.bag = s; } catch (e) {}
+  const save = () => { try { localStorage.setItem("mm-bag-nm", JSON.stringify(state.bag)); } catch (e) {} };
   $("mmb-ed").innerHTML = '<option value="">Todas as coleções</option>' + Object.entries(ED).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
 
   function render() {
@@ -820,35 +823,28 @@ try {
     $("mmb-count").textContent = list.length + (list.length === 1 ? " carta" : " cartas") + " na lista";
     $("mmb-grid").innerHTML = list.map(c => `
       <article class="mmb-card" data-id="${c.id}">
+        <img class="mmb-img" src="${foto(c)}" alt="${esc(c.name)} nº ${esc(c.num)}" loading="lazy" width="350" height="489">
         <div class="mmb-ed">${esc(ED[c.ed])}</div>
         <h4>${esc(c.name)}</h4>
-        <span class="mmb-num">Nº ${esc(c.num)}</span>
-        <div class="mmb-pay"><span class="mmb-price" data-price>${BRL(c.nm)}</span><small>por unidade</small></div>
-        <div class="mmb-row">
-          <select data-cond aria-label="Estado da carta ${esc(c.name)}">${Object.keys(CONFIG.cond).map(k => `<option value="${k}">${CONFIG.condLabel[k]}</option>`).join("")}</select>
-          <button data-sell>Vender</button>
-        </div>
+        <div class="mmb-row"><span class="mmb-num">Nº ${esc(c.num)}</span><span class="mmb-nm">NM</span></div>
+        <div class="mmb-pay"><span class="mmb-price">${BRL(c.nm)}</span><small>por unidade</small></div>
+        <button data-sell>Vender</button>
       </article>`).join("") || '<p class="mmb-hint">Nenhuma carta encontrada. Tente outro nome.</p>';
   }
   function renderBag() {
     const rows = Object.entries(state.bag).filter(([k, v]) => cards[v.id]).map(([k, v]) => ({ key: k, ...v, c: cards[v.id] }));
     $("mmb-empty").hidden = rows.length > 0;
-    $("mmb-items").innerHTML = rows.map(r => `<li><b>${r.qty}× ${esc(r.c.name)} <small>Nº ${esc(r.c.num)}</small></b><span class="v">${BRL(priceOf(r.c, r.cond) * r.qty)}</span><small>${esc(ED[r.c.ed])} · ${r.cond}</small><button class="mmb-g" data-del="${r.key}">remover</button></li>`).join("");
-    const total = rows.reduce((s, r) => s + priceOf(r.c, r.cond) * r.qty, 0);
+    $("mmb-items").innerHTML = rows.map(r => `<li><b>${r.qty}× ${esc(r.c.name)} <small>Nº ${esc(r.c.num)}</small></b><span class="v">${BRL(priceOf(r.c) * r.qty)}</span><small>${esc(ED[r.c.ed])} · NM</small><button class="mmb-g" data-del="${r.key}">remover</button></li>`).join("");
+    const total = rows.reduce((s, r) => s + priceOf(r.c) * r.qty, 0);
     $("mmb-total").textContent = BRL(total);
     const b = Math.round(CONFIG.bonusCredito * 100);
     $("mmb-credit").textContent = total > 0 ? "Em crédito na loja: " + BRL(total * (1 + CONFIG.bonusCredito)) + " (+" + b + "% de bônus)" : "Em crédito na loja você recebe " + b + "% a mais.";
     $("mmb-out").classList.remove("on");
   }
-  $("mmb-grid").addEventListener("change", e => {
-    if (!e.target.matches("[data-cond]")) return;
-    const card = e.target.closest(".mmb-card");
-    card.querySelector("[data-price]").textContent = BRL(priceOf(cards[+card.dataset.id], e.target.value));
-  });
   $("mmb-grid").addEventListener("click", e => {
     if (!e.target.matches("[data-sell]")) return;
-    const card = e.target.closest(".mmb-card"), id = +card.dataset.id, cond = card.querySelector("[data-cond]").value, key = id + "|" + cond;
-    state.bag[key] = { id, cond, qty: (state.bag[key] ? state.bag[key].qty : 0) + 1 };
+    const id = +e.target.closest(".mmb-card").dataset.id, key = "nm" + id;
+    state.bag[key] = { id, qty: (state.bag[key] ? state.bag[key].qty : 0) + 1 };
     save(); renderBag();
   });
   $("mmb-items").addEventListener("click", e => {
@@ -864,7 +860,7 @@ try {
     if (!nome || !contato) { $("mmb-err").textContent = "Preencha seu nome e um e-mail ou Instagram para gerar a lista."; return; }
     $("mmb-err").textContent = "";
     let total = 0;
-    const lines = rows.map(v => { const c = cards[v.id], p = priceOf(c, v.cond); total += p * v.qty; return `${v.qty}x ${c.name} (${ED[c.ed]}, nº ${c.num}) - ${v.cond} - ${BRL(p)} cada = ${BRL(p * v.qty)}`; });
+    const lines = rows.map(v => { const c = cards[v.id], p = priceOf(c); total += p * v.qty; return `${v.qty}x ${c.name} (${ED[c.ed]}, nº ${c.num}) - NM - ${BRL(p)} cada = ${BRL(p * v.qty)}`; });
     const credito = $("mmb-forma").value === "credito";
     const receber = credito ? "Crédito na loja: " + BRL(total * (1 + CONFIG.bonusCredito)) + " (com " + Math.round(CONFIG.bonusCredito * 100) + "% de bônus)" : "Pix: " + BRL(total);
     const msg = `PEDIDO DE VENDA - Buylist Mr. Mimic (${CONFIG.data})\nNome: ${nome}\nContato: ${contato}\n\n${lines.join("\n")}\n\nTotal: ${BRL(total)}\nQuero receber em: ${receber}\n\nEntendo que o valor final é confirmado na conferência das cartas.`;
