@@ -51,7 +51,7 @@
 ];
 
   // base = o menor entre a venda real (piso: mediana das vendas NM recentes na Liga) e o menor anúncio; sem piso, só o anúncio
-  const cards = D.map((r, i) => { const base = Math.min(r[5], r[6] || r[3]);   // sem piso ainda (null), a média de venda 3m faz as vezes return { id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(base * CONFIG.pct * 10) / 10 }; });
+  const cards = D.map((r, i) => { const base = Math.min(r[5], r[6] || r[3]); /* sem piso ainda (null), a média de venda 3m faz as vezes */ return { id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(base * CONFIG.pct * 10) / 10 }; });
   const BRL = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   const priceOf = c => c.nm;   // só NM: a buylist compra apenas carta quase nova
   const foto = c => MM.asset("buylist/" + String(c.id).padStart(2, "0") + ".jpg");   // mesma ordem de D
