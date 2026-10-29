@@ -26,10 +26,10 @@
     sleeve: '<svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 3h6v10H9V7z"/></svg>',
   };
   const PASSOS = [
-    { titulo: "Manda foto ou lista", texto: "no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", icone: I.foto },
-    { titulo: "Avaliamos carta a carta", texto: "estado, raridade e o que ela vale hoje.", icone: I.lupa },
-    { titulo: "Você recebe a oferta aberta", texto: "item por item, pra conferir cada número.", icone: I.lista },
-    { titulo: "Fechou? Conferimos e pagamos", texto: "Pix em até 1 dia útil depois de conferir — pelo correio ou presencial.", icone: I.pix },
+    { titulo: "Monte sua lista", texto: "escolha as cartas da buylist, o estado de cada uma e clique em Vender.", icone: I.lista },
+    { titulo: "Envie o pedido", texto: "gere a lista e mande por e-mail ou Instagram.", icone: I.correio },
+    { titulo: "Aprovamos e você posta", texto: "respondemos em até 2 dias úteis; só então passamos o endereço.", icone: I.lupa },
+    { titulo: "Conferimos e pagamos", texto: "chegou como informado? Pix em até 1 dia útil.", icone: I.pix },
   ];
   const COMPRAMOS = [
     { titulo: "Cartas avulsas", texto: "Da comum à ilustração secreta — nacional, japonesa ou inglesa.", icone: I.carta, cor: "#FFD12E" },
@@ -46,9 +46,9 @@
     <section class="mm-vhero">
       <div class="mm-vtxt">
         <div class="mm-veb">VENDA PRA GENTE</div>
-        <h2>Compramos a sua coleção</h2>
-        <p>Carta avulsa, pasta inteira ou lacrado. Avaliação carta a carta e <b>Pix em até 1 dia útil depois da conferência</b>.</p>
-        <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
+        <h2>Venda suas cartas</h2>
+        <p>Veja o <b>preço fixo</b> de cada carta na nossa buylist, escolha o estado e monte seu pedido. Sem negociar: o valor está na tela. Pix em até 1 dia útil depois da conferência.</p>
+        <a class="mm-vbtn" href="#mm-buylist">Ver a buylist</a>
       </div>
       <img class="mm-vmascote" src="${MM.asset("hero/p5-moedas2.webp")}" alt="Mr. Mimic devolvendo moedas pelas cartas">
     </section>
@@ -56,6 +56,7 @@
       <h3>Como funciona</h3>
       <ol>${PASSOS.map((p, i) => `<li><span class="mm-vn">${i + 1}</span><span class="mm-vi">${p.icone}</span><b>${p.titulo}</b><small>${p.texto}</small></li>`).join("")}</ol>
     </section>
+    <section id="mm-buylist"></section>
     <section class="mm-vjeitos">
       <h3>Dois jeitos de fechar</h3>
       <div class="mm-vgrade mm-vgrade2">

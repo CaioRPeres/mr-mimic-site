@@ -598,10 +598,10 @@ try {
     sleeve: '<svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 3h6v10H9V7z"/></svg>',
   };
   const PASSOS = [
-    { titulo: "Manda foto ou lista", texto: "no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", icone: I.foto },
-    { titulo: "Avaliamos carta a carta", texto: "estado, raridade e o que ela vale hoje.", icone: I.lupa },
-    { titulo: "Você recebe a oferta aberta", texto: "item por item, pra conferir cada número.", icone: I.lista },
-    { titulo: "Fechou? Conferimos e pagamos", texto: "Pix em até 1 dia útil depois de conferir — pelo correio ou presencial.", icone: I.pix },
+    { titulo: "Monte sua lista", texto: "escolha as cartas da buylist, o estado de cada uma e clique em Vender.", icone: I.lista },
+    { titulo: "Envie o pedido", texto: "gere a lista e mande por e-mail ou Instagram.", icone: I.correio },
+    { titulo: "Aprovamos e você posta", texto: "respondemos em até 2 dias úteis; só então passamos o endereço.", icone: I.lupa },
+    { titulo: "Conferimos e pagamos", texto: "chegou como informado? Pix em até 1 dia útil.", icone: I.pix },
   ];
   const COMPRAMOS = [
     { titulo: "Cartas avulsas", texto: "Da comum à ilustração secreta — nacional, japonesa ou inglesa.", icone: I.carta, cor: "#FFD12E" },
@@ -618,9 +618,9 @@ try {
     <section class="mm-vhero">
       <div class="mm-vtxt">
         <div class="mm-veb">VENDA PRA GENTE</div>
-        <h2>Compramos a sua coleção</h2>
-        <p>Carta avulsa, pasta inteira ou lacrado. Avaliação carta a carta e <b>Pix em até 1 dia útil depois da conferência</b>.</p>
-        <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
+        <h2>Venda suas cartas</h2>
+        <p>Veja o <b>preço fixo</b> de cada carta na nossa buylist, escolha o estado e monte seu pedido. Sem negociar: o valor está na tela. Pix em até 1 dia útil depois da conferência.</p>
+        <a class="mm-vbtn" href="#mm-buylist">Ver a buylist</a>
       </div>
       <img class="mm-vmascote" src="${MM.asset("hero/p5-moedas2.webp")}" alt="Mr. Mimic devolvendo moedas pelas cartas">
     </section>
@@ -628,6 +628,7 @@ try {
       <h3>Como funciona</h3>
       <ol>${PASSOS.map((p, i) => `<li><span class="mm-vn">${i + 1}</span><span class="mm-vi">${p.icone}</span><b>${p.titulo}</b><small>${p.texto}</small></li>`).join("")}</ol>
     </section>
+    <section id="mm-buylist"></section>
     <section class="mm-vjeitos">
       <h3>Dois jeitos de fechar</h3>
       <div class="mm-vgrade mm-vgrade2">
@@ -662,6 +663,224 @@ try {
 })();
 
 } catch (e) { console.warn("mm venda.js", e); }
+
+/* ===== buylist.js ===== */
+try {
+/* Buylist na página "Venda suas cartas": preço fixo por carta e por estado, sacola e pedido pronto para enviar.
+   Os valores saem da média de venda de 3 meses na Liga (29/10/2026) vezes o percentual do giro; mexer só em CONFIG e D.
+   Estilo injetado aqui mesmo (.mmb-*), fora do limite do CSS do admin. */
+(function () {
+  const alvo = document.getElementById("mm-buylist");
+  if (!alvo) return;
+  const CONFIG = {
+    pctGiro: { alto: 0.60, baixo: 0.50, muitoBaixo: 0.40 },   // faixa de vendas da Liga: 5-7 alto, 2-4 baixo, 1 muito baixo
+    cond: { NM: 1, SP: 0.85, MP: 0.70, HP: 0.50 },            // fator sobre o preço NM
+    condLabel: { NM: "NM (quase nova)", SP: "SP (pouco usada)", MP: "MP (usada)", HP: "HP (muito usada)" },
+    data: "29/10/2026",
+    bonusCredito: 0.10,
+    prazoResposta: "2 dias úteis",
+    prazoPagamento: "1 dia útil"
+  };
+  const EMAIL = MM.contato.email, INSTAGRAM = MM.contato.instagram;
+  const ED = {
+  a:'Celebração 30 Anos', b:'Celebração 30 Anos · Clássicas', c:'Celebração 30 Anos (JP)',
+  d:'Caos Ascendente', e:'Escuridão Absoluta', f:'Equilíbrio Perfeito', g:'Storm Emeralda',
+  h:'30 Anos Premium Deck Espeon e Umbreon (JP)', i:'Abyss Eye (JP)'
+};
+  const D = [
+['Charizard','b','004',1113.57,5],['Mega Greninja ex','d','122',1088.29,2],['Lugia','b','149',894.05,3],
+['Mega Darkrai ex','e','120',849.24,5],['Mega Darkrai ex','e','116',826.71,5],['Mega Greninja ex','d','116',718.04,5],
+['Mega Zygarde ex','f','124',658.79,2],['Mew ex','a','152',612.62,6],['Mew ex','c','129',592.37,2],
+['Mew ex','a','158',576.2,5],['Pikachu ex','a','150',529.1,5],['Gengar ex','a','154',513.3,5],
+['Magikarp','b','203',507.28,5],['Pikachu ex','a','149',490.49,5],['Meowth ex','f','121',486.2,4],
+['Mewtwo ex','a','151',438.33,5],['Mewtwo ex','a','157',416.83,6],['Gengar','b','094',399.01,4],
+['Sylveon ex','a','153',378.79,5],['Gengar ex','c','131',368.01,1],['Mewtwo ex','c','128',339.86,1],
+['Sylveon ex','c','130',307.69,1],['Jirachi ex','a','155',274.87,5],['Encorajamento da Rose','f','123',251.93,3],
+['Pikachu e Zekrom-GX','b','033',239.19,3],['Morpeko ex','e','117',231.36,6],['Mega Clefable ex','f','119',225.02,4],
+['Cinccino ex','d','119',207.08,5],['Mega Zeraora ex','e','114',204.22,6],['Mega Zygarde ex','f','120',202.57,5],
+['Celebi Luminescente','b','106c',200.57,5],['Clarita','e','119',195.88,5],['Pikachu','b','058',188.03,5],
+['Mega Chandelure ex','e','115',183.75,6],['Greninja ex','a','148',175.46,6],['Mega Starmie ex','f','118',168.2,5],
+['Tranquilidade do AZ','d','120',159.56,5],['Rayquaza-EX','b','085',157.57,5],['Arceus-V-ASTRO','b','123',155.95,4],
+['Darkrai & Cresselia LENDA','b','099',155.26,5],['Mega Dragalge ex','d','118',150.33,5],['Palkia LV.X','b','106',146.21,4],
+['N','b','101',145.54,5],['Batalha Decisiva do Gladio','e','118',145.04,6],['Darkrai & Cresselia LENDA','b','100',141.4,5],
+['Kyogre','g','080',141.14,3],['Show da Roxie','d','121',136.33,5],['Mew-VMAX','b','114',134.84,5],
+['Mega Floette ex','d','117',133.81,5],['M Gardevoir-EX','b','106b',129.64,4],['Fuecoco ex','a','147',123.54,6],
+['Jaci','f','122',119.88,5],['Vitalidade da Misty','e','111',113.43,6],['Meowth ex','f','107',112.17,6],
+['Salamence ex','a','156',112.13,6],['Kecleon','g','088',104.1,1],['Poké Tablet','f','113',100.49,6],
+['Tyranitar Sombrio','b','019',95.51,5],['Clefairy','f','094',92.43,6],['Misty','b','018',85.85,5],
+['Meowth','a','144',84.73,6],['Maushold','a','146',84.57,6],['Scizor ex','b','108',82.91,4],
+['Fuecoco ex','c','124',82.12,1],['Jigglypuff da Érica','b','069',81.65,5],['Zeraora','h','042',79.91,1],
+['Slowbro','i','087',78.42,1],['Victini','h','041',78.17,1],['M Gardevoir-EX','c','156',73.27,1],
+['Greninja TURBO','b','041',71.5,5],['Meowth','c','120',69.64,2],['Mega Greninja ex','d','100',66.9,6],
+['Growlithe','g','078',66.57,5],['Zacian-V','b','138',65.84,5],['Meowth de Alola','a','139',64.46,6],
+['Lapras','a','131',63.56,7],['Maushold','c','123',60.2,1],['Raikou','b','050',59.59,5],
+['Meowth de Galar','c','117',59.3,2],['Meowth de Alola','c','115',59.04,2],['Genesect-EX','b','011b',58.75,5],
+['Clarita','e','109',57.97,6],['Articuno','c','107',57.7,3],['Encorajamento da Rose','f','114',52.57,6],
+['Ditto','c','121',47.92,4],['Lapras','c','106',46.68,5]
+];
+
+  const pctDoGiro = q => q >= 5 ? CONFIG.pctGiro.alto : q >= 2 ? CONFIG.pctGiro.baixo : CONFIG.pctGiro.muitoBaixo;
+  const cards = D.map((r, i) => ({ id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(r[3] * pctDoGiro(r[4]) * 10) / 10 }));
+  const BRL = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  const priceOf = (c, cond) => Math.floor(c.nm * CONFIG.cond[cond] * 10) / 10;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const css = `
+.mmb h3{font-family:'Londrina Solid',sans-serif;font-weight:900;font-size:32px;color:#F4EDE1;text-shadow:2px 2px 0 #3A2C5E;text-align:center;margin:44px 0 8px}
+.mmb-sub{text-align:center;font:500 16px/1.45 Figtree,system-ui;color:#C9BCEB;margin:0 auto 20px;max-width:640px}
+.mmb-lay{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:20px;align-items:start}
+.mmb-tools{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.mmb input,.mmb select{font:600 15px Figtree,system-ui;color:#F4EDE1;background:#211839;border:2px solid #090612;border-radius:10px;padding:10px 12px;min-width:0}
+.mmb-tools input{flex:1 1 200px}
+.mmb-count{font:500 14px Figtree,system-ui;color:#B9AEDA;margin:0 0 12px}
+.mmb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.mmb-card{background:#312654;border:2px solid #090612;border-radius:16px;box-shadow:4px 4px 0 #090612;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.mmb-ed{font:800 11px Figtree,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#B9AEDA}
+.mmb-card h4{font:900 22px/1.05 'Londrina Solid',sans-serif;color:#F4EDE1;margin:0;overflow-wrap:anywhere}
+.mmb-num{align-self:flex-start;background:#211839;border:1px solid #4A3B70;border-radius:6px;padding:1px 8px;font:800 12px Figtree,system-ui;color:#E4DCF5}
+.mmb-pay{display:flex;align-items:baseline;gap:8px;margin-top:auto}
+.mmb-price{font:900 32px/1 'Londrina Solid',sans-serif;color:#9CFF3D;font-variant-numeric:tabular-nums}
+.mmb-pay small{font:600 12px Figtree,system-ui;color:#B9AEDA}
+.mmb-row{display:flex;gap:8px}
+.mmb-row select{flex:1 1 auto;padding:8px}
+.mmb button{font:800 15px Figtree,system-ui;cursor:pointer;color:#241B38;background:#FFD12E;border:2px solid #090612;border-radius:10px;box-shadow:3px 3px 0 #090612;padding:8px 14px}
+.mmb button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #090612}
+.mmb button.mmb-g{background:#211839;color:#F4EDE1}
+.mmb-bag{position:sticky;top:12px;background:#312654;border:2px solid #090612;border-radius:16px;box-shadow:5px 5px 0 #090612;padding:16px;min-width:0}
+.mmb-bag h4{font:900 26px 'Londrina Solid',sans-serif;color:#F4EDE1;margin:0}
+.mmb-bag ul{list-style:none;margin:10px 0;padding:0;display:flex;flex-direction:column;gap:8px;max-height:42vh;overflow:auto}
+.mmb-bag li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;border-bottom:1px dashed #4A3B70;padding-bottom:8px;color:#F4EDE1;font:600 14px Figtree,system-ui}
+.mmb-bag li small{color:#B9AEDA;grid-column:1}
+.mmb-bag li .v{font-weight:800;grid-row:1;grid-column:2}
+.mmb-bag li button{grid-column:2;grid-row:2;padding:2px 8px;font-size:12px;box-shadow:none}
+.mmb-tot{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid #090612;padding-top:10px;color:#C9BCEB;font:600 14px Figtree,system-ui}
+.mmb-tot b{font:900 32px 'Londrina Solid',sans-serif;color:#9CFF3D}
+.mmb-hint{font:500 13px/1.4 Figtree,system-ui;color:#B9AEDA;margin:8px 0 0}
+.mmb-err{color:#FF6B9D}
+.mmb-form{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.mmb-out{display:none;margin-top:12px}.mmb-out.on{display:block}
+.mmb textarea{width:100%;min-height:150px;font:12px/1.4 ui-monospace,Consolas,monospace;color:#F4EDE1;background:#211839;border:2px solid #090612;border-radius:10px;padding:8px;resize:vertical}
+.mmb-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.mmb-acts a{text-decoration:none}
+.mmb-regras{margin-top:26px;font:500 13px/1.5 Figtree,system-ui;color:#B9AEDA}
+.mmb-regras b{color:#F4EDE1}
+@media(max-width:900px){.mmb-lay{grid-template-columns:minmax(0,1fr)}.mmb-bag{position:static;order:-1}.mmb-bag ul{max-height:none}.mmb h3{font-size:26px;margin-top:32px}}`;
+  const estilo = document.createElement("style"); estilo.textContent = css; document.head.appendChild(estilo);
+
+  alvo.className = "mmb";
+  alvo.innerHTML = `
+    <h3>Buylist: o que pagamos hoje</h3>
+    <p class="mmb-sub">Escolha a carta e o estado, veja o valor <b>antes</b> de vender e monte sua lista. Preços de ${CONFIG.data}, fixos por unidade.</p>
+    <div class="mmb-lay">
+      <div>
+        <div class="mmb-tools">
+          <input id="mmb-q" type="search" placeholder="Buscar carta (ex.: Mew ex, Lapras)" aria-label="Buscar carta">
+          <select id="mmb-ed" aria-label="Coleção"></select>
+          <select id="mmb-sort" aria-label="Ordenar"><option value="price">Maior preço</option><option value="sales">Mais vendidas</option><option value="name">Nome (A–Z)</option></select>
+        </div>
+        <p class="mmb-count" id="mmb-count"></p>
+        <div class="mmb-grid" id="mmb-grid"></div>
+      </div>
+      <aside class="mmb-bag" aria-live="polite">
+        <h4>Minha lista</h4>
+        <p class="mmb-hint" id="mmb-empty">Nenhuma carta ainda. Escolha uma e clique em Vender.</p>
+        <ul id="mmb-items"></ul>
+        <div class="mmb-tot"><span>Total no Pix</span><b id="mmb-total">R$ 0,00</b></div>
+        <p class="mmb-hint" id="mmb-credit"></p>
+        <div class="mmb-form">
+          <input id="mmb-nome" type="text" placeholder="Seu nome" aria-label="Seu nome" autocomplete="name">
+          <input id="mmb-contato" type="text" placeholder="Seu e-mail ou Instagram" aria-label="Seu e-mail ou Instagram">
+          <select id="mmb-forma" aria-label="Como quer receber"><option value="pix">Receber no Pix</option><option value="credito">Crédito na loja (com bônus)</option></select>
+        </div>
+        <p class="mmb-hint mmb-err" id="mmb-err"></p>
+        <div class="mmb-acts"><button id="mmb-send" style="flex:1">Gerar minha lista</button><button id="mmb-clear" class="mmb-g" title="Esvaziar a lista">Limpar</button></div>
+        <div class="mmb-out" id="mmb-out">
+          <textarea id="mmb-msg" readonly aria-label="Lista pronta para enviar"></textarea>
+          <div class="mmb-acts">
+            <button id="mmb-copy" style="flex:1">Copiar lista</button>
+            <a id="mmb-mail" href="#"><button class="mmb-g" type="button">E-mail</button></a>
+            <a href="${INSTAGRAM}" target="_blank" rel="noopener"><button class="mmb-g" type="button">Instagram</button></a>
+          </div>
+          <p class="mmb-hint">Copie e envie para ${esc(EMAIL)} ou por mensagem no Instagram.</p>
+        </div>
+      </aside>
+    </div>
+    <p class="mmb-regras"><b>Regras.</b> O valor é a nossa expectativa de compra por unidade, no estado escolhido; a aprovação final considera estoque e procura e pode haver contraproposta. Respondemos em até ${CONFIG.prazoResposta}; só depois de aprovado você recebe o endereço para postar nos Correios e informa o rastreio. Chegou como informado, o Pix sai em até ${CONFIG.prazoPagamento} depois da conferência. Se vier pior, avisamos antes de pagar e fazemos uma contraproposta; se você não aceitar, as cartas voltam e o frete de volta é por conta de quem vende. Preços atualizados periodicamente.</p>`;
+
+  const $ = id => document.getElementById(id);
+  const state = { bag: {} };
+  try { const s = JSON.parse(localStorage.getItem("mm-bag") || "{}"); if (s && typeof s === "object") state.bag = s; } catch (e) {}
+  const save = () => { try { localStorage.setItem("mm-bag", JSON.stringify(state.bag)); } catch (e) {} };
+  $("mmb-ed").innerHTML = '<option value="">Todas as coleções</option>' + Object.entries(ED).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+
+  function render() {
+    const q = $("mmb-q").value.trim().toLowerCase(), ed = $("mmb-ed").value, sort = $("mmb-sort").value;
+    const list = cards.filter(c => (!ed || c.ed === ed) && (!q || (c.name + " " + ED[c.ed] + " " + c.num).toLowerCase().includes(q)));
+    list.sort((a, b) => sort === "name" ? a.name.localeCompare(b.name, "pt-BR") : sort === "sales" ? (b.q - a.q) || (b.mkt - a.mkt) : b.nm - a.nm);
+    $("mmb-count").textContent = list.length + (list.length === 1 ? " carta" : " cartas") + " na lista";
+    $("mmb-grid").innerHTML = list.map(c => `
+      <article class="mmb-card" data-id="${c.id}">
+        <div class="mmb-ed">${esc(ED[c.ed])}</div>
+        <h4>${esc(c.name)}</h4>
+        <span class="mmb-num">Nº ${esc(c.num)}</span>
+        <div class="mmb-pay"><span class="mmb-price" data-price>${BRL(c.nm)}</span><small>por unidade</small></div>
+        <div class="mmb-row">
+          <select data-cond aria-label="Estado da carta ${esc(c.name)}">${Object.keys(CONFIG.cond).map(k => `<option value="${k}">${CONFIG.condLabel[k]}</option>`).join("")}</select>
+          <button data-sell>Vender</button>
+        </div>
+      </article>`).join("") || '<p class="mmb-hint">Nenhuma carta encontrada. Tente outro nome.</p>';
+  }
+  function renderBag() {
+    const rows = Object.entries(state.bag).filter(([k, v]) => cards[v.id]).map(([k, v]) => ({ key: k, ...v, c: cards[v.id] }));
+    $("mmb-empty").hidden = rows.length > 0;
+    $("mmb-items").innerHTML = rows.map(r => `<li><b>${r.qty}× ${esc(r.c.name)} <small>Nº ${esc(r.c.num)}</small></b><span class="v">${BRL(priceOf(r.c, r.cond) * r.qty)}</span><small>${esc(ED[r.c.ed])} · ${r.cond}</small><button class="mmb-g" data-del="${r.key}">remover</button></li>`).join("");
+    const total = rows.reduce((s, r) => s + priceOf(r.c, r.cond) * r.qty, 0);
+    $("mmb-total").textContent = BRL(total);
+    const b = Math.round(CONFIG.bonusCredito * 100);
+    $("mmb-credit").textContent = total > 0 ? "Em crédito na loja: " + BRL(total * (1 + CONFIG.bonusCredito)) + " (+" + b + "% de bônus)" : "Em crédito na loja você recebe " + b + "% a mais.";
+    $("mmb-out").classList.remove("on");
+  }
+  $("mmb-grid").addEventListener("change", e => {
+    if (!e.target.matches("[data-cond]")) return;
+    const card = e.target.closest(".mmb-card");
+    card.querySelector("[data-price]").textContent = BRL(priceOf(cards[+card.dataset.id], e.target.value));
+  });
+  $("mmb-grid").addEventListener("click", e => {
+    if (!e.target.matches("[data-sell]")) return;
+    const card = e.target.closest(".mmb-card"), id = +card.dataset.id, cond = card.querySelector("[data-cond]").value, key = id + "|" + cond;
+    state.bag[key] = { id, cond, qty: (state.bag[key] ? state.bag[key].qty : 0) + 1 };
+    save(); renderBag();
+  });
+  $("mmb-items").addEventListener("click", e => {
+    const k = e.target.dataset && e.target.dataset.del; if (!k || !state.bag[k]) return;
+    if (state.bag[k].qty > 1) state.bag[k].qty--; else delete state.bag[k];
+    save(); renderBag();
+  });
+  $("mmb-clear").addEventListener("click", () => { state.bag = {}; save(); renderBag(); });
+  $("mmb-send").addEventListener("click", () => {
+    const rows = Object.values(state.bag).filter(v => cards[v.id]);
+    if (!rows.length) { $("mmb-err").textContent = "Adicione pelo menos uma carta antes de gerar a lista."; return; }
+    const nome = $("mmb-nome").value.trim(), contato = $("mmb-contato").value.trim();
+    if (!nome || !contato) { $("mmb-err").textContent = "Preencha seu nome e um e-mail ou Instagram para gerar a lista."; return; }
+    $("mmb-err").textContent = "";
+    let total = 0;
+    const lines = rows.map(v => { const c = cards[v.id], p = priceOf(c, v.cond); total += p * v.qty; return `${v.qty}x ${c.name} (${ED[c.ed]}, nº ${c.num}) - ${v.cond} - ${BRL(p)} cada = ${BRL(p * v.qty)}`; });
+    const credito = $("mmb-forma").value === "credito";
+    const receber = credito ? "Crédito na loja: " + BRL(total * (1 + CONFIG.bonusCredito)) + " (com " + Math.round(CONFIG.bonusCredito * 100) + "% de bônus)" : "Pix: " + BRL(total);
+    const msg = `PEDIDO DE VENDA - Buylist Mr. Mimic (${CONFIG.data})\nNome: ${nome}\nContato: ${contato}\n\n${lines.join("\n")}\n\nTotal: ${BRL(total)}\nQuero receber em: ${receber}\n\nEntendo que o valor final é confirmado na conferência das cartas.`;
+    $("mmb-msg").value = msg; $("mmb-out").classList.add("on");
+    $("mmb-mail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Pedido de venda - Buylist Mr. Mimic") + "&body=" + encodeURIComponent(msg);
+  });
+  $("mmb-copy").addEventListener("click", async () => {
+    const t = $("mmb-msg"), b = $("mmb-copy");
+    try { await navigator.clipboard.writeText(t.value); b.textContent = "Copiada!"; setTimeout(() => b.textContent = "Copiar lista", 1800); }
+    catch (e) { t.focus(); t.select(); }
+  });
+  ["input", "change"].forEach(ev => { $("mmb-q").addEventListener(ev, render); $("mmb-ed").addEventListener(ev, render); $("mmb-sort").addEventListener(ev, render); });
+  render(); renderBag();
+})();
+
+} catch (e) { console.warn("mm buylist.js", e); }
 
 /* ===== seo.js ===== */
 try {
