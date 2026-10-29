@@ -7,7 +7,7 @@
   if (!textoDoAdmin || document.querySelector(".mm-venda")) return;
 
   const FAIXA = null;   // ex.: [40, 60], percentuais do preço de venda; null = texto sem número até o Caio fechar
-  const WHATSAPP = MM.whatsapp("Olá! Quero vender minhas cartas para a Mr. Mimic");   // o número não aparece escrito
+  // WhatsApp removido em 29/10/2026 a pedido do Caio: o contato da página é só Instagram e e-mail.
   const INSTAGRAM = MM.contato.instagram, EMAIL = MM.contato.email;
   // ícones SVG (24x24) usados nos passos e nos quadros
   const I = {
@@ -26,7 +26,7 @@
     sleeve: '<svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 3h6v10H9V7z"/></svg>',
   };
   const PASSOS = [
-    { titulo: "Manda foto ou lista", texto: "no WhatsApp, no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", icone: I.foto },
+    { titulo: "Manda foto ou lista", texto: "no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", icone: I.foto },
     { titulo: "Avaliamos carta a carta", texto: "estado, raridade e o que ela vale hoje.", icone: I.lupa },
     { titulo: "Você recebe a oferta aberta", texto: "item por item, pra conferir cada número.", icone: I.lista },
     { titulo: "Fechou? Conferimos e pagamos", texto: "Pix em até 1 dia útil depois de conferir — pelo correio ou presencial.", icone: I.pix },
@@ -48,7 +48,7 @@
         <div class="mm-veb">VENDA PRA GENTE</div>
         <h2>Compramos a sua coleção</h2>
         <p>Carta avulsa, pasta inteira ou lacrado. Avaliação carta a carta e <b>Pix em até 1 dia útil depois da conferência</b>.</p>
-        <a class="mm-vbtn" href="${WHATSAPP}" target="_blank" rel="noopener">${I.zap} Mandar minha lista no WhatsApp</a>
+        <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
       </div>
       <img class="mm-vmascote" src="${MM.asset("hero/p5-moedas2.webp")}" alt="Mr. Mimic devolvendo moedas pelas cartas">
     </section>
@@ -81,8 +81,8 @@
       <div class="mm-vnao"><b>O que não compramos:</b> ${NAO_COMPRAMOS.map(n => `<span>✕ ${n}</span>`).join("")}</div>
     </section>
     <section class="mm-vfim">
-      <a class="mm-vbtn" href="${WHATSAPP}" target="_blank" rel="noopener">${I.zap} Mandar minha lista no WhatsApp</a>
-      <small>Prefere outro canal? Chame no <a href="${INSTAGRAM}" target="_blank" rel="noopener">Instagram @mrmimicbr</a> ou mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
+      <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
+      <small>Prefere e-mail? Mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
     </section>`;
   textoDoAdmin.replaceWith(sec);
   const filtros = document.querySelector(".category-controls-container"); if (filtros) filtros.style.display = "none";

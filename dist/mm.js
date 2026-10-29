@@ -6,7 +6,7 @@
     asset: function (caminho) { return base + "assets/" + caminho; },
     naHome: function () { return !!document.querySelector('[data-store^="home-"]'); },
     cores: {"ambipom 107/094 - fogo fantasmagórico (me02) - ilustração rara": "rgb(124,255,125)", "blister duplo com moeda - celebração de 30 anos (pt)": "rgb(255,229,127)", "booster display me05 escuridão absoluta (pt) - 36 boosters": "rgb(255,124,117)", "box coleção com pôster - celebração de 30 anos (pt)": "rgb(255,233,57)", "case magnético 4mm cards bra - unitário": "rgb(0,146,255)", "case magnético bra 55pt - unitário": "rgb(13,105,255)", "clarita 109/084 - escuridão absoluta (me05) - ultra rara": "rgb(255,178,120)", "cobalion ex 064/086 - caos ascendente (me04) - rara dupla": "rgb(15,231,255)", "crobat 093/086 - caos ascendente (me04) - ilustração rara": "rgb(129,108,255)", "dawn 118/094 - fogo fantasmagórico (me02) - ultra rara": "rgb(255,159,136)", "double sleeve bra - 200 unidades": "rgb(0,116,255)", "double sleeve premium bra - 180 unidades": "rgb(255,0,0)", "jaula de batalha 116/094 - fogo fantasmagórico (me02) - ultra rara": "rgb(255,120,229)", "manectric 089/084 - escuridão absoluta (me05) - ilustração rara": "rgb(255,229,97)", "martelo esmagador 105/084 - escuridão absoluta (me05) - ultra rara": "rgb(255,234,120)", "mega darkrai ex 101/084 - escuridão absoluta (me05) - ultra rara": "rgb(196,255,67)", "mega zeraora ex 027/084 - escuridão absoluta (me05) - rara dupla": "rgb(255,228,111)", "mega zeraora ex 114/084 - escuridão absoluta (me05) - ilustração rara especial": "rgb(100,202,255)", "morpeko ex 117/084 - escuridão absoluta (me05) - ilustração rara especial": "rgb(255,74,201)", "pasta premium 1x1 bra - rosa": "rgb(255,129,140)", "pasta premium 1x1 bra - roxa": "rgb(121,58,255)", "rampardos ex 045/084 - escuridão absoluta (me05) - rara dupla": "rgb(255,168,48)", "rotom ex 111/094 - fogo fantasmagórico (me02) - ultra rara": "rgb(0,174,255)", "sleeve básico duplo cards bra - transparente - 200 unidades": "rgb(0,119,255)", "sleeve colors bra - azul - 50 unidades": "rgb(0,99,255)", "sleeve colors bra - verde - 50 unidades": "rgb(255,0,0)", "sleeve colors bra - vermelho - 50 unidades": "rgb(255,0,0)", "sleeve sabores bra - banana - amarelo - 60 unidades": "rgb(255,192,0)", "sleeve sabores bra - cereja - vermelho - 60 unidades": "rgb(255,0,0)", "sliggo 095/086 - caos ascendente (me04) - ilustração rara": "rgb(110,255,122)", "toploader cristal bra - 25 unidades": "rgb(0,91,255)", "toucannon 094/084 - escuridão absoluta (me05) - ilustração rara": "rgb(107,255,252)", "xerneas 091/086 - caos ascendente (me04) - ilustração rara": "rgb(132,226,255)"},
-    contato: {"whatsapp": "5522999975004", "instagram": "https://www.instagram.com/mrmimicbr/", "email": "contato@mrmimic.com.br"},
+    contato: {"whatsapp": "", "instagram": "https://www.instagram.com/mrmimicbr/", "email": "contato@mrmimic.com.br"},
     whatsapp: function (mensagem) { return "https://wa.me/" + this.contato.whatsapp + "?text=" + encodeURIComponent(mensagem); }
   };
   if (!document.getElementById("mm-extra")) {
@@ -521,8 +521,7 @@ try {
 (function () {
   const EMAIL = MM.contato.email;
   const LINKS = [
-    { nome: "WhatsApp", href: MM.whatsapp("Olá! Vim pelo site da Mr. Mimic"),
-      svg: '<path d="M20.5 3.5A11.8 11.8 0 0 0 2.3 17.7L1 23l5.5-1.4A11.8 11.8 0 0 0 20.5 3.5zm-8.4 18.2c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.3.9.9-3.2-.2-.4a9.8 9.8 0 1 1 8 4.3zm5.4-7.3c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5.3-.5c.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>' },
+    // WhatsApp removido em 29/10/2026 a pedido do Caio (o número saiu de contato.json).
     { nome: "Instagram", href: MM.contato.instagram,
       svg: '<path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.5.2-1.8.3-.4.2-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.8-.3 1.8C3.5 8.5 3.5 8.9 3.5 12s0 3.5.1 4.7c.1 1.1.2 1.5.3 1.8.2.4.3.7.6 1 .3.3.6.5 1 .6.3.1.8.3 1.8.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.5-.2 1.8-.3.4-.2.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.8.3-1.8.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.5-.3-1.8-.2-.4-.3-.7-.6-1-.3-.3-.6-.5-1-.6-.3-.1-.8-.3-1.8-.3-1.2-.1-1.6-.1-4.7-.1zm0 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.2-2.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4z"/>' },
     { nome: "E-mail", href: "mailto:" + EMAIL,
@@ -580,7 +579,7 @@ try {
   if (!textoDoAdmin || document.querySelector(".mm-venda")) return;
 
   const FAIXA = null;   // ex.: [40, 60], percentuais do preço de venda; null = texto sem número até o Caio fechar
-  const WHATSAPP = MM.whatsapp("Olá! Quero vender minhas cartas para a Mr. Mimic");   // o número não aparece escrito
+  // WhatsApp removido em 29/10/2026 a pedido do Caio: o contato da página é só Instagram e e-mail.
   const INSTAGRAM = MM.contato.instagram, EMAIL = MM.contato.email;
   // ícones SVG (24x24) usados nos passos e nos quadros
   const I = {
@@ -599,7 +598,7 @@ try {
     sleeve: '<svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm2 3h6v10H9V7z"/></svg>',
   };
   const PASSOS = [
-    { titulo: "Manda foto ou lista", texto: "no WhatsApp, no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", icone: I.foto },
+    { titulo: "Manda foto ou lista", texto: "no Instagram ou por e-mail. Pode ser foto da pasta mesmo.", icone: I.foto },
     { titulo: "Avaliamos carta a carta", texto: "estado, raridade e o que ela vale hoje.", icone: I.lupa },
     { titulo: "Você recebe a oferta aberta", texto: "item por item, pra conferir cada número.", icone: I.lista },
     { titulo: "Fechou? Conferimos e pagamos", texto: "Pix em até 1 dia útil depois de conferir — pelo correio ou presencial.", icone: I.pix },
@@ -621,7 +620,7 @@ try {
         <div class="mm-veb">VENDA PRA GENTE</div>
         <h2>Compramos a sua coleção</h2>
         <p>Carta avulsa, pasta inteira ou lacrado. Avaliação carta a carta e <b>Pix em até 1 dia útil depois da conferência</b>.</p>
-        <a class="mm-vbtn" href="${WHATSAPP}" target="_blank" rel="noopener">${I.zap} Mandar minha lista no WhatsApp</a>
+        <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
       </div>
       <img class="mm-vmascote" src="${MM.asset("hero/p5-moedas2.webp")}" alt="Mr. Mimic devolvendo moedas pelas cartas">
     </section>
@@ -654,8 +653,8 @@ try {
       <div class="mm-vnao"><b>O que não compramos:</b> ${NAO_COMPRAMOS.map(n => `<span>✕ ${n}</span>`).join("")}</div>
     </section>
     <section class="mm-vfim">
-      <a class="mm-vbtn" href="${WHATSAPP}" target="_blank" rel="noopener">${I.zap} Mandar minha lista no WhatsApp</a>
-      <small>Prefere outro canal? Chame no <a href="${INSTAGRAM}" target="_blank" rel="noopener">Instagram @mrmimicbr</a> ou mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
+      <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
+      <small>Prefere e-mail? Mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
     </section>`;
   textoDoAdmin.replaceWith(sec);
   const filtros = document.querySelector(".category-controls-container"); if (filtros) filtros.style.display = "none";
@@ -689,7 +688,7 @@ try {
   const DESCRICOES = {
     "/": "Loja de Pokémon TCG: cartas avulsas NM em português, booster box e blisters lacrados, sleeves, toploaders e pastas BRA. Compramos sua coleção.",
     "/produtos/": "Todos os produtos da Mr. Mimic: cartas Pokémon avulsas NM, booster box e blisters lacrados em português, sleeves, toploaders, cases e pastas BRA.",
-    "/contato/": "Fale com a Mr. Mimic pelo WhatsApp, pelo Instagram @mrmimicbr ou pelo e-mail contato@mrmimic.com.br. Cartas Pokémon TCG, selados e acessórios.",
+    "/contato/": "Fale com a Mr. Mimic pelo Instagram @mrmimicbr ou pelo e-mail contato@mrmimic.com.br. Cartas Pokémon TCG, selados e acessórios.",
     "/venda-suas-cartas/": "Compramos sua coleção de cartas Pokémon: de 1 carta à coleção inteira, avaliação carta a carta e pagamento no Pix. Também compramos games, consoles e figures.",
     "/envio-e-entrega/": "Prazos e formas de envio da Mr. Mimic: postagem em até 1 dia útil após o pagamento, Correios e transportadoras, embalagem reforçada para cartas e lacrados.",
     "/trocas-e-devolucoes/": "Política de trocas e devoluções da Mr. Mimic, conforme o Código de Defesa do Consumidor: desistência em 7 dias, produto com defeito, cartas e lacrados.",
