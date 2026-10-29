@@ -51,7 +51,8 @@
 ];
 
   // base = o menor entre a venda real (piso: mediana das vendas NM recentes na Liga) e o menor anúncio; sem piso, só o anúncio
-  const cards = D.map((r, i) => { const base = Math.min(r[5], r[6] || r[3]); /* sem piso ainda (null), a média de venda 3m faz as vezes */ return { id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(base * CONFIG.pct * 10) / 10 }; });
+  const JP_EDS = ["c", "h", "i"];   // japonesas ficam fora da buylist (decisão do Caio, 29/10/2026); as fotos seguem o índice de D, por isso filtra aqui
+  const cards = D.map((r, i) => { const base = Math.min(r[5], r[6] || r[3]); /* sem piso ainda (null), a média de venda 3m faz as vezes */ return { id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(base * CONFIG.pct * 10) / 10 }; }).filter(c => !JP_EDS.includes(c.ed));
   const BRL = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   const priceOf = c => c.nm;   // só NM: a buylist compra apenas carta quase nova
   const foto = c => MM.asset("buylist/" + String(c.id).padStart(2, "0") + ".jpg");   // mesma ordem de D
@@ -110,7 +111,7 @@
   alvo.className = "mmb";
   alvo.innerHTML = `
     <h3>Buylist: o que pagamos hoje</h3>
-    <p class="mmb-sub">Veja o valor <b>antes</b> de vender e monte sua lista. Compramos <b>somente cartas NM</b> (quase novas, sem marca de uso). Preços de ${CONFIG.data}, fixos por unidade.</p>
+    <p class="mmb-sub">Veja o valor <b>antes</b> de vender e monte sua lista. Compramos <b>somente cartas NM</b> (quase novas, sem marca de uso), em português ou inglês. Preços de ${CONFIG.data}, fixos por unidade.</p>
     <div class="mmb-lay">
       <div>
         <div class="mmb-tools">
@@ -151,7 +152,7 @@
   const state = { bag: {} };
   try { const s = JSON.parse(localStorage.getItem("mm-bag-nm") || "{}"); if (s && typeof s === "object") state.bag = s; } catch (e) {}
   const save = () => { try { localStorage.setItem("mm-bag-nm", JSON.stringify(state.bag)); } catch (e) {} };
-  $("mmb-ed").innerHTML = '<option value="">Todas as coleções</option>' + Object.entries(ED).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
+  $("mmb-ed").innerHTML = '<option value="">Todas as coleções</option>' + Object.entries(ED).filter(([k]) => !JP_EDS.includes(k)).map(([k, v]) => `<option value="${k}">${v}</option>`).join("");
 
   function render() {
     const q = $("mmb-q").value.trim().toLowerCase(), ed = $("mmb-ed").value, sort = $("mmb-sort").value;
