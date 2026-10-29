@@ -1,12 +1,12 @@
 /* Buylist na página "Venda suas cartas": preço fixo por carta e por estado, sacola e pedido pronto para enviar.
-   Os valores saem do menor entre o menor preço da Liga e a média de venda de 3 meses (29/10/2026), vezes o percentual do giro; mexer só em CONFIG e D.
-   D: [nome, coleção, nº, média de venda 3m, faixa de vendas, menor preço na Liga].
+   Os valores saem do menor entre a venda real e o menor anúncio da Liga (29/10/2026), vezes CONFIG.pct; mexer só em CONFIG e D.
+   D: [nome, coleção, nº, média de venda 3m, faixa de vendas, menor anúncio na Liga, piso (mediana das vendas NM: 14 dias, senão 30, senão 12 meses; null = ainda não coletado)].
    Estilo injetado aqui mesmo (.mmb-*), fora do limite do CSS do admin. */
 (function () {
   const alvo = document.getElementById("mm-buylist");
   if (!alvo) return;
   const CONFIG = {
-    pctGiro: { alto: 0.60, baixo: 0.50, muitoBaixo: 0.40 },   // faixa de vendas da Liga: 5-7 alto, 2-4 baixo, 1 muito baixo
+    pct: 0.55,   // régua do Caio (29/10/2026): paga 55% do MENOR entre a venda real (piso do método) e o menor anúncio da Liga
     data: "29/10/2026",
     bonusCredito: 0.10,
     prazoResposta: "2 dias úteis",
@@ -19,40 +19,39 @@
   h:'30 Anos Premium Deck Espeon e Umbreon (JP)', i:'Abyss Eye (JP)'
 };
   const D = [
-['Charizard','b','004',1113.57,5,899.9],['Mega Greninja ex','d','122',1088.29,2,710],['Lugia','b','149',894.05,3,645],
-['Mega Darkrai ex','e','120',849.24,5,400],['Mega Darkrai ex','e','116',826.71,5,540.99],['Mega Greninja ex','d','116',718.04,5,596.55],
-['Mega Zygarde ex','f','124',658.79,2,520],['Mew ex','a','152',612.62,6,477],['Mew ex','c','129',592.37,2,750],
-['Mew ex','a','158',576.2,5,320],['Pikachu ex','a','150',529.1,5,299.9],['Gengar ex','a','154',513.3,5,384.9],
-['Magikarp','b','203',507.28,5,450],['Pikachu ex','a','149',490.49,5,299.9],['Meowth ex','f','121',486.2,4,409],
-['Mewtwo ex','a','151',438.33,5,249.99],['Mewtwo ex','a','157',416.83,6,294.99],['Gengar','b','094',399.01,4,289.75],
-['Sylveon ex','a','153',378.79,5,239.9],['Gengar ex','c','131',368.01,1,369.99],['Mewtwo ex','c','128',339.86,1,265.9],
-['Sylveon ex','c','130',307.69,1,279],['Jirachi ex','a','155',274.87,5,167.8],['Encorajamento da Rose','f','123',251.93,3,218.5],
-['Pikachu e Zekrom-GX','b','033',239.19,3,157],['Morpeko ex','e','117',231.36,6,147],['Mega Clefable ex','f','119',225.02,4,149.9],
-['Cinccino ex','d','119',207.08,5,160],['Mega Zeraora ex','e','114',204.22,6,151.99],['Mega Zygarde ex','f','120',202.57,5,188.89],
-['Celebi Luminescente','b','106c',200.57,5,115],['Clarita','e','119',195.88,5,149.67],['Pikachu','b','058',188.03,5,124.99],
-['Mega Chandelure ex','e','115',183.75,6,139],['Greninja ex','a','148',175.46,6,115],['Mega Starmie ex','f','118',168.2,5,149.8],
-['Tranquilidade do AZ','d','120',159.56,5,128],['Rayquaza-EX','b','085',157.57,5,116.9],['Arceus-V-ASTRO','b','123',155.95,4,91.13],
-['Darkrai & Cresselia LENDA','b','099',155.26,5,104.9],['Mega Dragalge ex','d','118',150.33,5,102],['Palkia LV.X','b','106',146.21,4,99.8],
-['N','b','101',145.54,5,130],['Batalha Decisiva do Gladio','e','118',145.04,6,125],['Darkrai & Cresselia LENDA','b','100',141.4,5,95],
-['Kyogre','g','080',141.14,3,88.9],['Show da Roxie','d','121',136.33,5,108.9],['Mew-VMAX','b','114',134.84,5,145],
-['Mega Floette ex','d','117',133.81,5,108.9],['M Gardevoir-EX','b','106b',129.64,4,98.7],['Fuecoco ex','a','147',123.54,6,89],
-['Jaci','f','122',119.88,5,109],['Vitalidade da Misty','e','111',113.43,6,66.9],['Meowth ex','f','107',112.17,6,102.6],
-['Salamence ex','a','156',112.13,6,78.9],['Kecleon','g','088',104.1,1,67],['Poké Tablet','f','113',100.49,6,89.9],
-['Tyranitar Sombrio','b','019',95.51,5,56.89],['Clefairy','f','094',92.43,6,60],['Misty','b','018',85.85,5,56],
-['Meowth','a','144',84.73,6,56.9],['Maushold','a','146',84.57,6,44.3],['Scizor ex','b','108',82.91,4,63.9],
-['Fuecoco ex','c','124',82.12,1,79.9],['Jigglypuff da Érica','b','069',81.65,5,70],['Zeraora','h','042',79.91,1,149],
-['Slowbro','i','087',78.42,1,54.9],['Victini','h','041',78.17,1,69.9],['M Gardevoir-EX','c','156',73.27,1,100],
-['Greninja TURBO','b','041',71.5,5,84],['Meowth','c','120',69.64,2,61.89],['Mega Greninja ex','d','100',66.9,6,45],
-['Growlithe','g','078',66.57,5,48],['Zacian-V','b','138',65.84,5,42],['Meowth de Alola','a','139',64.46,6,42],
-['Lapras','a','131',63.56,7,42.9],['Maushold','c','123',60.2,1,59.95],['Raikou','b','050',59.59,5,59.9],
-['Meowth de Galar','c','117',59.3,2,59],['Meowth de Alola','c','115',59.04,2,58],['Genesect-EX','b','011b',58.75,5,44.67],
-['Clarita','e','109',57.97,6,49],['Articuno','c','107',57.7,3,47.9],['Encorajamento da Rose','f','114',52.57,6,42.8],
-['Ditto','c','121',47.92,4,63],['Lapras','c','106',46.68,5,56.9]
+['Charizard','b','004',1113.57,5,899.9,809.99],['Mega Greninja ex','d','122',1088.29,2,710,899.9],['Lugia','b','149',894.05,3,645,644.95],
+['Mega Darkrai ex','e','120',849.24,5,400,699.75],['Mega Darkrai ex','e','116',826.71,5,540.99,568.95],['Mega Greninja ex','d','116',718.04,5,596.55,649.94],
+['Mega Zygarde ex','f','124',658.79,2,520,621],['Mew ex','a','152',612.62,6,477,398.99],['Mew ex','c','129',592.37,2,750,450],
+['Mew ex','a','158',576.2,5,320,326.45],['Pikachu ex','a','150',529.1,5,299.9,318.9],['Gengar ex','a','154',513.3,5,384.9,384.5],
+['Magikarp','b','203',507.28,5,450,462],['Pikachu ex','a','149',490.49,5,299.9,309.65],['Meowth ex','f','121',486.2,4,409,449.99],
+['Mewtwo ex','a','151',438.33,5,249.99,298.99],['Mewtwo ex','a','157',416.83,6,294.99,268],['Gengar','b','094',399.01,4,289.75,289.95],
+['Sylveon ex','a','153',378.79,5,239.9,245],['Gengar ex','c','131',368.01,1,369.99,359],['Mewtwo ex','c','128',339.86,1,265.9,271.9],
+['Sylveon ex','c','130',307.69,1,279,279.9],['Jirachi ex','a','155',274.87,5,167.8,188.1],['Encorajamento da Rose','f','123',251.93,3,218.5,240],
+['Pikachu e Zekrom-GX','b','033',239.19,3,157,166.5],['Morpeko ex','e','117',231.36,6,147,147],['Mega Clefable ex','f','119',225.02,4,149.9,215.5],
+['Cinccino ex','d','119',207.08,5,160,174],['Mega Zeraora ex','e','114',204.22,6,151.99,162.89],['Mega Zygarde ex','f','120',202.57,5,188.89,189],
+['Celebi Luminescente','b','106c',200.57,5,115,119.95],['Clarita','e','119',195.88,5,149.67,160],['Pikachu','b','058',188.03,5,124.99,149.9],
+['Mega Chandelure ex','e','115',183.75,6,139,153.97],['Greninja ex','a','148',175.46,6,115,129.85],['Mega Starmie ex','f','118',168.2,5,149.8,159.9],
+['Tranquilidade do AZ','d','120',159.56,5,128,137],['Rayquaza-EX','b','085',157.57,5,116.9,116.9],['Arceus-V-ASTRO','b','123',155.95,4,91.13,93.79],
+['Darkrai & Cresselia LENDA','b','099',155.26,5,104.9,113.99],['Mega Dragalge ex','d','118',150.33,5,102,115],['Palkia LV.X','b','106',146.21,4,99.8,106.6],
+['N','b','101',145.54,5,130,128.99],['Batalha Decisiva do Gladio','e','118',145.04,6,125,128.38],['Darkrai & Cresselia LENDA','b','100',141.4,5,95,96.89],
+['Kyogre','g','080',141.14,3,88.9,94],['Show da Roxie','d','121',136.33,5,108.9,129.99],['Mew-VMAX','b','114',134.84,5,145,145.4],
+['Mega Floette ex','d','117',133.81,5,108.9,115.9],['M Gardevoir-EX','b','106b',129.64,4,98.7,94.89],['Fuecoco ex','a','147',123.54,6,89,92.9],
+['Jaci','f','122',119.88,5,109,116.5],['Vitalidade da Misty','e','111',113.43,6,66.9,89.9],['Meowth ex','f','107',112.17,6,102.6,106.46],
+['Salamence ex','a','156',112.13,6,78.9,79],['Kecleon','g','088',104.1,1,67,74],['Poké Tablet','f','113',100.49,6,89.9,92],
+['Tyranitar Sombrio','b','019',95.51,5,56.89,58],['Clefairy','f','094',92.43,6,60,null],['Misty','b','018',85.85,5,56,null],
+['Meowth','a','144',84.73,6,56.9,null],['Maushold','a','146',84.57,6,44.3,null],['Scizor ex','b','108',82.91,4,63.9,null],
+['Fuecoco ex','c','124',82.12,1,79.9,null],['Jigglypuff da Érica','b','069',81.65,5,70,null],['Zeraora','h','042',79.91,1,149,null],
+['Slowbro','i','087',78.42,1,54.9,null],['Victini','h','041',78.17,1,69.9,null],['M Gardevoir-EX','c','156',73.27,1,100,null],
+['Greninja TURBO','b','041',71.5,5,84,null],['Meowth','c','120',69.64,2,61.89,null],['Mega Greninja ex','d','100',66.9,6,45,null],
+['Growlithe','g','078',66.57,5,48,null],['Zacian-V','b','138',65.84,5,42,null],['Meowth de Alola','a','139',64.46,6,42,null],
+['Lapras','a','131',63.56,7,42.9,null],['Maushold','c','123',60.2,1,59.95,null],['Raikou','b','050',59.59,5,59.9,null],
+['Meowth de Galar','c','117',59.3,2,59,null],['Meowth de Alola','c','115',59.04,2,58,null],['Genesect-EX','b','011b',58.75,5,44.67,null],
+['Clarita','e','109',57.97,6,49,null],['Articuno','c','107',57.7,3,47.9,null],['Encorajamento da Rose','f','114',52.57,6,42.8,null],
+['Ditto','c','121',47.92,4,63,null],['Lapras','c','106',46.68,5,56.9,null]
 ];
 
-  const pctDoGiro = q => q >= 5 ? CONFIG.pctGiro.alto : q >= 2 ? CONFIG.pctGiro.baixo : CONFIG.pctGiro.muitoBaixo;
-  // base = o menor entre o menor preço anunciado na Liga e a média de venda de 3 meses; paga-se o % do giro sobre ela
-  const cards = D.map((r, i) => { const base = Math.min(r[3], r[5]); return { id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(base * pctDoGiro(r[4]) * 10) / 10 }; });
+  // base = o menor entre a venda real (piso: mediana das vendas NM recentes na Liga) e o menor anúncio; sem piso, só o anúncio
+  const cards = D.map((r, i) => { const base = Math.min(r[5], r[6] || r[3]);   // sem piso ainda (null), a média de venda 3m faz as vezes return { id: i, name: r[0], ed: r[1], num: r[2], mkt: r[3], q: r[4], nm: Math.floor(base * CONFIG.pct * 10) / 10 }; });
   const BRL = n => n.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
   const priceOf = c => c.nm;   // só NM: a buylist compra apenas carta quase nova
   const foto = c => MM.asset("buylist/" + String(c.id).padStart(2, "0") + ".jpg");   // mesma ordem de D
@@ -80,7 +79,7 @@
 .mmb-card h4{font:900 22px/1.05 'Londrina Solid',sans-serif;color:#F4EDE1;margin:0;overflow-wrap:anywhere}
 .mmb-num{align-self:flex-start;background:#211839;border:1px solid #4A3B70;border-radius:6px;padding:1px 8px;font:800 12px Figtree,system-ui;color:#E4DCF5}
 .mmb-pay{display:flex;align-items:baseline;gap:8px;margin-top:auto}
-.mmb-price{font:800 16px/1 Figtree,system-ui;color:#F4EDE1;font-variant-numeric:tabular-nums}
+.mmb-price{font:700 14px/1 Figtree,system-ui;color:#F4EDE1;font-variant-numeric:tabular-nums}
 .mmb-pay small{font:600 11px Figtree,system-ui;color:#B9AEDA}
 .mmb-row{display:flex;gap:8px}
 .mmb-row select{flex:1 1 auto;padding:8px}
