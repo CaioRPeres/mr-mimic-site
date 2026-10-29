@@ -73,7 +73,8 @@
 .mmb-card{padding:10px;gap:6px}
 .mmb-card .mmb-ed{font-size:10px}
 .mmb-card button{width:100%;padding:6px 10px;font-size:14px}
-.mmb-tot b{font:800 20px Figtree,system-ui;color:#F4EDE1}
+.mmb-tot b{font:800 18px Figtree,system-ui !important;color:#F4EDE1 !important;text-shadow:none !important}
+.mmb-bag h4{font-size:20px !important}
 .mmb-card{background:#312654;border:2px solid #090612;border-radius:16px;box-shadow:4px 4px 0 #090612;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .mmb-ed{font:800 11px Figtree,system-ui;letter-spacing:.06em;text-transform:uppercase;color:#B9AEDA}
 .mmb-card h4{font:900 22px/1.05 'Londrina Solid',sans-serif;color:#F4EDE1;margin:0;overflow-wrap:anywhere}
@@ -164,7 +165,7 @@
         <div class="mmb-ed">${esc(ED[c.ed])}</div>
         <h4>${esc(c.name)}</h4>
         <div class="mmb-row"><span class="mmb-num">Nº ${esc(c.num)}</span><span class="mmb-nm">NM</span></div>
-        <div class="mmb-pay"><span class="mmb-price">${BRL(c.nm)}</span><small>por unidade</small></div>
+        <div class="mmb-pay"><span class="mmb-price">${BRL(c.nm)}</span></div>
         <button data-sell>Vender</button>
       </article>`).join("") || '<p class="mmb-hint">Nenhuma carta encontrada. Tente outro nome.</p>';
   }
