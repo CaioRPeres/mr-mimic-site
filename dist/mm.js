@@ -41,17 +41,15 @@ try {
    Compramos suas cartas refeito em 11/10/2026 no mesmo padrão: só o baú comendo cartas (língua refeita), sem
    leque; o Caio achou cartas + baú poluído.
    Reinado Delta refeito em 11/10/2026: fundo verde da coleção com o Rayquaza (Ideogram sobre a arte oficial),
-   produtos reais com a ETB em destaque, logo PT; sem preço, "em breve" com Avise-me. Fecha o padrão novo nos 7. */
+   produtos reais com a ETB em destaque, logo PT; sem preço, "em breve" com Avise-me. Fecha o padrão novo nos 7.
+   30/10/2026: saíram os 3 slides de produto esgotado (ETB Destined Rivals, ETB Ascended Heroes, Box com Pôster 30 Anos);
+   Reinado Delta passou para o primeiro lugar (lançamento 6/11) e Cartas avulsas para o segundo (555 cartas novas). 5 slides. */
 (function () {
   if (!MM.naHome()) return;
 
   const SLIDES = [
-    { banner: "banner-etb-destined-rivals", href: "/produtos/elite-trainer-box-destined-rivals-en-pokemon-tcg/",
-      texto: "Elite Trainer Box Destined Rivals, em inglês e lacrada, última em estoque" },
-    { banner: "banner-etb-ascended-heroes", href: "/produtos/elite-trainer-box-ascended-heroes-en-pokemon-tcg-cwk5f/",
-      texto: "Elite Trainer Box Ascended Heroes, em inglês e lacrada, R$ 1.239,90, só 3 unidades" },
-    { banner: "banner-30-anos", href: "/produtos/box-colecao-com-poster-celebracao-de-30-anos-pt/",
-      texto: "Box com Pôster da Celebração de 30 Anos, em português, R$ 189,90" },
+    { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
+      texto: "Reinado Delta chega na loja em 6 de novembro: display, blisters e Treinador Avançado, cadastre o avise-me" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Dragonite ex e Mew ex, todas Near Mint" },
     { banner: "banner-acessorios", href: "/acessorios/",
@@ -60,9 +58,9 @@ try {
       texto: "Brinquedos e pelúcias licenciados de Pokémon e Super Mario, a partir de R$ 301,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
       texto: "Compramos suas cartas, de 1 carta à coleção inteira, e pagamos no Pix" },
-    { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
-      texto: "Reinado Delta chega na loja em 6 de novembro: display, blisters e Treinador Avançado, cadastre o avise-me" },
   ];
+  // Fora desde 30/10/2026: ETB Destined Rivals, ETB Ascended Heroes e Box com Pôster 30 Anos — os três
+  // produtos estão sem estoque; o slide voltava a um "Avise-me". Voltam quando repor (banners continuam em assets/hero/).
   const TROCA_A_CADA_MS = 6500;
   const PRE_CARREGA_SEGUNDO_MS = 1500;
 
