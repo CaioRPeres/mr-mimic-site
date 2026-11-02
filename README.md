@@ -16,6 +16,7 @@ src/
   js/produto.js           nome em duas linhas, regra do toploader, vitrine "Proteja sua carta"
   js/redes.js             ícones de contato no rodapé
   js/rodape.js            arte do rodapé: textura com o baú, baú feliz com balão e baú cavaleiro
+  js/pagamentos.js        logos de pagamento e CNPJ legível no rodapé
   js/venda.js             página "Venda suas cartas"
   js/seo.js               título e descrição de reserva, WebSite na home
   dados/cores-produtos.json  cor fixa de alguns produtos (os demais são calculados pela foto)

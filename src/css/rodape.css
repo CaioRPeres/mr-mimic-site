@@ -2,6 +2,13 @@
    na mesma linha de base; o conteúdo do rodapé fica por cima. */
 .mm-rodape{position:relative;overflow:hidden;background-color:#241B38 !important;background-image:var(--mm-textura) !important;background-size:576px 576px !important;background-repeat:repeat !important}
 .mm-rodape > .container{position:relative;z-index:1}
+/* formas de pagamento e CNPJ (src/js/pagamentos.js): os logos são feitos para fundo branco */
+.mm-pagamentos{max-width:430px;margin:6px auto 22px}
+.mm-pagamentos-titulo{display:block;margin-bottom:10px;color:#EDE6FA !important;font-size:.82rem;font-weight:700}
+.mm-pagamentos-lista{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.mm-pagamentos-lista li{display:flex;align-items:center;justify-content:center;width:50px;height:32px;padding:4px 6px;background:#FFFFFF;border-radius:6px}
+.mm-pagamentos-lista img{display:block;max-width:100%;max-height:100%;width:auto;height:auto}
+.mm-cnpj{color:#D8CFEF !important;font-size:.84rem !important;line-height:1.5}
 .mm-rodape-arte{position:absolute;inset:0;z-index:0;pointer-events:none}
 .mm-rodape-esq,.mm-rodape-dir{position:absolute;bottom:26px}
 .mm-rodape-esq{left:max(20px,calc(50% - 720px))}
