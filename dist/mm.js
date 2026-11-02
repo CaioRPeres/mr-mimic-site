@@ -48,6 +48,8 @@ try {
   if (!MM.naHome()) return;
 
   const SLIDES = [
+    { banner: "banner-liquidacao-jp", href: "/liquidacao/",
+      texto: "Liquidação de cartas japonesas: 25% de desconto no Pix em Pikachu ex, Mega Dragonite ex, Mewtwo de Armadura e Dialga V-ASTRO, só 1 de cada" },
     { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
       texto: "Reinado Delta chega na loja em 6 de novembro: display, blisters e Treinador Avançado, cadastre o avise-me" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
