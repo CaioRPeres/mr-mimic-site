@@ -627,3 +627,8 @@ footer a.social-icon{display:none !important}
 /* --- produto esgotado (26/10/2026, pedido do Caio): além da tarja, foto apagada e em cinza e texto mais fraco; a tarja fica inteira. Classe posta pelo esgotado.js --- */
 .mm-esgotado .item-image img{opacity:.35 !important;filter:grayscale(1)}
 .mm-esgotado .item-description{opacity:.5}
+
+/* --- carta vendida que fica na vitrine (02/11/2026, pedido do Caio: "mostrar que vendemos as cartas caras"): foto inteira, sem as tarjas, faixa VENDIDO na diagonal. Classe e faixa postas pelo esgotado.js --- */
+.mm-vendido .labels{display:none !important}
+.mm-vendido .js-item-image-padding{overflow:hidden}
+.mm-faixa-vendido{position:absolute;left:-15%;top:50%;z-index:3;width:130%;padding:.32em 0 .26em;transform:translateY(-50%) rotate(-20deg);background:#D7263D;color:#FFFFFF !important;font:900 clamp(18px,2.4vw,30px)/1 'Londrina Solid','Arial Black',sans-serif;letter-spacing:.12em;text-align:center;text-shadow:2px 2px 0 #090612;border-top:3px solid #090612;border-bottom:3px solid #090612;box-shadow:0 6px 14px rgba(6,4,14,.45);pointer-events:none}

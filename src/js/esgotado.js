@@ -9,9 +9,28 @@
     return !!tarja && !/display:\s*none/.test(tarja.getAttribute("style") || "");
   };
 
+  // Cartas vendidas que ficam na vitrine com a faixa VENDIDO, em vez do cinza de esgotado (pedido do Caio, 02/11/2026:
+  // "pra mostrar que vendemos as cartas caras, que pode se confiar"). Id do produto na Nuvemshop.
+  const VENDIDOS = {
+    "373615840": "Pikachu ex 234/193, pedido #101 (02/11/2026)",
+    "373142259": "Mewtwo de Armadura 365/SM-P, pedido #101 (02/11/2026)"
+  };
+  MM.vendido = card => Object.prototype.hasOwnProperty.call(VENDIDOS, card.getAttribute("data-product-id") || "");
+
   function marcar() {
-    document.querySelectorAll(".js-item-product:not(.mm-esgotado)").forEach(card => {
-      if (MM.esgotado(card)) card.classList.add("mm-esgotado");
+    document.querySelectorAll(".js-item-product:not(.mm-esgotado):not(.mm-vendido)").forEach(card => {
+      if (MM.vendido(card)) {
+        card.classList.add("mm-vendido");
+        const foto = card.querySelector(".js-item-image-padding") || card.querySelector(".item-image");
+        if (foto && !foto.querySelector(".mm-faixa-vendido")) {
+          const faixa = document.createElement("span");
+          faixa.className = "mm-faixa-vendido";
+          faixa.textContent = "VENDIDO";
+          foto.appendChild(faixa);
+        }
+      } else if (MM.esgotado(card)) {
+        card.classList.add("mm-esgotado");
+      }
     });
   }
 
