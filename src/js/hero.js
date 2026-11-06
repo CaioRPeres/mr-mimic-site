@@ -29,12 +29,10 @@
   if (!MM.naHome()) return;
 
   const SLIDES = [
-    { banner: "banner-liquidacao-jp", href: "/liquidacao/",
-      texto: "Liquidação de cartas japonesas: 25% de desconto no Pix em Pikachu ex, Mega Dragonite ex, Mewtwo de Armadura e Dialga V-ASTRO, só 1 de cada" },
-    { banner: "banner-reinado-delta", href: "/pokemon-tcg/",
-      texto: "Reinado Delta chega na loja em 6 de novembro: display, blisters e Treinador Avançado, cadastre o avise-me" },
+    { banner: "banner-reinado-delta", href: "/search/?q=reinado%20delta",
+      texto: "Reinado Delta em pré-venda: display, blisters e Treinador Avançado, envio a partir de 08/11" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
-      texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Dragonite ex e Mew ex, todas Near Mint" },
+      texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Charizard X ex e Dialga V-ASTRO" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Proteja sua coleção: acessórios BRA avulsos e em kits, a partir de R$ 20,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
@@ -44,6 +42,9 @@
   // produtos estão sem estoque; o slide voltava a um "Avise-me". Voltam quando repor (banners continuam em assets/hero/).
   // 06/11/2026 (boas práticas da Baymard para carrossel: poucos slides, troca lenta, pausa quando o cliente está
   // olhando): 8 s por slide, para com o mouse em cima ou com o foco no banner. O slide do Sunny saiu (tudo esgotado).
+  // 06/11/2026: a Liquidação JP saiu (Pikachu ex, Mega Dragonite ex e Mewtwo de Armadura venderam; só a Dialga ficou).
+  // Reinado Delta refeito em pré-venda (envio 08/11) e Cartas avulsas refeito só com cartas em estoque
+  // (banners/faz_banner_novo.py, reinado-delta-final e cartas-avulsas).
   const TROCA_A_CADA_MS = 8000;
   const PRE_CARREGA_SEGUNDO_MS = 1500;
 

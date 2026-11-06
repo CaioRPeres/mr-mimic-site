@@ -19,9 +19,13 @@
     // a compra de cartas e o lançamento do Reinado Delta (a busca mostra só os produtos dele, com o avise-me).
     { nome: "Compramos cartas", sub: "avaliação grátis · Pix", href: "/venda-suas-cartas/", cor: "#9CFF3D",
       foto: MM.asset("img-cat/compramos.webp") },
-    { nome: "Reinado Delta", sub: "chega 06/11 · avise-me", href: "/search/?q=reinado%20delta", cor: "#FF9F1C",
+    { nome: "Reinado Delta", sub: "pré-venda · envio 08/11", href: "/search/?q=reinado%20delta", cor: "#FF9F1C",
       foto: MM.asset("img-cat/reinado-delta.webp") },
   ];
+  // 06/11/2026 (Caio: "colecionáveis é uma categoria, assim como as outras"): Raridades na grade, com o mesmo peso,
+  // depois de Pelúcias. Foto: a caixa do Switch 2 Zelda 40 Anos, sem fundo (a do PS2 é foto com fundo).
+  CATEGORIAS.splice(4, 0, { nome: "Raridades", sub: "consoles e colecionáveis", href: "/colecionaveis/", cor: "#FF5C8A",
+    foto: "https://dcdn-us.mitiendanube.com/stores/008/274/177/products/console-capa-caixa-cc9065e6cd0a1dca7117938788942707-480-0.webp" });
   const PRODUTOS_POR_FILEIRA = 8;   // 2 páginas de 4
   const ESPERA_SWIPER_MS = 100, ESPERA_SWIPER_TENTATIVAS = 80;   // até 8 s
 

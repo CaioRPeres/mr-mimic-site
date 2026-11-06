@@ -30,7 +30,32 @@
       ordem.forEach(a => ul.appendChild(a.parentElement));
     });
   };
+  // gaveta do celular igual à barra do computador (06/11/2026): as categorias saem de dentro de "Produtos" e vão para o
+  // primeiro nível, cada uma com o painel de subcategorias que já tinha; "Produtos" e "Início" saem (o logo leva à home)
+  const abrirGaveta = () => {
+    const topo = document.querySelector(".modal-nav-hamburger .nav-primary > ul.nav-list");
+    if (!topo || topo.dataset.mmGaveta) return;
+    const itens = [...topo.children].filter(li => li.tagName === "LI");
+    const nome = li => ((li.querySelector(":scope > a") || {}).textContent || "").trim();
+    const produtos = itens.find(li => li.classList.contains("item-with-subitems") && /^Produtos/.test(nome(li)));
+    const corpo = produtos && produtos.querySelector(":scope > ul.js-menu-panel > .modal-body");
+    if (!corpo) return;
+    topo.dataset.mmGaveta = "1";
+    [...corpo.children].filter(li => li.tagName === "LI" && !/^Ver todos os produtos/i.test(nome(li)))
+      .forEach(li => topo.insertBefore(li, produtos));
+    produtos.style.display = "none";
+    const inicio = itens.find(li => /^In[ií]cio$/.test(nome(li)));
+    if (inicio) inicio.style.display = "none";
+  };
+  abrirGaveta();
   setTimeout(ordenarGaveta, 0);
+  // o menu chama a categoria /pokemon-tcg/ de "Selados"; a trilha, o título da página e a gaveta seguem o mesmo nome
+  // (troca só o texto: na gaveta o link tem a seta como filho)
+  const renomear = () => document.querySelectorAll(".breadcrumbs, .breadcrumb, h1, .modal-nav-hamburger").forEach(raiz => {
+    const tw = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT);
+    for (let t; (t = tw.nextNode());) if (/^(Ver tudo em )?Pokémon TCG$/.test(t.textContent.trim())) t.textContent = t.textContent.replace("Pokémon TCG", "Selados");
+  });
+  renomear(); setTimeout(renomear, 0);
 })();
 (function () {
   const lista = document.querySelector(".head-main .nav-desktop-list");

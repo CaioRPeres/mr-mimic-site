@@ -24,7 +24,8 @@
       if (preco && !card.querySelector(".mm-tag-prevenda")) {
         const tag = document.createElement("div");
         tag.className = "mm-tag-prevenda";
-        tag.textContent = "Pré-venda · envio " + data.slice(0, 5);
+        // no celular o card tem ~165 px: "envio" sai e fica "Pré-venda · 08/11" (o texto inteiro estourava o card)
+        tag.innerHTML = "Pré-venda · <span class=\"mm-pv-envio\">envio </span>" + data.slice(0, 5);
         preco.insertAdjacentElement("afterend", tag);
       }
     });

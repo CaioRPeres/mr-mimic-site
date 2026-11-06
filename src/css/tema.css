@@ -555,8 +555,16 @@ footer a.social-icon{display:none !important}
 
 /* --- 06/10/2026: ajustes colados direto no admin e aprovados pelo Caio (incorporados à fonte para não se perderem) --- */
 .logo-img{max-height:62px !important;max-width:none !important}
-.item-name,.js-item-name{height:calc(14px*1.3*2) !important;min-height:0 !important;overflow:hidden !important;line-height:1.3 !important}
+.item-name,.js-item-name{height:2.6em !important;min-height:0 !important;overflow:hidden !important;line-height:1.3 !important}
 .item-name a{display:inline !important;overflow:hidden}
+/* 06/11/2026: a altura fixa em px (2 linhas de 14px) cortava uma lasca da 3ª linha quando a fonte cai para 12,5px
+   (celular). Agora a altura acompanha a fonte (em) e o corte é por linha, com reticências: 2 linhas no computador,
+   3 no celular, onde "Pikachu ex (150/128) NM Português" ocupa 3 linhas e o idioma sumia. */
+@media (max-width:767px){ .item-name,.js-item-name{height:3.9em !important} }
+/* o corte com reticências usa -webkit-line-clamp, que a Nuvemshop apaga no campo de CSS: vai pelo mm.js (.mm-etq,
+   que o etiquetas.js põe em todo card) */
+.mm-etq .item-name,.mm-etq .js-item-name{display:-webkit-box !important;-webkit-box-orient:vertical !important;-webkit-line-clamp:2}
+@media (max-width:767px){ .mm-etq .item-name,.mm-etq .js-item-name{-webkit-line-clamp:3} }
 @media (min-width:821px){
   .mm-hero .mmh-quadro{max-width:none !important;width:100% !important;height:28.59vw !important;max-height:549px !important}
   .mm-hero .mmh-slide.banner{border-radius:0 !important}
@@ -661,7 +669,7 @@ footer a.social-icon{display:none !important}
 .mm-tag-frete,.mm-tag-prevenda{margin:4px auto 0;font:700 12.5px/1.2 Figtree,system-ui,sans-serif !important;letter-spacing:.01em;text-align:center}
 .mm-tag-frete{color:#7FE3A8 !important}
 .mm-tag-prevenda{display:table;padding:3px 10px 4px;border-radius:999px;background:#FFD12E;color:#241B38 !important}
-@media (max-width:480px){ .mm-tag-prevenda{white-space:nowrap;font-size:11px !important;padding:3px 8px 4px} .mm-tag-frete{font-size:11.5px !important} }
+@media (max-width:480px){ .mm-tag-prevenda{white-space:nowrap;font-size:11px !important;padding:3px 8px 4px} .mm-tag-frete{font-size:11.5px !important} .mm-pv-envio{display:none} }
 
 /* --- hover do card sem zoom na foto (06/11/2026, Caio: "as animações dos cards estão zoadas"). O tema dá scale(1.04) na
    foto ao passar o mouse; com a carta e os selos encostados na borda, a foto estourava a moldura. Fica só a subida do card
@@ -677,3 +685,13 @@ footer a.social-icon{display:none !important}
   .item:hover{transform:none !important;box-shadow:4px 4px 0 #090612 !important;border-color:#090612 !important}
   .item:hover .item-image{border-bottom-color:#090612 !important}
 }
+
+/* --- revisão da prévia (06/11/2026, Caio: "cheio de bugs") ---
+   menu: "Contato" e "Venda suas cartas" vinham do tema com 15px a mais de cada lado; agora todos com o mesmo espaço */
+.head-main .nav-desktop-list > li.nav-main-item:not(.mm-nav-cat){padding:0 !important}
+/* página do produto: "pagando com Pix" estava em roxo-escuro sobre roxo-escuro */
+.js-product-discount-container{color:#C9BCEB !important}
+/* página do produto: ~90px vazios entre o Comprar e a lista de garantias (margens do tema somadas) */
+.js-product-form .form-group.js-quantity{margin-bottom:0 !important}
+/* home: a newsletter aparecia duas vezes (bloco do tema + rodapé); fica só a do rodapé, que está em todas as páginas */
+[data-store="home-newsletter"]{display:none !important}
