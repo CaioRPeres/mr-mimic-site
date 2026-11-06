@@ -611,6 +611,12 @@ footer a.social-icon{display:none !important}
 .head-main .nav-dropdown-content .list-subitems .list-subitems a::before{content:none !important;display:none !important}
 .head-main .nav-dropdown-content .desktop-list-subitems > li > .nav-item-container > a:hover{color:#FFD12E !important}
 .head-main .nav-dropdown-content .list-subitems .list-subitems a:hover{color:#FFD12E !important;transform:translateX(3px) !important}
+/* categoria sem subcategoria (Pelúcias e Brinquedos, Colecionáveis, Liquidação): o grid a joga para a 2ª linha, colada no fim
+   da coluna mais longa (05/11/2026, Caio: "o menu principal está zoneado" depois que entrou Reinado Delta em Cartas avulsas).
+   Agora é uma linha própria, separada por um traço, com o mesmo título das colunas. */
+.head-main .nav-dropdown-content .desktop-list-subitems > li:not(.item-with-subitems){margin-top:18px !important;padding-top:16px !important;border-top:1px solid #3A2C5E !important}
+.head-main .nav-dropdown-content .desktop-list-subitems > li:not(.item-with-subitems) > a{display:block !important;margin:0 !important;padding:0 !important;font:900 21px/1.1 'Londrina Solid',sans-serif !important;letter-spacing:.01em !important;color:#F4EDE1 !important;text-align:left !important;white-space:normal !important;background:none !important;border:0 !important;box-shadow:none !important;transition:color .15s ease}
+.head-main .nav-dropdown-content .desktop-list-subitems > li:not(.item-with-subitems) > a:hover{color:#FFD12E !important}
 
 /* --- menu do celular (gaveta): itens creme separados por linha, setas visíveis, submenu escuro até o fim --- */
 .modal-nav-hamburger .nav-primary .nav-list > .nav-item,
