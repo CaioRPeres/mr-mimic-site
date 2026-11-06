@@ -665,6 +665,15 @@ footer a.social-icon{display:none !important}
 
 /* --- hover do card sem zoom na foto (06/11/2026, Caio: "as animações dos cards estão zoadas"). O tema dá scale(1.04) na
    foto ao passar o mouse; com a carta e os selos encostados na borda, a foto estourava a moldura. Fica só a subida do card
-   com a borda na cor do produto; a troca para a 2ª foto (quando existe) continua, em fade. --- */
+   com a borda na cor do produto, igual em todos. --- */
 .js-item-product .item-image:not(.item-image-slider):hover img,.js-item-product .item-image-slider:hover .swiper-slide-active img{transform:translateX(-50%) !important}
 .js-item-product .item-image img{transition:opacity .25s ease !important}
+/* sem troca para a 2ª foto no hover: só alguns produtos têm 2ª foto, e o display virava foto de booster, a ETB virava
+   outro ângulo com a carta promo. O card mostra sempre a foto principal; as outras ficam na página do produto. */
+.js-item-product .item-image-secondary{display:none !important}
+.js-item-product .product-item-secondary-images-loaded:hover .item-image-featured{opacity:1 !important}
+/* no celular o :hover gruda depois do toque (o card ficava levantado e colorido ao rolar a página): lá o card fica parado */
+@media (hover:none){
+  .item:hover{transform:none !important;box-shadow:4px 4px 0 #090612 !important;border-color:#090612 !important}
+  .item:hover .item-image{border-bottom-color:#090612 !important}
+}
