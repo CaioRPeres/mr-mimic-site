@@ -7,8 +7,10 @@
   if (!MM.naHome()) return;
 
   const CATEGORIAS = [
-    { nome: "Cartas avulsas", sub: "nacionais e japonesas · NM", href: "/cartas-avulsas/", cor: "#FFD12E",
-      foto: MM.asset("img-jp/pikachu-ex-234-193-mega-dream-ex-jp-ilustracao-secreta.jpg") },
+    // 06/11/2026: o Pikachu ex 234/193 (JP) vendeu e hoje há cartas SP, MP e HP: foto do Pikachu ex 150/128 (PT, em
+    // estoque) e sem o "NM"
+    { nome: "Cartas avulsas", sub: "português, japonês e inglês", href: "/cartas-avulsas/", cor: "#FFD12E",
+      foto: MM.asset("img-cat/pikachu-ex-150-128.webp") },
     { nome: "Selados", sub: "displays, blisters e boxes", href: "/pokemon-tcg/", cor: "#E0479B",
       foto: MM.asset("img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp") },
     { nome: "Acessórios", sub: "sleeves, pastas, toploaders", href: "/acessorios/", cor: "#7B5CFF",
