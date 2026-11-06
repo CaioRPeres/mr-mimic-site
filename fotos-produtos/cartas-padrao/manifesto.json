@@ -3079,5 +3079,131 @@
   ],
   "arquivo": "377725504.jpg",
   "estoque": "1"
+ },
+ {
+  "id": "379032871",
+  "slug": "reinado-delta-124",
+  "nome": "Reinado Delta 124",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032871.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032876",
+  "slug": "reinado-delta-114",
+  "nome": "Reinado Delta 114",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032876.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032880",
+  "slug": "reinado-delta-117",
+  "nome": "Reinado Delta 117",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032880.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032881",
+  "slug": "reinado-delta-110",
+  "nome": "Reinado Delta 110",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032881.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032883",
+  "slug": "reinado-delta-033",
+  "nome": "Reinado Delta 33",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032883.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032884",
+  "slug": "reinado-delta-011",
+  "nome": "Reinado Delta 11",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032884.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032886",
+  "slug": "reinado-delta-029",
+  "nome": "Reinado Delta 29",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032886.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032887",
+  "slug": "reinado-delta-023",
+  "nome": "Reinado Delta 23",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032887.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
+ },
+ {
+  "id": "379032889",
+  "slug": "reinado-delta-069",
+  "nome": "Reinado Delta 69",
+  "estado": "NM",
+  "foil": true,
+  "origem_px": [
+   733,
+   1024
+  ],
+  "arquivo": "379032889.jpg",
+  "estoque": "1",
+  "fonte": "dextcg me6"
  }
 ]
