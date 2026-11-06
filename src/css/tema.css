@@ -571,6 +571,14 @@ footer a.social-icon{display:none !important}
   .mm-hero .mmh-seta.esq{left:16px !important}
   .mm-hero .mmh-seta.dir{right:16px !important}
 }
+/* 06/11/2026: até 1920 px a arte ocupa a largura toda e o texto dela começa a ~4% da borda; a seta do lado cobria o
+   começo do título ("JÁ À VENDA"). Nessa faixa as setas descem para junto das bolinhas, no meio, embaixo. Acima de
+   1920 elas continuam nas bordas da arte (sobra o fundo desfocado dos lados). */
+@media (min-width:821px) and (max-width:1920px){
+  .mm-hero .mmh-seta{top:auto !important;bottom:3px !important;transform:none !important;width:34px !important;height:34px !important;font-size:20px !important}
+  .mm-hero .mmh-seta.esq{left:calc(50% - 96px) !important}
+  .mm-hero .mmh-seta.dir{right:calc(50% - 96px) !important;left:auto !important}
+}
 @media (min-width:1921px){
   .mm-hero .mmh-slide.full .mmh-full{object-fit:contain !important;mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
 }
