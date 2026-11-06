@@ -53,3 +53,16 @@
   .mm-hero .mmh-slide.banner .mmh-arte{display:none}
   .mm-hero .mmh-slide.banner .mmh-blink{display:block;width:100%}
 }
+/* 06/11/2026 (Caio: "o banner tá limitado"; boas práticas da Baymard para carrossel): a arte desfocada ocupa a largura
+   toda atrás do quadro, e as setas ficam em cima do banner, maiores e com contraste */
+.mm-hero{overflow:hidden}
+.mm-hero .mmh-fundo{position:absolute;inset:-40px;z-index:0;background:#15102A center/cover no-repeat;filter:blur(36px) brightness(.42) saturate(1.15);pointer-events:none}
+.mm-hero .mmh-quadro{z-index:1}
+.mm-hero .mmh-slide.full.banner{background:transparent}
+.mm-hero .mmh-seta{width:46px;height:46px;font-size:24px;background:rgba(9,6,18,.74);border:2px solid #FFD12E;color:#FFD12E;box-shadow:0 4px 14px rgba(6,4,14,.5)}
+/* tela acima de 1920 px: a arte fica contida no meio; as setas vão para a borda dela, não para a da janela */
+@media (min-width:1921px){ .mm-hero .mmh-quadro .mmh-seta.esq{left:calc(50% - 946px) !important} .mm-hero .mmh-quadro .mmh-seta.dir{right:calc(50% - 946px) !important} }
+.mm-hero .mmh-seta:hover{background:#FFD12E;color:#241B38}
+.mm-hero .mmh-pontos{bottom:10px}
+.mm-hero .mmh-pt{width:10px;height:10px;background:rgba(244,237,225,.55);box-shadow:0 0 0 1.5px rgba(9,6,18,.6)}
+.mm-hero .mmh-pt.on{background:#FFD12E;width:28px}

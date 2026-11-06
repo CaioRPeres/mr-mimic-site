@@ -37,14 +37,14 @@
       texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Dragonite ex e Mew ex, todas Near Mint" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Proteja sua coleção: acessórios BRA avulsos e em kits, a partir de R$ 20,90" },
-    { banner: "banner-sunny", href: "/pelucias-e-brinquedos/",
-      texto: "Brinquedos e pelúcias licenciados de Pokémon e Super Mario, a partir de R$ 301,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
       texto: "Compramos suas cartas, de 1 carta à coleção inteira, e pagamos no Pix" },
   ];
   // Fora desde 30/10/2026: ETB Destined Rivals, ETB Ascended Heroes e Box com Pôster 30 Anos — os três
   // produtos estão sem estoque; o slide voltava a um "Avise-me". Voltam quando repor (banners continuam em assets/hero/).
-  const TROCA_A_CADA_MS = 6500;
+  // 06/11/2026 (boas práticas da Baymard para carrossel: poucos slides, troca lenta, pausa quando o cliente está
+  // olhando): 8 s por slide, para com o mouse em cima ou com o foco no banner. O slide do Sunny saiu (tudo esgotado).
+  const TROCA_A_CADA_MS = 8000;
   const PRE_CARREGA_SEGUNDO_MS = 1500;
 
   const imagem = nome => MM.asset("hero/" + nome + ".webp");
@@ -54,7 +54,9 @@
     const sec = document.createElement("section");
     sec.className = "mm-hero";
     const adiado = i => i ? "data-" : "";
-    sec.innerHTML = `<div class="mmh-quadro">
+    // mmh-fundo: a mesma arte, desfocada, ocupa a largura toda atrás do quadro; em tela larga o banner não fica
+    // mais com faixas vazias dos lados (06/11/2026, Caio: "o banner tá limitado")
+    sec.innerHTML = `<div class="mmh-fundo" aria-hidden="true"></div><div class="mmh-quadro">
     ${SLIDES.map((s, i) => `<div class="mmh-slide full banner${i ? '' : ' on'}">
       <a class="mmh-blink" href="${s.href}" aria-label="${s.texto}"><picture><source media="(max-width:820px)" ${adiado(i)}srcset="${imagem(s.banner + "-cel")}"><img class="mmh-full" ${adiado(i)}src="${imagem(s.banner)}" alt="${s.texto}"></picture></a></div>`).join("")}
     <button class="mmh-seta esq" aria-label="Anterior">‹</button><button class="mmh-seta dir" aria-label="Próximo">›</button>
@@ -98,14 +100,25 @@
       carregar(atual);
       carregar(atual + 1);   // o próximo já fica pronto antes de aparecer
       [slides, pontos].forEach(lista => lista.forEach((el, k) => el.classList.toggle("on", k === atual)));
+      const img = slides[atual].querySelector("img.mmh-full");
+      const fundo = sec.querySelector(".mmh-fundo");
+      if (img && fundo && img.getAttribute("src")) fundo.style.backgroundImage = "url(\"" + img.getAttribute("src") + "\")";
     };
-    const reiniciarTimer = () => { clearInterval(timer); timer = setInterval(() => mostrar(atual + 1), TROCA_A_CADA_MS); };
+    let parado = false;
+    const reiniciarTimer = () => { clearInterval(timer); if (!parado) timer = setInterval(() => mostrar(atual + 1), TROCA_A_CADA_MS); };
+    const parar = () => { parado = true; clearInterval(timer); };
+    const seguir = () => { parado = false; reiniciarTimer(); };
+    sec.addEventListener("mouseenter", parar);
+    sec.addEventListener("mouseleave", seguir);
+    sec.addEventListener("focusin", parar);
+    sec.addEventListener("focusout", seguir);
     const irPara = n => { mostrar(n); reiniciarTimer(); };
 
     setTimeout(() => carregar(1), PRE_CARREGA_SEGUNDO_MS);
     sec.querySelector(".mmh-seta.esq").onclick = () => irPara(atual - 1);
     sec.querySelector(".mmh-seta.dir").onclick = () => irPara(atual + 1);
     pontos.forEach(p => p.onclick = () => irPara(+p.dataset.i));
+    mostrar(0);
     reiniciarTimer();
   }
 

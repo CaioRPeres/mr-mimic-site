@@ -640,8 +640,25 @@ footer a.social-icon{display:none !important}
 .mm-faixa-vendido{position:absolute;left:-15%;top:50%;z-index:3;width:130%;padding:.32em 0 .26em;transform:translateY(-50%) rotate(-20deg);background:#D7263D;color:#FFFFFF !important;font:900 clamp(18px,2.4vw,30px)/1 'Londrina Solid','Arial Black',sans-serif;letter-spacing:.12em;text-align:center;text-shadow:2px 2px 0 #090612;border-top:3px solid #090612;border-bottom:3px solid #090612;box-shadow:0 6px 14px rgba(6,4,14,.45);pointer-events:none}
 
 /* --- pré-venda (05/11/2026, pedido do Caio: "tem que ter um selo pré-venda e um aviso de que só será enviado no dia 08/11"): faixa amarela no pé da foto do card e aviso no topo do formulário de compra. Classes postas pelo prevenda.js --- */
-.mm-prevenda .js-item-image-padding{overflow:hidden}
-.mm-selo-prevenda{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:.4em 0 .32em;background:#FFD12E;color:#090612 !important;font:900 clamp(13px,1.6vw,19px)/1 'Londrina Solid','Arial Black',sans-serif;letter-spacing:.16em;text-align:center;border-top:3px solid #090612;pointer-events:none}
 .mm-prevenda-aviso{order:0;align-self:stretch;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:6px 0 14px;padding:9px 14px 8px;background:#FFD12E;border:2.5px solid #241B38;border-radius:12px;box-shadow:2px 2px 0 #241B38}
 .mm-prevenda-aviso strong{font:900 19px/1 'Londrina Solid','Arial Black',sans-serif;letter-spacing:.1em;color:#090612 !important}
 .mm-prevenda-aviso span{font:700 14px/1.25 'Figtree',sans-serif;color:#090612 !important}
+
+/* --- menu do computador por categoria (nav.js, 06/11/2026): as categorias na barra, cada uma com a sua caixinha --- */
+.head-main .nav-desktop-list > .mm-nav-oculto{display:none !important}
+.head-main .nav-desktop-list > .mm-nav-cat{position:relative}
+.head-main .nav-desktop-list > .mm-nav-com-sub > a.mm-nav-link::after{content:"";width:6px;height:6px;margin:-3px 0 0 1px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s ease}
+.head-main .nav-desktop-list > .mm-nav-com-sub:hover > a.mm-nav-link::after{transform:translateY(3px) rotate(225deg)}
+.head-main .nav-desktop-list > li.mm-nav-aqui > a.mm-nav-link{color:#FFD12E !important;background-size:calc(100% - 28px) 2px !important}
+.mm-nav-drop{position:absolute;left:50%;top:100%;z-index:60;min-width:230px;margin-top:8px;padding:10px 0;background:#1E1638;border:1px solid #3A2C5E;border-radius:14px;box-shadow:0 18px 40px rgba(6,4,14,.6);opacity:0;visibility:hidden;transform:translate(-50%,-4px);transition:opacity .15s ease,transform .15s ease,visibility 0s linear .15s}
+.mm-nav-drop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.mm-nav-com-sub:hover > .mm-nav-drop,.mm-nav-com-sub:focus-within > .mm-nav-drop{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:.1s,.1s,0s}
+.mm-nav-drop a{display:block;padding:9px 20px;font:500 14.5px/1.3 Figtree,system-ui,sans-serif !important;color:#C9BCEB !important;text-decoration:none !important;white-space:nowrap;text-align:left}
+.mm-nav-drop a:hover,.mm-nav-drop a:focus-visible{color:#FFD12E !important;background:#2A2046}
+
+/* --- etiquetas do card (etiquetas.js e prevenda.js, 06/11/2026): "Frete grátis" e "Pré-venda" saem de cima da foto e vão para a linha do preço --- */
+.mm-etq .js-shipping-label-private{display:none !important}
+.mm-tag-frete,.mm-tag-prevenda{margin:4px auto 0;font:700 12.5px/1.2 Figtree,system-ui,sans-serif !important;letter-spacing:.01em;text-align:center}
+.mm-tag-frete{color:#7FE3A8 !important}
+.mm-tag-prevenda{display:table;padding:3px 10px 4px;border-radius:999px;background:#FFD12E;color:#241B38 !important}
+@media (max-width:480px){ .mm-tag-prevenda{white-space:nowrap;font-size:11px !important;padding:3px 8px 4px} .mm-tag-frete{font-size:11.5px !important} }

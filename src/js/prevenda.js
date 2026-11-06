@@ -13,16 +13,19 @@
   const envio = id => Object.prototype.hasOwnProperty.call(PRE_VENDA, id || "") ? PRE_VENDA[id] : null;
   MM.preVenda = envio;
 
+  // 06/11/2026: a faixa saiu de cima da foto (Baymard: selo demais na foto vira poluição) e foi para a linha do
+  // preço, com a data de envio: "Pré-venda · envio 08/11".
   function marcarCards() {
     document.querySelectorAll(".js-item-product:not(.mm-prevenda)").forEach(card => {
-      if (!envio(card.getAttribute("data-product-id"))) return;
+      const data = envio(card.getAttribute("data-product-id"));
+      if (!data) return;
       card.classList.add("mm-prevenda");
-      const foto = card.querySelector(".js-item-image-padding") || card.querySelector(".item-image");
-      if (foto && !foto.querySelector(".mm-selo-prevenda")) {
-        const selo = document.createElement("span");
-        selo.className = "mm-selo-prevenda";
-        selo.textContent = "PRÉ-VENDA";
-        foto.appendChild(selo);
+      const preco = card.querySelector(".item-price-container");
+      if (preco && !card.querySelector(".mm-tag-prevenda")) {
+        const tag = document.createElement("div");
+        tag.className = "mm-tag-prevenda";
+        tag.textContent = "Pré-venda · envio " + data.slice(0, 5);
+        preco.insertAdjacentElement("afterend", tag);
       }
     });
   }
