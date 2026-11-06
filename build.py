@@ -58,6 +58,8 @@ def montar_css():
 def montar_js(extra):
     cores = json.loads(ler('dados', 'cores-produtos.json'))
     contato = json.loads(ler('dados', 'contato.json'))
+    # contagem de produtos com estoque por categoria (menu_contagem.py); o nav.js ordena o menu por ela
+    menu = json.loads(ler('dados', 'menu-contagem.json')) if os.path.exists(os.path.join(SRC, 'dados', 'menu-contagem.json')) else {}
     preludio = (
         '/* Mr. Mimic: scripts do tema na loja real. GERADO por build.py a partir de src/; não editar aqui. */\n'
         '(function () {\n'
@@ -68,6 +70,7 @@ def montar_js(extra):
         '    naHome: function () { return !!document.querySelector(\'[data-store^="home-"]\'); },\n'
         '    cores: ' + json.dumps(cores, ensure_ascii=False) + ',\n'
         '    contato: ' + json.dumps(contato, ensure_ascii=False) + ',\n'
+        '    menu: ' + json.dumps(menu, ensure_ascii=False) + ',\n'
         '    whatsapp: function (mensagem) { return "https://wa.me/" + this.contato.whatsapp + "?text=" + encodeURIComponent(mensagem); }\n'
         '  };\n'
         '  if (!document.getElementById("mm-extra")) {\n'

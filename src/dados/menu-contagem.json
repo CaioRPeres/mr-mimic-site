@@ -1,0 +1,85 @@
+{
+ "lido_em": "2026-11-06 02:14",
+ "categorias": {
+  "/cartas-avulsas/": {
+   "total": 321,
+   "estoque": 243
+  },
+  "/cartas-avulsas/escuridao-absoluta/": {
+   "total": 20,
+   "estoque": 3
+  },
+  "/cartas-avulsas/caos-ascendente/": {
+   "total": 7,
+   "estoque": 0
+  },
+  "/cartas-avulsas/fogo-fantasmagorico/": {
+   "total": 15,
+   "estoque": 3
+  },
+  "/cartas-avulsas/evolucoes-prismaticas/": {
+   "total": 2,
+   "estoque": 0
+  },
+  "/cartas-avulsas/celebracao-de-30-anos/": {
+   "total": 28,
+   "estoque": 15
+  },
+  "/cartas-avulsas/cartas-em-ingles/": {
+   "total": 3,
+   "estoque": 3
+  },
+  "/cartas-avulsas/cartas-japonesas/": {
+   "total": 97,
+   "estoque": 80
+  },
+  "/cartas-avulsas/reinado-delta/": {
+   "total": 9,
+   "estoque": 9
+  },
+  "/acessorios/": {
+   "total": 27,
+   "estoque": 16
+  },
+  "/acessorios/sleeves/": {
+   "total": 9,
+   "estoque": 8
+  },
+  "/acessorios/pastas-e-ficharios/": {
+   "total": 7,
+   "estoque": 0
+  },
+  "/acessorios/toploaders-e-cases/": {
+   "total": 3,
+   "estoque": 2
+  },
+  "/acessorios/kits/": {
+   "total": 8,
+   "estoque": 6
+  },
+  "/pokemon-tcg/": {
+   "total": 15,
+   "estoque": 9
+  },
+  "/pokemon-tcg/blisters-e-boxes/": {
+   "total": 13,
+   "estoque": 8
+  },
+  "/pokemon-tcg/booster-box/": {
+   "total": 2,
+   "estoque": 1
+  },
+  "/pelucias-e-brinquedos/": {
+   "total": 11,
+   "estoque": 1
+  },
+  "/colecionaveis/": {
+   "total": 6,
+   "estoque": 5
+  },
+  "/liquidacao/": {
+   "total": 4,
+   "estoque": 1
+  }
+ }
+}

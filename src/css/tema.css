@@ -662,3 +662,9 @@ footer a.social-icon{display:none !important}
 .mm-tag-frete{color:#7FE3A8 !important}
 .mm-tag-prevenda{display:table;padding:3px 10px 4px;border-radius:999px;background:#FFD12E;color:#241B38 !important}
 @media (max-width:480px){ .mm-tag-prevenda{white-space:nowrap;font-size:11px !important;padding:3px 8px 4px} .mm-tag-frete{font-size:11.5px !important} }
+
+/* --- hover do card sem zoom na foto (06/11/2026, Caio: "as animações dos cards estão zoadas"). O tema dá scale(1.04) na
+   foto ao passar o mouse; com a carta e os selos encostados na borda, a foto estourava a moldura. Fica só a subida do card
+   com a borda na cor do produto; a troca para a 2ª foto (quando existe) continua, em fade. --- */
+.js-item-product .item-image:not(.item-image-slider):hover img,.js-item-product .item-image-slider:hover .swiper-slide-active img{transform:translateX(-50%) !important}
+.js-item-product .item-image img{transition:opacity .25s ease !important}
