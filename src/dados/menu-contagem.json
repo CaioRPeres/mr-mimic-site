@@ -1,5 +1,5 @@
 {
- "lido_em": "2026-11-06 02:14",
+ "lido_em": "2026-11-07 00:38",
  "categorias": {
   "/cartas-avulsas/": {
    "total": 321,
@@ -59,11 +59,11 @@
   },
   "/pokemon-tcg/": {
    "total": 15,
-   "estoque": 9
+   "estoque": 8
   },
   "/pokemon-tcg/blisters-e-boxes/": {
    "total": 13,
-   "estoque": 8
+   "estoque": 7
   },
   "/pokemon-tcg/booster-box/": {
    "total": 2,
@@ -78,7 +78,15 @@
    "estoque": 5
   },
   "/liquidacao/": {
-   "total": 4,
+   "total": 7,
+   "estoque": 4
+  },
+  "/sorcery/": {
+   "total": 1,
+   "estoque": 1
+  },
+  "/sorcery/booster/": {
+   "total": 1,
    "estoque": 1
   }
  }

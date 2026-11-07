@@ -7,7 +7,7 @@
     naHome: function () { return !!document.querySelector('[data-store^="home-"]'); },
     cores: {"ambipom 107/094 - fogo fantasmagórico (me02) - ilustração rara": "rgb(124,255,125)", "blister duplo com moeda - celebração de 30 anos (pt)": "rgb(255,229,127)", "booster display me05 escuridão absoluta (pt) - 36 boosters": "rgb(255,124,117)", "box coleção com pôster - celebração de 30 anos (pt)": "rgb(255,233,57)", "case magnético 4mm cards bra - unitário": "rgb(0,146,255)", "case magnético bra 55pt - unitário": "rgb(13,105,255)", "clarita 109/084 - escuridão absoluta (me05) - ultra rara": "rgb(255,178,120)", "cobalion ex 064/086 - caos ascendente (me04) - rara dupla": "rgb(15,231,255)", "crobat 093/086 - caos ascendente (me04) - ilustração rara": "rgb(129,108,255)", "dawn 118/094 - fogo fantasmagórico (me02) - ultra rara": "rgb(255,159,136)", "double sleeve bra - 200 unidades": "rgb(0,116,255)", "double sleeve premium bra - 180 unidades": "rgb(255,0,0)", "jaula de batalha 116/094 - fogo fantasmagórico (me02) - ultra rara": "rgb(255,120,229)", "manectric 089/084 - escuridão absoluta (me05) - ilustração rara": "rgb(255,229,97)", "martelo esmagador 105/084 - escuridão absoluta (me05) - ultra rara": "rgb(255,234,120)", "mega darkrai ex 101/084 - escuridão absoluta (me05) - ultra rara": "rgb(196,255,67)", "mega zeraora ex 027/084 - escuridão absoluta (me05) - rara dupla": "rgb(255,228,111)", "mega zeraora ex 114/084 - escuridão absoluta (me05) - ilustração rara especial": "rgb(100,202,255)", "morpeko ex 117/084 - escuridão absoluta (me05) - ilustração rara especial": "rgb(255,74,201)", "pasta premium 1x1 bra - rosa": "rgb(255,129,140)", "pasta premium 1x1 bra - roxa": "rgb(121,58,255)", "rampardos ex 045/084 - escuridão absoluta (me05) - rara dupla": "rgb(255,168,48)", "rotom ex 111/094 - fogo fantasmagórico (me02) - ultra rara": "rgb(0,174,255)", "sleeve básico duplo cards bra - transparente - 200 unidades": "rgb(0,119,255)", "sleeve colors bra - azul - 50 unidades": "rgb(0,99,255)", "sleeve colors bra - verde - 50 unidades": "rgb(255,0,0)", "sleeve colors bra - vermelho - 50 unidades": "rgb(255,0,0)", "sleeve sabores bra - banana - amarelo - 60 unidades": "rgb(255,192,0)", "sleeve sabores bra - cereja - vermelho - 60 unidades": "rgb(255,0,0)", "sliggo 095/086 - caos ascendente (me04) - ilustração rara": "rgb(110,255,122)", "toploader cristal bra - 25 unidades": "rgb(0,91,255)", "toucannon 094/084 - escuridão absoluta (me05) - ilustração rara": "rgb(107,255,252)", "xerneas 091/086 - caos ascendente (me04) - ilustração rara": "rgb(132,226,255)"},
     contato: {"whatsapp": "5511925981533", "instagram": "https://www.instagram.com/mrmimicbr/", "email": "contato@mrmimic.com.br"},
-    menu: {"lido_em": "2026-11-06 02:14", "categorias": {"/cartas-avulsas/": {"total": 321, "estoque": 243}, "/cartas-avulsas/escuridao-absoluta/": {"total": 20, "estoque": 3}, "/cartas-avulsas/caos-ascendente/": {"total": 7, "estoque": 0}, "/cartas-avulsas/fogo-fantasmagorico/": {"total": 15, "estoque": 3}, "/cartas-avulsas/evolucoes-prismaticas/": {"total": 2, "estoque": 0}, "/cartas-avulsas/celebracao-de-30-anos/": {"total": 28, "estoque": 15}, "/cartas-avulsas/cartas-em-ingles/": {"total": 3, "estoque": 3}, "/cartas-avulsas/cartas-japonesas/": {"total": 97, "estoque": 80}, "/cartas-avulsas/reinado-delta/": {"total": 9, "estoque": 9}, "/acessorios/": {"total": 27, "estoque": 16}, "/acessorios/sleeves/": {"total": 9, "estoque": 8}, "/acessorios/pastas-e-ficharios/": {"total": 7, "estoque": 0}, "/acessorios/toploaders-e-cases/": {"total": 3, "estoque": 2}, "/acessorios/kits/": {"total": 8, "estoque": 6}, "/pokemon-tcg/": {"total": 15, "estoque": 9}, "/pokemon-tcg/blisters-e-boxes/": {"total": 13, "estoque": 8}, "/pokemon-tcg/booster-box/": {"total": 2, "estoque": 1}, "/pelucias-e-brinquedos/": {"total": 11, "estoque": 1}, "/colecionaveis/": {"total": 6, "estoque": 5}, "/liquidacao/": {"total": 4, "estoque": 1}}},
+    menu: {"lido_em": "2026-11-07 00:38", "categorias": {"/cartas-avulsas/": {"total": 321, "estoque": 243}, "/cartas-avulsas/escuridao-absoluta/": {"total": 20, "estoque": 3}, "/cartas-avulsas/caos-ascendente/": {"total": 7, "estoque": 0}, "/cartas-avulsas/fogo-fantasmagorico/": {"total": 15, "estoque": 3}, "/cartas-avulsas/evolucoes-prismaticas/": {"total": 2, "estoque": 0}, "/cartas-avulsas/celebracao-de-30-anos/": {"total": 28, "estoque": 15}, "/cartas-avulsas/cartas-em-ingles/": {"total": 3, "estoque": 3}, "/cartas-avulsas/cartas-japonesas/": {"total": 97, "estoque": 80}, "/cartas-avulsas/reinado-delta/": {"total": 9, "estoque": 9}, "/acessorios/": {"total": 27, "estoque": 16}, "/acessorios/sleeves/": {"total": 9, "estoque": 8}, "/acessorios/pastas-e-ficharios/": {"total": 7, "estoque": 0}, "/acessorios/toploaders-e-cases/": {"total": 3, "estoque": 2}, "/acessorios/kits/": {"total": 8, "estoque": 6}, "/pokemon-tcg/": {"total": 15, "estoque": 8}, "/pokemon-tcg/blisters-e-boxes/": {"total": 13, "estoque": 7}, "/pokemon-tcg/booster-box/": {"total": 2, "estoque": 1}, "/pelucias-e-brinquedos/": {"total": 11, "estoque": 1}, "/colecionaveis/": {"total": 6, "estoque": 5}, "/liquidacao/": {"total": 7, "estoque": 4}, "/sorcery/": {"total": 1, "estoque": 1}, "/sorcery/booster/": {"total": 1, "estoque": 1}}},
     whatsapp: function (mensagem) { return "https://wa.me/" + this.contato.whatsapp + "?text=" + encodeURIComponent(mensagem); }
   };
   if (!document.getElementById("mm-extra")) {
@@ -50,7 +50,7 @@ try {
 
   const SLIDES = [
     { banner: "banner-reinado-delta", href: "/search/?q=reinado%20delta",
-      texto: "Reinado Delta a preço sugerido: display, combo de boosters, blisters e Treinador Avançado" },
+      texto: "Reinado Delta a preço sugerido: booster display, combo de boosters e blisters" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Charizard X ex e Dialga V-ASTRO" },
     { banner: "banner-acessorios", href: "/acessorios/",
@@ -447,7 +447,15 @@ try {
   const ehCarta = el => /\b\d{3}\/\d{3}\b/.test(nomeDe(el));   // carta tem número de coleção, ex. 108/084
 
   // [título, link "ver tudo", quais produtos do tema ficam, de onde buscar mais]
+  // 07/11/2026, Caio: "destaque da primeira página tem que ser Reinado Delta e os produtos de liquidação, as cartas,
+  // boxes Mewtwo etc.". As duas primeiras fileiras viram Reinado Delta (selados antes das cartas) e Liquidação; as três
+  // de categoria continuam embaixo.
   const FILEIRAS = [
+    // a busca devolve as cartas antes dos selados: a fileira lê as páginas das categorias, selados primeiro
+    { titulo: "Reinado Delta", href: "/search/?q=reinado%20delta", mantem: () => false, primeiro: el => !ehCarta(el),
+      fontes: ["/pokemon-tcg/booster-box/", "/pokemon-tcg/blisters-e-boxes/", "/cartas-avulsas/reinado-delta/"],
+      filtro: el => /reinado delta|\/103\)/i.test(nomeDe(el)) },
+    { titulo: "Liquidação", href: "/liquidacao/", mantem: () => false, primeiro: el => !ehCarta(el) },
     { titulo: "Cartas avulsas", href: "/cartas-avulsas/", mantem: ehCarta },
     { titulo: "Selados", href: "/pokemon-tcg/", mantem: el => !ehCarta(el) },
     { titulo: "Acessórios", href: "/acessorios/", mantem: () => false },
@@ -481,13 +489,13 @@ try {
   }
 
   // Produtos da página da categoria viram slides com a mesma marcação dos da home.
-  async function buscarProdutos(url, quantos, vistos) {
+  async function buscarProdutos(url, quantos, vistos, filtro) {
     const html = await (await fetch(url, { cache: "no-cache" })).text();
     const doc = new DOMParser().parseFromString(html, "text/html");
     const slides = [];
     for (const item of doc.querySelectorAll(".js-item-product")) {
       const chave = nomeDe(item).toLowerCase();
-      if (!chave || vistos.has(chave)) continue;
+      if (!chave || vistos.has(chave) || (filtro && !filtro(item))) continue;
       vistos.add(chave);
       const card = document.importNode(item, true);
       card.className = "js-item-product js-item-slide p-0 item-product col-grid" + (card.classList.contains("mm-breve") ? " mm-breve" : "");
@@ -522,11 +530,14 @@ try {
     const trilho = sec.querySelector(".swiper-wrapper");
     const esgotado = sl => !!(MM.esgotado && MM.esgotado(sl));
     const disponiveis = () => [...trilho.children].filter(sl => !esgotado(sl));
-    if (disponiveis().length < PRODUTOS_POR_FILEIRA) {
-      try { (await buscarProdutos(cfg.href, PRODUTOS_POR_FILEIRA - disponiveis().length, vistos)).forEach(sl => trilho.appendChild(sl)); } catch (e) {}
+    for (const url of (cfg.fontes || [cfg.href])) {
+      if (disponiveis().length >= PRODUTOS_POR_FILEIRA) break;
+      try { (await buscarProdutos(url, PRODUTOS_POR_FILEIRA - disponiveis().length, vistos, cfg.filtro)).forEach(sl => trilho.appendChild(sl)); } catch (e) {}
     }
     const esgotados = [...trilho.children].filter(esgotado);
-    disponiveis().concat(esgotados).forEach((sl, i) => { if (i < PRODUTOS_POR_FILEIRA) trilho.appendChild(sl); else sl.remove(); });
+    // "primeiro": o que entra antes na fileira (ex.: selados antes das cartas), sem mudar a ordem dentro de cada grupo
+    const naFrente = lista => cfg.primeiro ? lista.filter(cfg.primeiro).concat(lista.filter(sl => !cfg.primeiro(sl))) : lista;
+    naFrente(disponiveis()).concat(esgotados).forEach((sl, i) => { if (i < PRODUTOS_POR_FILEIRA) trilho.appendChild(sl); else sl.remove(); });
     const verTudo = document.createElement("a"); verTudo.className = "mm-verttudo"; verTudo.href = cfg.href; verTudo.textContent = "Ver tudo em " + cfg.titulo + " →";
     sec.appendChild(verTudo);
 
@@ -566,10 +577,16 @@ try {
     if (!prontos && ++tentativas < ESPERA_SWIPER_TENTATIVAS) return;
     clearInterval(espera);
     const modelo = secs[1], swiperModelo = (modelo.querySelector(".swiper-container") || {}).swiper;
-    const terceira = clonarFileiraVazia(modelo, "acc");
-    terceira.style.order = String((parseInt(getComputedStyle(modelo).order) || 3) + 1);
-    modelo.parentElement.insertBefore(terceira, modelo.nextSibling);
-    Promise.all([...secs, terceira].map((s, i) => montarFileira(s, FILEIRAS[i], swiperModelo)))
+    // o tema entrega 2 fileiras; as demais são cópias vazias da segunda, uma depois da outra
+    const extras = [];
+    let anterior = modelo, ordem = parseInt(getComputedStyle(modelo).order) || 3;
+    FILEIRAS.slice(2).forEach((cfg, k) => {
+      const copia = clonarFileiraVazia(modelo, "x" + k);
+      copia.style.order = String(++ordem);
+      anterior.parentElement.insertBefore(copia, anterior.nextSibling);
+      extras.push(copia); anterior = copia;
+    });
+    Promise.all([...secs, ...extras].map((s, i) => montarFileira(s, FILEIRAS[i], swiperModelo)))
       .then(() => { window.mmCorCards && window.mmCorCards(); });
   }, ESPERA_SWIPER_MS);
 })();

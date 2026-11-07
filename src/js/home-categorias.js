@@ -37,7 +37,15 @@
   const ehCarta = el => /\b\d{3}\/\d{3}\b/.test(nomeDe(el));   // carta tem número de coleção, ex. 108/084
 
   // [título, link "ver tudo", quais produtos do tema ficam, de onde buscar mais]
+  // 07/11/2026, Caio: "destaque da primeira página tem que ser Reinado Delta e os produtos de liquidação, as cartas,
+  // boxes Mewtwo etc.". As duas primeiras fileiras viram Reinado Delta (selados antes das cartas) e Liquidação; as três
+  // de categoria continuam embaixo.
   const FILEIRAS = [
+    // a busca devolve as cartas antes dos selados: a fileira lê as páginas das categorias, selados primeiro
+    { titulo: "Reinado Delta", href: "/search/?q=reinado%20delta", mantem: () => false, primeiro: el => !ehCarta(el),
+      fontes: ["/pokemon-tcg/booster-box/", "/pokemon-tcg/blisters-e-boxes/", "/cartas-avulsas/reinado-delta/"],
+      filtro: el => /reinado delta|\/103\)/i.test(nomeDe(el)) },
+    { titulo: "Liquidação", href: "/liquidacao/", mantem: () => false, primeiro: el => !ehCarta(el) },
     { titulo: "Cartas avulsas", href: "/cartas-avulsas/", mantem: ehCarta },
     { titulo: "Selados", href: "/pokemon-tcg/", mantem: el => !ehCarta(el) },
     { titulo: "Acessórios", href: "/acessorios/", mantem: () => false },
@@ -71,13 +79,13 @@
   }
 
   // Produtos da página da categoria viram slides com a mesma marcação dos da home.
-  async function buscarProdutos(url, quantos, vistos) {
+  async function buscarProdutos(url, quantos, vistos, filtro) {
     const html = await (await fetch(url, { cache: "no-cache" })).text();
     const doc = new DOMParser().parseFromString(html, "text/html");
     const slides = [];
     for (const item of doc.querySelectorAll(".js-item-product")) {
       const chave = nomeDe(item).toLowerCase();
-      if (!chave || vistos.has(chave)) continue;
+      if (!chave || vistos.has(chave) || (filtro && !filtro(item))) continue;
       vistos.add(chave);
       const card = document.importNode(item, true);
       card.className = "js-item-product js-item-slide p-0 item-product col-grid" + (card.classList.contains("mm-breve") ? " mm-breve" : "");
@@ -112,11 +120,14 @@
     const trilho = sec.querySelector(".swiper-wrapper");
     const esgotado = sl => !!(MM.esgotado && MM.esgotado(sl));
     const disponiveis = () => [...trilho.children].filter(sl => !esgotado(sl));
-    if (disponiveis().length < PRODUTOS_POR_FILEIRA) {
-      try { (await buscarProdutos(cfg.href, PRODUTOS_POR_FILEIRA - disponiveis().length, vistos)).forEach(sl => trilho.appendChild(sl)); } catch (e) {}
+    for (const url of (cfg.fontes || [cfg.href])) {
+      if (disponiveis().length >= PRODUTOS_POR_FILEIRA) break;
+      try { (await buscarProdutos(url, PRODUTOS_POR_FILEIRA - disponiveis().length, vistos, cfg.filtro)).forEach(sl => trilho.appendChild(sl)); } catch (e) {}
     }
     const esgotados = [...trilho.children].filter(esgotado);
-    disponiveis().concat(esgotados).forEach((sl, i) => { if (i < PRODUTOS_POR_FILEIRA) trilho.appendChild(sl); else sl.remove(); });
+    // "primeiro": o que entra antes na fileira (ex.: selados antes das cartas), sem mudar a ordem dentro de cada grupo
+    const naFrente = lista => cfg.primeiro ? lista.filter(cfg.primeiro).concat(lista.filter(sl => !cfg.primeiro(sl))) : lista;
+    naFrente(disponiveis()).concat(esgotados).forEach((sl, i) => { if (i < PRODUTOS_POR_FILEIRA) trilho.appendChild(sl); else sl.remove(); });
     const verTudo = document.createElement("a"); verTudo.className = "mm-verttudo"; verTudo.href = cfg.href; verTudo.textContent = "Ver tudo em " + cfg.titulo + " →";
     sec.appendChild(verTudo);
 
@@ -156,10 +167,16 @@
     if (!prontos && ++tentativas < ESPERA_SWIPER_TENTATIVAS) return;
     clearInterval(espera);
     const modelo = secs[1], swiperModelo = (modelo.querySelector(".swiper-container") || {}).swiper;
-    const terceira = clonarFileiraVazia(modelo, "acc");
-    terceira.style.order = String((parseInt(getComputedStyle(modelo).order) || 3) + 1);
-    modelo.parentElement.insertBefore(terceira, modelo.nextSibling);
-    Promise.all([...secs, terceira].map((s, i) => montarFileira(s, FILEIRAS[i], swiperModelo)))
+    // o tema entrega 2 fileiras; as demais são cópias vazias da segunda, uma depois da outra
+    const extras = [];
+    let anterior = modelo, ordem = parseInt(getComputedStyle(modelo).order) || 3;
+    FILEIRAS.slice(2).forEach((cfg, k) => {
+      const copia = clonarFileiraVazia(modelo, "x" + k);
+      copia.style.order = String(++ordem);
+      anterior.parentElement.insertBefore(copia, anterior.nextSibling);
+      extras.push(copia); anterior = copia;
+    });
+    Promise.all([...secs, ...extras].map((s, i) => montarFileira(s, FILEIRAS[i], swiperModelo)))
       .then(() => { window.mmCorCards && window.mmCorCards(); });
   }, ESPERA_SWIPER_MS);
 })();

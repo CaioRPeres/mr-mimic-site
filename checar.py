@@ -147,8 +147,8 @@ def conferir_loja():
     carta = uma_carta()
     # (caminho, largura, o que tem que estar lá)
     casos = [
-        ('/', 1440, lambda r: r['slides'] == N_SLIDES and r['categorias'] == 7 and r['fileiras'] == 3 and r['titulo'].startswith('Mr. Mimic |')),
-        ('/', 390, lambda r: r['slides'] == N_SLIDES and r['fileiras'] == 3),
+        ('/', 1440, lambda r: r['slides'] == N_SLIDES and r['categorias'] == 7 and r['fileiras'] == 5 and r['titulo'].startswith('Mr. Mimic |')),
+        ('/', 390, lambda r: r['slides'] == N_SLIDES and r['fileiras'] == 5),
         ('/venda-suas-cartas/', 1440, lambda r: r['venda'] >= 5),
         ('/contato/', 1440, lambda r: r['titulo'].startswith('Contato |')),
         ('/produtos/', 1440, lambda r: r['titulo'].startswith('Todos os Produtos')),
