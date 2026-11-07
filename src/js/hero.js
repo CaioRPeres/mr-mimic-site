@@ -30,13 +30,13 @@
 
   const SLIDES = [
     { banner: "banner-reinado-delta", href: "/search/?q=reinado%20delta",
-      texto: "Reinado Delta em pré-venda: display, blisters e Treinador Avançado, envio a partir de 08/11" },
+      texto: "Reinado Delta a preço sugerido: display, combo de boosters, blisters e Treinador Avançado" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Charizard X ex e Dialga V-ASTRO" },
     { banner: "banner-acessorios", href: "/acessorios/",
       texto: "Proteja sua coleção: acessórios BRA avulsos e em kits, a partir de R$ 20,90" },
     { banner: "banner-compramos", href: "/venda-suas-cartas/",
-      texto: "Compramos suas cartas, de 1 carta à coleção inteira, e pagamos no Pix" },
+      texto: "Compramos suas cartas: preço fixo na buylist, de 1 carta à coleção inteira, e pagamos no Pix" },
   ];
   // Fora desde 30/10/2026: ETB Destined Rivals, ETB Ascended Heroes e Box com Pôster 30 Anos — os três
   // produtos estão sem estoque; o slide voltava a um "Avise-me". Voltam quando repor (banners continuam em assets/hero/).
@@ -45,6 +45,8 @@
   // 06/11/2026: a Liquidação JP saiu (Pikachu ex, Mega Dragonite ex e Mewtwo de Armadura venderam; só a Dialga ficou).
   // Reinado Delta refeito em pré-venda (envio 08/11) e Cartas avulsas refeito só com cartas em estoque
   // (banners/faz_banner_novo.py, reinado-delta-final e cartas-avulsas).
+  // 07/11/2026: Reinado Delta sai da pré-venda e vira "a preço sugerido"; Acessórios sem a pasta (esgotada);
+  // Compramos com a buylist de preço fixo e o WhatsApp de volta (faz_banner_novo.py, ajuste de 07/11).
   const TROCA_A_CADA_MS = 8000;
   const PRE_CARREGA_SEGUNDO_MS = 1500;
 

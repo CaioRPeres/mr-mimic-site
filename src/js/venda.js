@@ -7,7 +7,8 @@
   if (!textoDoAdmin || document.querySelector(".mm-venda")) return;
 
   const FAIXA = null;   // ex.: [40, 60], percentuais do preço de venda; null = texto sem número até o Caio fechar
-  // WhatsApp removido em 29/10/2026 a pedido do Caio: o contato da página é só Instagram e e-mail.
+  // WhatsApp de volta em 07/11/2026 com o número do WhatsApp Business da loja (o número não aparece escrito).
+  const WHATSAPP = MM.whatsapp("Olá! Quero vender minhas cartas para a Mr. Mimic");
   const INSTAGRAM = MM.contato.instagram, EMAIL = MM.contato.email;
   // ícones SVG (24x24) usados nos passos e nos quadros
   const I = {
@@ -27,7 +28,7 @@
   };
   const PASSOS = [
     { titulo: "Monte sua lista", texto: "escolha as cartas da buylist, o estado de cada uma e clique em Vender.", icone: I.lista },
-    { titulo: "Envie o pedido", texto: "gere a lista e mande por e-mail ou Instagram.", icone: I.correio },
+    { titulo: "Envie o pedido", texto: "gere a lista e mande pelo WhatsApp, por e-mail ou no Instagram.", icone: I.correio },
     { titulo: "Aprovamos e você posta", texto: "respondemos em até 2 dias úteis; só então passamos o endereço.", icone: I.lupa },
     { titulo: "Conferimos e pagamos", texto: "chegou como informado? Pix em até 1 dia útil.", icone: I.pix },
   ];
@@ -82,8 +83,8 @@
       <div class="mm-vnao"><b>O que não compramos:</b> ${NAO_COMPRAMOS.map(n => `<span>✕ ${n}</span>`).join("")}</div>
     </section>
     <section class="mm-vfim">
-      <a class="mm-vbtn" href="${INSTAGRAM}" target="_blank" rel="noopener">Falar pelo Instagram @mrmimicbr</a>
-      <small>Prefere e-mail? Mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
+      <a class="mm-vbtn" href="${WHATSAPP}" target="_blank" rel="noopener">${I.zap} Falar no WhatsApp</a>
+      <small>Prefere outro canal? Chame no <a href="${INSTAGRAM}" target="_blank" rel="noopener">Instagram @mrmimicbr</a> ou mande para <a href="mailto:${EMAIL}">${EMAIL}</a>. Você recebe a oferta item por item e decide com calma.</small>
     </section>`;
   textoDoAdmin.replaceWith(sec);
   const filtros = document.querySelector(".category-controls-container"); if (filtros) filtros.style.display = "none";

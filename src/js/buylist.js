@@ -130,7 +130,7 @@
         <p class="mmb-hint" id="mmb-credit"></p>
         <div class="mmb-form">
           <input id="mmb-nome" type="text" placeholder="Seu nome" aria-label="Seu nome" autocomplete="name">
-          <input id="mmb-contato" type="text" placeholder="Seu e-mail ou Instagram" aria-label="Seu e-mail ou Instagram">
+          <input id="mmb-contato" type="text" placeholder="Seu WhatsApp, e-mail ou Instagram" aria-label="Seu WhatsApp, e-mail ou Instagram">
           <select id="mmb-forma" aria-label="Como quer receber"><option value="pix">Receber no Pix</option><option value="credito">Crédito na loja (com bônus)</option></select>
         </div>
         <p class="mmb-hint mmb-err" id="mmb-err"></p>
@@ -139,10 +139,11 @@
           <textarea id="mmb-msg" readonly aria-label="Lista pronta para enviar"></textarea>
           <div class="mmb-acts">
             <button id="mmb-copy" style="flex:1">Copiar lista</button>
+            <a id="mmb-zap" href="#" target="_blank" rel="noopener"><button class="mmb-g" type="button">WhatsApp</button></a>
             <a id="mmb-mail" href="#"><button class="mmb-g" type="button">E-mail</button></a>
             <a href="${INSTAGRAM}" target="_blank" rel="noopener"><button class="mmb-g" type="button">Instagram</button></a>
           </div>
-          <p class="mmb-hint">Copie e envie para ${esc(EMAIL)} ou por mensagem no Instagram.</p>
+          <p class="mmb-hint">Envie pelo WhatsApp, para ${esc(EMAIL)} ou por mensagem no Instagram.</p>
         </div>
       </aside>
     </div>
@@ -195,7 +196,7 @@
     const rows = Object.values(state.bag).filter(v => cards[v.id]);
     if (!rows.length) { $("mmb-err").textContent = "Adicione pelo menos uma carta antes de gerar a lista."; return; }
     const nome = $("mmb-nome").value.trim(), contato = $("mmb-contato").value.trim();
-    if (!nome || !contato) { $("mmb-err").textContent = "Preencha seu nome e um e-mail ou Instagram para gerar a lista."; return; }
+    if (!nome || !contato) { $("mmb-err").textContent = "Preencha seu nome e um WhatsApp, e-mail ou Instagram para gerar a lista."; return; }
     $("mmb-err").textContent = "";
     let total = 0;
     const lines = rows.map(v => { const c = cards[v.id], p = priceOf(c); total += p * v.qty; return `${v.qty}x ${c.name} (${ED[c.ed]}, nº ${c.num}) - NM - ${BRL(p)} cada = ${BRL(p * v.qty)}`; });
@@ -203,6 +204,7 @@
     const receber = credito ? "Crédito na loja: " + BRL(total * (1 + CONFIG.bonusCredito)) + " (com " + Math.round(CONFIG.bonusCredito * 100) + "% de bônus)" : "Pix: " + BRL(total);
     const msg = `PEDIDO DE VENDA - Buylist Mr. Mimic (${CONFIG.data})\nNome: ${nome}\nContato: ${contato}\n\n${lines.join("\n")}\n\nTotal: ${BRL(total)}\nQuero receber em: ${receber}\n\nEntendo que o valor final é confirmado na conferência das cartas.`;
     $("mmb-msg").value = msg; $("mmb-out").classList.add("on");
+    $("mmb-zap").href = MM.whatsapp(msg);
     $("mmb-mail").href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Pedido de venda - Buylist Mr. Mimic") + "&body=" + encodeURIComponent(msg);
   });
   $("mmb-copy").addEventListener("click", async () => {

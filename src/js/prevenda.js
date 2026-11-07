@@ -1,7 +1,8 @@
 /* Pré-venda (05/11/2026, pedido do Caio): o primeiro lote do Reinado Delta é exclusivo do site, no preço sugerido,
    e só é enviado a partir de 08/11/2026. No card, faixa amarela "PRÉ-VENDA" no pé da foto; na página do produto,
    aviso amarelo no topo do formulário de compra. Estilo no fim do tema.css (.mm-selo-prevenda, .mm-prevenda-aviso).
-   Para encerrar a pré-venda de um produto: apagar o id da lista e publicar. Chave = id do produto na Nuvemshop. */
+   Para encerrar a pré-venda de um produto antes da data: apagar o id da lista e publicar. Chave = id do produto na
+   Nuvemshop. No dia do envio ela some sozinha. */
 (function () {
   const PRE_VENDA = {
     "371968038": "08/11/2026",  // Box Display Reinado Delta (36 boosters)
@@ -10,7 +11,11 @@
     "379345349": "08/11/2026",  // Coleção Treinador Avançado (ETB) Reinado Delta
     "379345353": "08/11/2026"   // Combo de Booster (mini booster box) Reinado Delta
   };
-  const envio = id => Object.prototype.hasOwnProperty.call(PRE_VENDA, id || "") ? PRE_VENDA[id] : null;
+  // 07/11/2026: a pré-venda acaba sozinha no dia do envio (a etiqueta e o aviso param de aparecer a partir dele,
+  // pelo horário de Brasília), para o site não ficar dizendo "pré-venda" depois que o produto já está sendo enviado.
+  const hojeBR = new Date(Date.now() - 3 * 3600 * 1000).toISOString().slice(0, 10);   // AAAA-MM-DD em UTC-3
+  const ativa = data => data.split("/").reverse().join("-") > hojeBR;
+  const envio = id => Object.prototype.hasOwnProperty.call(PRE_VENDA, id || "") && ativa(PRE_VENDA[id]) ? PRE_VENDA[id] : null;
   MM.preVenda = envio;
 
   // 06/11/2026: a faixa saiu de cima da foto (Baymard: selo demais na foto vira poluição) e foi para a linha do

@@ -11,17 +11,19 @@
     // estoque) e sem o "NM"
     { nome: "Cartas avulsas", sub: "português, japonês e inglês", href: "/cartas-avulsas/", cor: "#FFD12E",
       foto: MM.asset("img-cat/pikachu-ex-150-128.webp") },
+    // 07/11/2026: as fotos eram de produtos esgotados (display de Escuridão Absoluta e pasta): Selados com o baralho
+    // Batalha de Liga Mega Lucario ex e Acessórios com o case magnético, os dois em estoque; "pastas" sai do texto.
     { nome: "Selados", sub: "displays, blisters e boxes", href: "/pokemon-tcg/", cor: "#E0479B",
-      foto: MM.asset("img-prod/booster-display-me05-escuridao-absoluta-pt-36-boosters-1.webp") },
-    { nome: "Acessórios", sub: "sleeves, pastas, toploaders", href: "/acessorios/", cor: "#7B5CFF",
-      foto: MM.asset("img-prod/pasta-premium-colors-3x3-bra-roxa-azul-s-caixa-1.webp") },
+      foto: MM.asset("img-prod/baralho-batalha-de-liga-mega-lucario-ex-1.webp") },
+    { nome: "Acessórios", sub: "sleeves, cases, toploaders", href: "/acessorios/", cor: "#7B5CFF",
+      foto: MM.asset("img-prod/case-magnetico-4mm-cards-bra-unitario-1.webp") },
     { nome: "Pelúcias e brinquedos", sub: "licenciados oficiais", href: "/pelucias-e-brinquedos/", cor: "#35D6FF",
       foto: MM.asset("img-cat/sunny.webp") },
     // Games e Figures ("em breve", sem link) saíram em 11/10/2026: bloco morto na home. No lugar, duas portas que existem:
     // a compra de cartas e o lançamento do Reinado Delta (a busca mostra só os produtos dele, com o avise-me).
-    { nome: "Compramos cartas", sub: "avaliação grátis · Pix", href: "/venda-suas-cartas/", cor: "#9CFF3D",
+    { nome: "Compramos cartas", sub: "preço fixo · Pix", href: "/venda-suas-cartas/", cor: "#9CFF3D",
       foto: MM.asset("img-cat/compramos.webp") },
-    { nome: "Reinado Delta", sub: "pré-venda · envio 08/11", href: "/search/?q=reinado%20delta", cor: "#FF9F1C",
+    { nome: "Reinado Delta", sub: "nova coleção · preço sugerido", href: "/search/?q=reinado%20delta", cor: "#FF9F1C",
       foto: MM.asset("img-cat/reinado-delta.webp") },
   ];
   // 06/11/2026 (Caio: "colecionáveis é uma categoria, assim como as outras"): Raridades na grade, com o mesmo peso,

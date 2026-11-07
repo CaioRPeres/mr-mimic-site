@@ -703,3 +703,7 @@ footer a.social-icon{display:none !important}
 .js-product-form .form-group.js-quantity{margin-bottom:0 !important}
 /* home: a newsletter aparecia duas vezes (bloco do tema + rodapé); fica só a do rodapé, que está em todas as páginas */
 [data-store="home-newsletter"]{display:none !important}
+
+/* Contato: botão do WhatsApp acima do formulário (07/11/2026) */
+.mm-contato-zap{display:flex;flex-direction:column;align-items:center;gap:10px;margin:14px auto 26px;text-align:center}
+.mm-contato-zap small{font:500 14px/1.4 Figtree,system-ui;color:#B9AEDA}
