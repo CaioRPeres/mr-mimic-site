@@ -23,7 +23,8 @@ src/
   dados/contato.json      número do WhatsApp, Instagram e e-mail (usados no rodapé e na página de venda)
 assets/                   imagens que o tema usa (banners do slider, arte do rodapé, fotos da grade de categorias)
 dist/                     GERADO pelo build; é o que a loja carrega
-fotos-produtos/           fotos tratadas que subimos para os produtos no admin (o tema não usa)
+fotos-produtos/           fotos tratadas que subimos para os produtos no admin (o tema não usa). FORA do git desde
+                          07/11/2026: o pacote passava de 50 MB e o jsDelivr recusava o commit
 seo/                      gerador dos títulos e descrições de SEO e o resultado aplicado
 build.py                  src/ -> dist/
 css.py                    minifica o CSS e separa o que vai no admin do que vai no mm.js
