@@ -45,7 +45,8 @@
     { titulo: "Reinado Delta", href: "/search/?q=reinado%20delta", mantem: () => false, primeiro: el => !ehCarta(el),
       fontes: ["/pokemon-tcg/booster-box/", "/pokemon-tcg/blisters-e-boxes/", "/cartas-avulsas/reinado-delta/"],
       filtro: el => /reinado delta|\/103\)/i.test(nomeDe(el)) },
-    { titulo: "Liquidação", href: "/liquidacao/", mantem: () => false, primeiro: el => !ehCarta(el) },
+    // 07/11/2026: a categoria Liquidação virou Promoções (/promocoes/), com os baralhos em promoção e as cartas JP
+    { titulo: "Promoções", href: "/promocoes/", mantem: () => false, primeiro: el => !ehCarta(el) },
     { titulo: "Cartas avulsas", href: "/cartas-avulsas/", mantem: ehCarta },
     { titulo: "Selados", href: "/pokemon-tcg/", mantem: el => !ehCarta(el) },
     { titulo: "Acessórios", href: "/acessorios/", mantem: () => false },

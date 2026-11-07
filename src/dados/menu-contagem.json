@@ -1,5 +1,5 @@
 {
- "lido_em": "2026-11-07 00:38",
+ "lido_em": "2026-11-07 00:53",
  "categorias": {
   "/cartas-avulsas/": {
    "total": 321,
@@ -77,7 +77,7 @@
    "total": 6,
    "estoque": 5
   },
-  "/liquidacao/": {
+  "/promocoes/": {
    "total": 7,
    "estoque": 4
   },
