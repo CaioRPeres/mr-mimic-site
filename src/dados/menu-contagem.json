@@ -1,9 +1,9 @@
 {
- "lido_em": "2026-11-07 09:56",
+ "lido_em": "2026-11-07 11:51",
  "categorias": {
   "/cartas-avulsas/": {
-   "total": 320,
-   "estoque": 243
+   "total": 326,
+   "estoque": 255
   },
   "/cartas-avulsas/escuridao-absoluta/": {
    "total": 23,
@@ -22,20 +22,56 @@
    "estoque": 4
   },
   "/cartas-avulsas/celebracao-de-30-anos/": {
-   "total": 55,
-   "estoque": 40
+   "total": 59,
+   "estoque": 47
   },
   "/cartas-avulsas/cartas-em-ingles/": {
    "total": 24,
    "estoque": 23
   },
   "/cartas-avulsas/cartas-japonesas/": {
-   "total": 97,
-   "estoque": 80
+   "total": 98,
+   "estoque": 84
   },
   "/cartas-avulsas/reinado-delta/": {
    "total": 9,
    "estoque": 9
+  },
+  "/cartas-avulsas/megaevolucao/": {
+   "total": 4,
+   "estoque": 4
+  },
+  "/cartas-avulsas/herois-excelsos/": {
+   "total": 2,
+   "estoque": 2
+  },
+  "/cartas-avulsas/escarlate-e-violeta/": {
+   "total": 8,
+   "estoque": 8
+  },
+  "/cartas-avulsas/espada-e-escudo/": {
+   "total": 23,
+   "estoque": 22
+  },
+  "/cartas-avulsas/sol-e-lua/": {
+   "total": 4,
+   "estoque": 2
+  },
+  "/cartas-avulsas/xy/": {
+   "total": 19,
+   "estoque": 18
+  },
+  "/cartas-avulsas/preto-e-branco/": {
+   "total": 10,
+   "estoque": 9
+  },
+  "/cartas-avulsas/classicas/": {
+   "total": 15,
+   "estoque": 15
+  },
+  "/cartas-avulsas/cartas-chinesas/": {
+   "total": 1,
+   "estoque": 1
   },
   "/acessorios/": {
    "total": 27,
@@ -79,7 +115,7 @@
   },
   "/promocoes/": {
    "total": 7,
-   "estoque": 4
+   "estoque": 7
   },
   "/sorcery/": {
    "total": 1,
@@ -88,6 +124,10 @@
   "/sorcery/booster/": {
    "total": 1,
    "estoque": 1
+  },
+  "/rpg/": {
+   "total": 3,
+   "estoque": 3
   }
  }
 }
