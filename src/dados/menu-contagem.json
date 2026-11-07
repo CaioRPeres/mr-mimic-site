@@ -1,13 +1,13 @@
 {
- "lido_em": "2026-11-07 00:53",
+ "lido_em": "2026-11-07 09:56",
  "categorias": {
   "/cartas-avulsas/": {
-   "total": 321,
+   "total": 320,
    "estoque": 243
   },
   "/cartas-avulsas/escuridao-absoluta/": {
-   "total": 20,
-   "estoque": 3
+   "total": 23,
+   "estoque": 6
   },
   "/cartas-avulsas/caos-ascendente/": {
    "total": 7,
@@ -18,16 +18,16 @@
    "estoque": 3
   },
   "/cartas-avulsas/evolucoes-prismaticas/": {
-   "total": 2,
-   "estoque": 0
+   "total": 6,
+   "estoque": 4
   },
   "/cartas-avulsas/celebracao-de-30-anos/": {
-   "total": 28,
-   "estoque": 15
+   "total": 55,
+   "estoque": 40
   },
   "/cartas-avulsas/cartas-em-ingles/": {
-   "total": 3,
-   "estoque": 3
+   "total": 24,
+   "estoque": 23
   },
   "/cartas-avulsas/cartas-japonesas/": {
    "total": 97,
