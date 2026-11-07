@@ -280,9 +280,8 @@ try {
 
   // Cartas vendidas que ficam na vitrine com a faixa VENDIDO, em vez do cinza de esgotado (pedido do Caio, 02/11/2026:
   // "pra mostrar que vendemos as cartas caras, que pode se confiar"). Id do produto na Nuvemshop.
+  // 07/11/2026: o pedido #101 era golpe; as duas cartas voltaram para a loja e saíram da lista (estão em Promoções).
   const VENDIDOS = {
-    "373615840": "Pikachu ex 234/193, pedido #101 (02/11/2026)",
-    "373142259": "Mewtwo de Armadura 365/SM-P, pedido #101 (02/11/2026)"
   };
   MM.vendido = card => Object.prototype.hasOwnProperty.call(VENDIDOS, card.getAttribute("data-product-id") || "");
 
