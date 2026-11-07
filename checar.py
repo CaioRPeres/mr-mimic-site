@@ -132,7 +132,8 @@ def abrir(porta, caminho, largura=1440):
 
 def uma_carta():
     html = urllib.request.urlopen(urllib.request.Request(proxy_local.LOJA + '/cartas-avulsas/', headers={'User-Agent': 'Mozilla/5.0'}), timeout=20).read().decode()
-    return re.search(r'href="(?:https://mrmimic\.com\.br)?(/produtos/[^"]+/)"', html).group(1)
+    # desde 07/11/2026 a Nuvemshop põe "?entry_path=category" no link do produto
+    return re.search(r'href="(?:https://(?:www\.)?mrmimic\.com\.br)?(/produtos/[^"?]+/)(?:\?[^"]*)?"', html).group(1)
 
 
 def conferir_loja():
@@ -146,12 +147,13 @@ def conferir_loja():
     carta = uma_carta()
     # (caminho, largura, o que tem que estar lá)
     casos = [
-        ('/', 1440, lambda r: r['slides'] == N_SLIDES and r['categorias'] == 6 and r['fileiras'] == 3 and r['titulo'].startswith('Mr. Mimic |')),
+        ('/', 1440, lambda r: r['slides'] == N_SLIDES and r['categorias'] == 7 and r['fileiras'] == 3 and r['titulo'].startswith('Mr. Mimic |')),
         ('/', 390, lambda r: r['slides'] == N_SLIDES and r['fileiras'] == 3),
         ('/venda-suas-cartas/', 1440, lambda r: r['venda'] >= 5),
         ('/contato/', 1440, lambda r: r['titulo'].startswith('Contato |')),
         ('/produtos/', 1440, lambda r: r['titulo'].startswith('Todos os Produtos')),
-        (carta, 1440, lambda r: r['subtitulo'] == 1 and len(r['precos']) == 3 and all(p.startswith('R$') for p in r['precos'])),
+        # nome no padrão "Nome (num/total) COND Idioma" não tem subtítulo; a vitrine "Proteja" só existe se a descrição tiver o bloco
+        (carta, 1440, lambda r: r['titulo'] != '' and len(r['precos']) in (0, 3) and all(p.startswith('R$') for p in r['precos'])),
     ]
     for caminho, largura, esperado in casos:
         r = abrir(porta, caminho, largura)
