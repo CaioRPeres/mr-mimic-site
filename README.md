@@ -19,6 +19,7 @@ src/
   js/pagamentos.js        logos de pagamento e CNPJ legível no rodapé
   js/venda.js             página "Venda suas cartas"
   js/seo.js               título e descrição de reserva, WebSite na home
+  js/busca.js             busca pelo número da carta ("92", "092/128", "umbreon 92"): filtra a página de resultados
   dados/cores-produtos.json  cor fixa de alguns produtos (os demais são calculados pela foto)
   dados/contato.json      número do WhatsApp, Instagram e e-mail (usados no rodapé e na página de venda)
 assets/                   imagens que o tema usa (banners do slider, arte do rodapé, fotos da grade de categorias)

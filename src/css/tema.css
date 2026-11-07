@@ -707,3 +707,9 @@ footer a.social-icon{display:none !important}
 /* Contato: botão do WhatsApp acima do formulário (07/11/2026) */
 .mm-contato-zap{display:flex;flex-direction:column;align-items:center;gap:10px;margin:14px auto 26px;text-align:center}
 .mm-contato-zap small{font:500 14px/1.4 Figtree,system-ui;color:#B9AEDA}
+
+/* Busca pelo número da carta (07/11/2026, busca.js): aviso acima da grade e a grade apagada enquanto carrega */
+.mm-busca-carregando{opacity:.35;transition:opacity .2s}
+.mm-busca-num{text-align:center;margin:0 0 18px;font:500 15px/1.5 Figtree,system-ui;color:#C9BCEB}
+.mm-busca-num strong{color:#EDE6FA}
+.mm-busca-num a{color:#FFD12E;text-decoration:underline}
