@@ -50,7 +50,7 @@ try {
 
   const SLIDES = [
     { banner: "banner-reinado-delta", href: "/search/?q=reinado%20delta",
-      texto: "Reinado Delta a preço sugerido: booster display, combo de boosters e blisters" },
+      texto: "Reinado Delta em preço de liquidação: display R$ 316,90, combo de boosters R$ 159,90, blister triplo R$ 32,90 e quádruplo R$ 41,90" },
     { banner: "banner-cartas-avulsas", href: "/cartas-avulsas/",
       texto: "Cartas avulsas BR, EN e JP: Pikachu ex, Mega Charizard X ex e Dialga V-ASTRO" },
     { banner: "banner-acessorios", href: "/acessorios/",
